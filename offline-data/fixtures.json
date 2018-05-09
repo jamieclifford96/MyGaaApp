@@ -1,0 +1,802 @@
+[
+    {
+       "venue":"St Annes Park",
+       "home":"Raheny",
+       "away":"Trinity Gaels",
+       "ref":"Dave Moore",
+       "group":"Adult Hurling League Division Seven ",
+       "dateTime":"May 4, 2018 7:00:00 PM"
+    },
+    {
+       "venue":"Somerton Park",
+       "home":"Castleknock",
+       "away":"St Patricks D",
+       "ref":"Senan Finucane",
+       "group":"Minor Football League Division Two ",
+       "dateTime":"May 4, 2018 7:00:00 PM"
+    },
+    {
+       "venue":"River Valley",
+       "home":"St Finians S",
+       "away":"Wild Geese",
+       "ref":"Simon Redmond",
+       "group":"Adult Hurling League Division Eight ",
+       "dateTime":"May 4, 2018 7:15:00 PM"
+    },
+    {
+       "venue":"Pairc Na Uinsionn",
+       "home":"St Vincents",
+       "away":"Craobh Chiarain",
+       "ref":"Peter Smyth",
+       "group":"Adult Hurling League Division One ",
+       "dateTime":"May 4, 2018 7:15:00 PM"
+    },
+    {
+       "venue":"Collinstown Lane",
+       "home":"Na Fianna",
+       "away":"Ballyfermot De Salle",
+       "ref":"Mick Joyce",
+       "group":"Minor Football League Division Four North ",
+       "dateTime":"May 4, 2018 7:15:00 PM"
+    },
+    {
+       "venue":"Broomfield",
+       "home":"St Sylvesters",
+       "away":"Kevins",
+       "ref":"Kevin Foran",
+       "group":"Adult Hurling League Division Six ",
+       "dateTime":"May 4, 2018 7:30:00 PM"
+    },
+    {
+       "venue":"12th Lock",
+       "home":"Lucan Sarsfields",
+       "away":"Ballyboden St Endas",
+       "ref":"Chris Mooney",
+       "group":"Adult Hurling League Division One ",
+       "dateTime":"May 4, 2018 7:45:00 PM"
+    },
+    {
+       "venue":"Alfie Byrne Road",
+       "home":"Clontarf 2",
+       "away":"Lucan Sarsfields 2",
+       "ref":"TBC",
+       "group":"U10 Hurling Gp.1X (3 Teams) All County ",
+       "dateTime":"May 5, 2018 9:15:00 AM"
+    },
+    {
+       "venue":"Glenalbyn",
+       "home":"Kilmacud Crokes 2",
+       "away":"Naomh Olaf 2",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 9:30:00 AM"
+    },
+    {
+       "venue":"Pc Ui Bhriain",
+       "home":"Naomh Olaf 1",
+       "away":"Erins Isle",
+       "ref":"TBC",
+       "group":"U10 Hurling Gp.1X (3 Teams) All County ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Porterstown",
+       "home":"Castleknock",
+       "away":"Raheny 1",
+       "ref":"TBC",
+       "group":"U10 Hurling Gp.1X (3 Teams) All County ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Tymon Park",
+       "home":"St Judes 2",
+       "away":"St Brigids",
+       "ref":"TBC",
+       "group":"U10 Hurling Gp.1X (3 Teams) All County ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Marlay Park",
+       "home":"Ballinteer St Johns 2",
+       "away":"Clontarf 1",
+       "ref":"TBC",
+       "group":"U10 Hurling Gp.1Y (3 Teams) All County ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Deerpark",
+       "home":"Kilmacud Crokes 2",
+       "away":"Lucan Sarsfields 2",
+       "ref":"Home Referee",
+       "group":"U11 Hurling (1 Team) All County ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Marlay Park",
+       "home":"Ballinteer St Johns 2",
+       "away":"St Judes 2",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp. 1Y (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Sean Moore Park ",
+       "home":"Naas",
+       "away":"Clanna Gael Fontenoy 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp. 1Y (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Pc Ui Bhriain",
+       "home":"Naomh Olaf 1",
+       "away":"Thomas Davis 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp. 1Y (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Malahide Castle",
+       "home":"St Sylvesters 2",
+       "away":"Fingallians 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Ellenfield",
+       "home":"Whitehall Colmcille",
+       "away":"Na Fianna 2",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Balkhill Road-Howth",
+       "home":"Beann Eadair",
+       "away":"Raheny 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"PNU",
+       "home":"St Vincents 1",
+       "away":"Bye",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Bye",
+       "home":"Bye",
+       "away":"Commercials",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Adamstown",
+       "home":"Lucan Sarsfields 1",
+       "away":"Ranelagh Gaels",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Hyde Park",
+       "home":"Cuala 2",
+       "away":"Geraldine P Moran",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"PNU",
+       "home":"St Vincents 2",
+       "away":"Na Fianna 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1Y (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Finglas",
+       "home":"Erins Isle",
+       "away":"O Tooles",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1Y (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Russell Park",
+       "home":"St Brigids 2",
+       "away":"Naomh Barrog",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1Y (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Rivervalley",
+       "home":"St Finians S",
+       "away":"St Sylvesters 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1Y (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Páirc Naomh CaitrÃ­ona",
+       "home":"Na Gaeil Óga",
+       "away":"Clanna Gael Fontenoy",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2 (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Glenaulin Park",
+       "home":"St Patricks P",
+       "away":"Bray Emmets",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2 (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Shanganagh Castle",
+       "home":"Shankill",
+       "away":"Kevins HC",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2 (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Bye",
+       "home":"Bye",
+       "away":"Crumlin",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2 (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Galtymore Rd",
+       "home":"Good Counsel",
+       "away":"St Judes 3",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2 (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Chanel",
+       "home":"Parnells",
+       "away":"St Patricks D",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2X (2 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Somerton",
+       "home":"Castleknock 3",
+       "away":"Naomh OP ER 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2X (2 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Maypark",
+       "home":"Craobh Chiarain 1 Team Only",
+       "away":"Bye",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2X (2 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Lusk",
+       "home":"Round Towers L",
+       "away":"Naomh Mearnog 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2Y (2 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Hazelbury Park",
+       "home":"Erin Go Bragh ",
+       "away":"Naomh OP ER 2",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2Y (2 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Grangegorman",
+       "home":"St Brendans 1 Team Only",
+       "away":"St Peregrines",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.2Y (2 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Clontarf Road",
+       "home":"Scoil Ui Chonaill",
+       "away":"St Vincents 1",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1X (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Pairc Mearnog",
+       "home":"Naomh Mearnog",
+       "away":"St Brigids 2",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1X (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Oatlands College",
+       "home":"Kilmacud Crokes 2",
+       "away":"St Judes 1",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Community Centre",
+       "home":"Round Towers C",
+       "away":"Faughs 2",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"12th Lock",
+       "home":"Lucan Sarsfields 1",
+       "away":"Bye",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Martin Savage Park",
+       "home":"Naomh OP ER",
+       "away":"Naomh Barrog",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1Y (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Bridgefield",
+       "home":"St Sylvesters 1",
+       "away":"St Maurs",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1Y (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Bremore Park",
+       "home":"O Dwyers",
+       "away":"Bye",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1Y (3 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Sancta Maria",
+       "home":"Ballyboden St Endas 2",
+       "away":"Faughs 1",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.1Y (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"John Paul Park",
+       "home":"Naomh Fionnbarra",
+       "away":"Round Towers L",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.2 (2 Teams) Northside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Glencullen ",
+       "home":"Stars of Erin",
+       "away":"Cuala 1",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.2X (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Glenaulin Park",
+       "home":"St Patricks P 1Team Only",
+       "away":"Bye",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.2X (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"McGee Park",
+       "home":"St Marks 1 Team",
+       "away":"Ranelagh Gaels",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.2Y (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Old Conna",
+       "home":"Bray Emmets",
+       "away":"Westmanstown Gaels",
+       "ref":"TBC",
+       "group":"U9 Hurling Gp.2Y (2 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:00:00 AM"
+    },
+    {
+       "venue":"Drumnigh",
+       "home":"Castleknock B",
+       "away":"Naomh Barrog B",
+       "ref":"Mick Joyce St Colmcilles",
+       "group":"Féile Peil na nÓg Division 8A ",
+       "dateTime":"May 5, 2018 10:15:00 AM"
+    },
+    {
+       "venue":"Drumnigh",
+       "home":"Scoil Ui Chonaill",
+       "away":"Beann Eadair",
+       "ref":"Tom Tansey St Brendan\u0027s",
+       "group":"Féile Peil na nÓg Division 8A ",
+       "dateTime":"May 5, 2018 10:15:00 AM"
+    },
+    {
+       "venue":"Drumnigh",
+       "home":"Bye",
+       "away":"Trinity Gaels",
+       "ref":"TBC",
+       "group":"Féile Peil na nÓg Division 8A ",
+       "dateTime":"May 5, 2018 10:15:00 AM"
+    },
+    {
+       "venue":"12th Lock",
+       "home":"Geraldine P Moran",
+       "away":"Kilmacud Crokes C",
+       "ref":"Paul Flanagan-St James Gaels",
+       "group":"Féile Peil na nÓg Division 8B ",
+       "dateTime":"May 5, 2018 10:15:00 AM"
+    },
+    {
+       "venue":"12th Lock",
+       "home":"Ballyboden St Endas C",
+       "away":"Lucan Sarsfields B",
+       "ref":"Senan Finucane-Templeogue Synge Street",
+       "group":"Féile Peil na nÓg Division 8B ",
+       "dateTime":"May 5, 2018 10:15:00 AM"
+    },
+    {
+       "venue":"12th Lock",
+       "home":"Bye",
+       "away":"Na Fianna C",
+       "ref":"TBC",
+       "group":"Féile Peil na nÓg Division 8B ",
+       "dateTime":"May 5, 2018 10:15:00 AM"
+    },
+    {
+       "venue":"Pairc Ui Tuaithail Blunden Drive",
+       "home":"Pine Forest Gaels",
+       "away":"Crumlin",
+       "ref":"Tim McCarthy Snr-St Vincents",
+       "group":"Féile Peil na nÓg Division 10A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Pairc Ui Tuaithail Blunden Drive",
+       "home":"St Judes C",
+       "away":"O Tooles B",
+       "ref":"Colm McCarthy-St Vincents",
+       "group":"Féile Peil na nÓg Division 10A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Kiltipper Rd",
+       "home":"O Dwyers B",
+       "away":"Thomas Davis B",
+       "ref":"Ciarán Pollock - St. Annes",
+       "group":"Féile Peil na nÓg Division 10B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Kiltipper Rd",
+       "home":"Kilmacud Crokes D",
+       "away":"Naomh Olaf B",
+       "ref":"Eamonn Dromgoole English - Cuala",
+       "group":"Féile Peil na nÓg Division 10B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Broomfield",
+       "home":"Naomh Barrog A",
+       "away":"St Sylvesters A",
+       "ref":"Damien Burnett - Craobh Chirain",
+       "group":"Féile Peil na nÓg Division 1A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Broomfield",
+       "home":"Ballyboden St Endas A",
+       "away":"Ballinteer St Johns A",
+       "ref":"Kevin Donohoe-Naomh Fionnbarra",
+       "group":"Féile Peil na nÓg Division 1A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"St Annes 35",
+       "home":"Lucan Sarsfields A",
+       "away":"Clontarf A",
+       "ref":"Faolan McGovern Naomh Mearnog",
+       "group":"Féile Peil na nÓg Division 1B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"St Annes 34",
+       "home":"Kilmacud Crokes A",
+       "away":"St Judes A",
+       "ref":"Brian Moore-Craobh Chiarain",
+       "group":"Féile Peil na nÓg Division 1B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Lawless Memorial Park",
+       "home":"Whitehall Colmcille",
+       "away":"Castleknock A",
+       "ref":"Terry Carton Naomh Fionnbarra",
+       "group":"Féile Peil na nÓg Division 2A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Lawless Memorial Park",
+       "home":"Fingallians A",
+       "away":"St Vincents A",
+       "ref":"Damien Gilmore-Skerries Harps",
+       "group":"Féile Peil na nÓg Division 2A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Townparks",
+       "home":"Thomas Ashe",
+       "away":"Skerries Harps",
+       "ref":"Brian Doran-St Colmcilles",
+       "group":"Féile Peil na nÓg Division 2B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Townparks",
+       "home":"St Patricks D A",
+       "away":"Na Fianna A",
+       "ref":"Derek Doran St Colmcilles",
+       "group":"Féile Peil na nÓg Division 2B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Rolestown",
+       "home":"Raheny A",
+       "away":"St Peters",
+       "ref":"Fergus McGreevy Nh. OP/ER",
+       "group":"Féile Peil na nÓg Division 3A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Rolestown",
+       "home":"Fingal Ravens",
+       "away":"Cuala A",
+       "ref":"Mark Daly - St Peregrines",
+       "group":"Féile Peil na nÓg Division 3A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Rush",
+       "home":"St Maurs",
+       "away":"Naomh Mearnog A",
+       "ref":"Ryan O Connor St. Brigids",
+       "group":"Féile Peil na nÓg Division 3B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Rush",
+       "home":"Thomas Davis A",
+       "away":"Templeogue Synge Street A",
+       "ref":"Ciarán Reilly - Na Fianna",
+       "group":"Féile Peil na nÓg Division 3B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Westmanstown Sports Centre",
+       "home":"Erins Isle",
+       "away":"Naomh OP ER",
+       "ref":"Adam Kelly - Lucan Sarsfields",
+       "group":"Féile Peil na nÓg Division 4A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Westmanstown Sports Centre",
+       "home":"Kilmacud Crokes B",
+       "away":"St Catherines",
+       "ref":"Killian Leddy St Peregrines",
+       "group":"Féile Peil na nÓg Division 4A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Bremore Park",
+       "home":"O Tooles A",
+       "away":"O Dwyers A",
+       "ref":"PJ Murray-St Finians S",
+       "group":"Féile Peil na nÓg Division 4B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Bremore Park",
+       "home":"Naomh Olaf A",
+       "away":"Ballymun Kickhams",
+       "ref":"Robert Fennelly Trinity Gaels",
+       "group":"Féile Peil na nÓg Division 4B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Cherryfield",
+       "home":"St Brigids",
+       "away":"Ballyboden St Endas B",
+       "ref":"Eamon O Dowd-Ballyfermot De La Salle",
+       "group":"Féile Peil na nÓg Division 5A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Cherryfield",
+       "home":"Clanna Gael Fontenoy",
+       "away":"Good Counsel",
+       "ref":"Seamus Farrelly Ballinteer St. John",
+       "group":"Féile Peil na nÓg Division 5A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Collinstown",
+       "home":"St Marys S",
+       "away":"Craobh Chiarain",
+       "ref":"Sean Dunican - Nh. OP/ER",
+       "group":"Féile Peil na nÓg Division 5B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Collinstown",
+       "home":"Na Fianna B",
+       "away":"Parnells",
+       "ref":"Seamus Ashton - Nh. OP/ER",
+       "group":"Féile Peil na nÓg Division 5B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Bohernabreena",
+       "home":"St Annes",
+       "away":"Clontarf B",
+       "ref":"Tommie Clinton-Croi Ro Naofa",
+       "group":"Féile Peil na nÓg Division 6A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Bohernabreena",
+       "home":"St Judes B",
+       "away":"Naomh Fionnbarra",
+       "ref":"Anthony Clinton-Croi Ro Naofa",
+       "group":"Féile Peil na nÓg Division 6A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Robbie Farrell Park Donabate",
+       "home":"Man O War",
+       "away":"Round Towers C",
+       "ref":"Ian Kavanagh - Raheny",
+       "group":"Féile Peil na nÓg Division 6B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Robbie Farrell Park Donabate",
+       "home":"St Patricks D B",
+       "away":"St Sylvesters B",
+       "ref":"George Williams -Trinity Gaels",
+       "group":"Féile Peil na nÓg Division 6B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Tymon North",
+       "home":"St Finians N",
+       "away":"St Marks",
+       "ref":"Lee Moroney St. Annes",
+       "group":"Féile Peil na nÓg Division 7A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Tymon North",
+       "home":"Robert Emmets",
+       "away":"Round Towers L",
+       "ref":"Craig McKeown St. Annes",
+       "group":"Féile Peil na nÓg Division 7A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Hartstown Park",
+       "home":"Ballinteer St Johns B",
+       "away":"St Peregrines",
+       "ref":"Laurence Kelly-Naomh Fionnbarra",
+       "group":"Féile Peil na nÓg Division 7B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Hartstown Park",
+       "home":"Fingallians B",
+       "away":"Ballyfermot De La Salle",
+       "ref":"Christopher Kelly-Naomh Fionnbarra",
+       "group":"Féile Peil na nÓg Division 7B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"St Annes 10",
+       "home":"Ballyboden St Endas D",
+       "away":"Raheny B",
+       "ref":"Daniel O Connor Whitehall Cholmcille",
+       "group":"Féile Peil na nÓg Division 9A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"St Annes 12A",
+       "home":"Clontarf C",
+       "away":"St Vincents B",
+       "ref":"Nicola Kearney O Tooles",
+       "group":"Féile Peil na nÓg Division 9A ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Thomastown",
+       "home":"Erins Isle B",
+       "away":"St Patricks P",
+       "ref":"Caomhan Bermingham Nh. Olaf",
+       "group":"Féile Peil na nÓg Division 9B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Thomastown",
+       "home":"Cuala B",
+       "away":"Templeogue Synge Street B",
+       "ref":"Craig Prendergast - Thomas Davis",
+       "group":"Féile Peil na nÓg Division 9B ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Alfie Byrne Road",
+       "home":"Clontarf 2",
+       "away":"St Patricks P",
+       "ref":"Home Referee",
+       "group":"U11 Hurling (1 Team) All County ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Glenalbyn",
+       "home":"Kilmacud Crokes 3",
+       "away":"St Judes 1",
+       "ref":"TBC",
+       "group":"U8 Hurling Gp.1X (3 Teams) Southside ",
+       "dateTime":"May 5, 2018 10:30:00 AM"
+    },
+    {
+       "venue":"Ellenfield Park",
+       "home":"Whitehall Colmcille A",
+       "away":"Kilmacud Crokes B",
+       "ref":"Ryan O Connor St. Brigids",
+       "group":"U13 Hurling Grading League Div.3 ",
+       "dateTime":"May 5, 2018 10:45:00 AM"
+    },
+    {
+       "venue":"Collinstown",
+       "home":"Na Fianna 1",
+       "away":"Cuala 1",
+       "ref":"TBC",
+       "group":"U10 Hurling Gp.1X (3 Teams) All County ",
+       "dateTime":"May 5, 2018 11:00:00 AM"
+    },
+    {
+       "venue":"Community Centre",
+       "home":"Round Towers C 1",
+       "away":"Geraldine P Moran",
+       "ref":"TBC",
+       "group":"U10 Hurling Gp.1X (3 Teams) All County ",
+       "dateTime":"May 5, 2018 11:00:00 AM"
+    }
+ ]
