@@ -48,48 +48,48 @@ class HomeScreen extends React.Component{
                   <Text style={styles.text}>NEWS</Text>
                 </View>
                 <View style={styles.iconbutton}>
-                <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('News')}>
                 <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
                     <Image  style={{width: 40, height: 40,  }} source={require("../images/trophy.png")}/>
                   </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
                     <Text style={styles.text}>MATCH</Text>
                 </View>
                 
                 <View  style={styles.iconbutton}>
-                <TouchableHighlight onPress={() => this.props.navigation.navigate('Fixtures')}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Fixtures')}>
                 <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/fixture-white.png")}/>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/calendar.png")}/>
                   </View>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                     <Text style={styles.text}>FIXTURES</Text>
                
                 </View>
                 </View>
                 <View style={{ backgroundColor: "rgba(0,0,0,0.4)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width,   borderBottomWidth: 3, borderBottomColor: 'white'}}>
                    <View style={styles.iconbutton}> 
-                   <TouchableHighlight onPress={() => this.props.navigation.navigate('ClubLotto')}>
+                   <TouchableOpacity onPress={() => this.props.navigation.navigate('ClubLotto')}>
                    <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
                     <Image  style={{width: 40, height: 40,  }} source={require("../images/lottery.png")}/>
                   </View>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                     <Text style={styles.text}>LOTTO</Text>
                     
                    </View>
                    <View style={styles.iconbutton}> 
-                   <TouchableHighlight onPress={() => this.props.navigation.navigate('ClubMerchandise')}>
+                   <TouchableOpacity onPress={() => this.props.navigation.navigate('ClubMerchandise')}>
                    <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
                     <Image  style={{width: 40, height: 40,  }} source={require("../images/shopping-cart.png")}/>
                   </View>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                     <Text style={styles.text}>SHOP</Text>
                    </View>
                    <View style={styles.iconbutton}>
-                   <TouchableHighlight onPress={() => this.props.navigation.navigate('ContactUs')}>
+                   <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactUs')}>
                    <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/phone-receiver.png")}/>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/telephone.png")}/>
                   </View>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                     <Text style={styles.text}>CONTACT US</Text>
                     </View>
             </View>
