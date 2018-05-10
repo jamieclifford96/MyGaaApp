@@ -29,15 +29,16 @@ class HomeScreen extends React.Component{
    };
    render() {
         return (
-          <BackgroundTheme>
+          <BackgroundTheme style={{backgroundColor: 'rgba(0,0,0,0.9)'}}>
           <View style={styles.container}>
          
           
             <View style={styles.firstrow}>
+            <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 100, marginLeft: 20}} source={require("../images/gaa_logo.png")}/>
             </View>
             <View style={styles.secondrow}>
             </View>
-            <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3, borderTopWidth: 6, borderBottomWidth: 6}}>
+            <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white'}}>
                 <View style={styles.iconbutton}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
                   <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
@@ -48,36 +49,46 @@ class HomeScreen extends React.Component{
                 </View>
                 <View style={styles.iconbutton}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
-                    <Image source={require("../images/trophy.png")}/>
+                <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/trophy.png")}/>
+                  </View>
                 </TouchableHighlight>
                     <Text style={styles.text}>MATCH</Text>
                 </View>
                 
                 <View  style={styles.iconbutton}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('Fixtures')}>
-                    <Image style={{opacity : 1}} source={require("../images/calendar.png")}/>
+                <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/fixture-white.png")}/>
+                  </View>
                     </TouchableHighlight>
                     <Text style={styles.text}>FIXTURES</Text>
                
                 </View>
                 </View>
-                <View style={{ backgroundColor: "rgba(0,0,0,0.6)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3,  borderBottomWidth: 6}}>
+                <View style={{ backgroundColor: "rgba(0,0,0,0.4)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width,   borderBottomWidth: 3, borderBottomColor: 'white'}}>
                    <View style={styles.iconbutton}> 
                    <TouchableHighlight onPress={() => this.props.navigation.navigate('ClubLotto')}>
-                    <Image source={require("../images/lottery-game.png")}/>
+                   <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/lottery.png")}/>
+                  </View>
                     </TouchableHighlight>
                     <Text style={styles.text}>LOTTO</Text>
                     
                    </View>
                    <View style={styles.iconbutton}> 
                    <TouchableHighlight onPress={() => this.props.navigation.navigate('ClubMerchandise')}>
-                    <Image source={require("../images/shopping-cart.png")}/>
+                   <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/shopping-cart.png")}/>
+                  </View>
                     </TouchableHighlight>
                     <Text style={styles.text}>SHOP</Text>
                    </View>
                    <View style={styles.iconbutton}>
                    <TouchableHighlight onPress={() => this.props.navigation.navigate('ContactUs')}>
-                    <Image source={require("../images/phone-call.png")}/>
+                   <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/phone-receiver.png")}/>
+                  </View>
                     </TouchableHighlight>
                     <Text style={styles.text}>CONTACT US</Text>
                     </View>
