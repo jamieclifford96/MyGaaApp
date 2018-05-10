@@ -27,6 +27,7 @@ class HomeScreen extends React.Component{
    static navigationOptions = {
     showNavigationBar: false
    };
+   
    render() {
         return (
           <BackgroundTheme style={{backgroundColor: 'rgba(0,0,0,0.9)'}}>
@@ -126,7 +127,7 @@ class HomeScreen extends React.Component{
         paddingLeft: 4,
         paddingTop: 4,
         paddingRight: 20,
-        paddingTop: 15,
+        paddingTop: 20,
         alignItems: 'center',
         
       },
