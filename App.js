@@ -34,6 +34,18 @@ const RootStack = StackNavigator(
       screen: ClubMerchandiseScreen,
     },
   },
+    {
+      initialRouteName: 'Home',
+      navigationOptions: {
+        headerStyle: {
+          backgroundColor: 'rgba(150,150,150,1)',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    }
   
 );
 

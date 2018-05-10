@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions,TouchableHighlight } from 'react-native';
+import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions,TouchableHighlight,TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import BackgroundTheme from '../views/BackgroundTheme';
 //import FixtureListScreen from './pages/FixtureList.js';
@@ -18,7 +18,7 @@ class HomeScreen extends React.Component{
     this.state = {
         thumbnailSize :{
             width : windowWidth,
-            height :windowWidth * 0.3
+            height :windowWidth * 0.32
           }
         
     }
@@ -34,18 +34,18 @@ class HomeScreen extends React.Component{
          
           
             <View style={styles.firstrow}>
-            <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 100, marginLeft: 20}} source={require("../images/gaa_logo.png")}/>
+            <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 100, marginLeft: 20}} source={require("../images/gaa_logo-edited.png")}/>
             </View>
             <View style={styles.secondrow}>
             </View>
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white'}}>
                 <View style={styles.iconbutton}>
-                <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
-                  <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/newspaper.png")}/>
-                  </View>
-                </TouchableHighlight>
-                    <Text style={styles.text}>NEWS</Text>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('News')}>
+                    <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
+                      <Image  style={{width: 40, height: 40,  }} source={require("../images/newspaper.png")}/>
+                    </View>
+                  </TouchableOpacity>
+                  <Text style={styles.text}>NEWS</Text>
                 </View>
                 <View style={styles.iconbutton}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
@@ -131,7 +131,7 @@ class HomeScreen extends React.Component{
         
       },
       text: {
-        marginTop: 5,
+        marginTop: 1,
         color: 'white'
         //fontSize: 15
       },
