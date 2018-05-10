@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions } from 'react-native';
+import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions,TouchableHighlight } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import BackgroundTheme from '../views/BackgroundTheme';
 //import FixtureListScreen from './pages/FixtureList.js';
 //import News from './pages/ClubNews.js';
 //import ClubMerchandiseScreen from './pages/ClubMerchandise.js';
@@ -10,6 +11,7 @@ import { StackNavigator } from 'react-navigation';
 
 
 class HomeScreen extends React.Component{
+ 
    constructor(props) {
        super(props)
        let windowWidth = Dimensions.get('window').width;
@@ -20,46 +22,70 @@ class HomeScreen extends React.Component{
           }
         
     }
-   }
-   
-    render() {
+   };
+  
+   static navigationOptions = {
+    showNavigationBar: false
+   };
+   render() {
         return (
+          <BackgroundTheme>
           <View style={styles.container}>
+         
+          
             <View style={styles.firstrow}>
             </View>
             <View style={styles.secondrow}>
             </View>
-            <View style={{ backgroundColor: "#119da4",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3, borderTopWidth: 6, borderBottomWidth: 6}}>
+            <View style={{ backgroundColor: '#4ea32f',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3, borderTopWidth: 6, borderBottomWidth: 6}}>
                 <View style={styles.iconbutton}>
-                    <Image source={require("../images/folded-newspaper.png")}/>
+                <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
+                    <Image style={{backgroundColor: 'rgba(255, 255, 255, 1)'}} source={require("../images/folded-newspaper.png")}/>
+                </TouchableHighlight>
                     <Text style={styles.text}>NEWS</Text>
                 </View>
                 <View style={styles.iconbutton}>
+                <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
                     <Image source={require("../images/trophy.png")}/>
+                </TouchableHighlight>
                     <Text style={styles.text}>MATCH</Text>
                 </View>
+                
                 <View  style={styles.iconbutton}>
+                <TouchableHighlight onPress={() => this.props.navigation.navigate('Fixtures')}>
                     <Image source={require("../images/calendar.png")}/>
+                    </TouchableHighlight>
                     <Text style={styles.text}>FIXTURES</Text>
+               
                 </View>
                 </View>
-                <View style={{ backgroundColor: "#119da4",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3,  borderBottomWidth: 6}}>
+                <View style={{ backgroundColor: "#4ea32f",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3,  borderBottomWidth: 6}}>
                    <View style={styles.iconbutton}> 
+                   <TouchableHighlight onPress={() => this.props.navigation.navigate('ClubLotto')}>
                     <Image source={require("../images/lottery-game.png")}/>
+                    </TouchableHighlight>
                     <Text style={styles.text}>LOTTO</Text>
+                    
                    </View>
                    <View style={styles.iconbutton}> 
+                   <TouchableHighlight onPress={() => this.props.navigation.navigate('ClubMerchandise')}>
                     <Image source={require("../images/shopping-cart.png")}/>
+                    </TouchableHighlight>
                     <Text style={styles.text}>SHOP</Text>
                    </View>
                    <View style={styles.iconbutton}>
+                   <TouchableHighlight onPress={() => this.props.navigation.navigate('ContactUs')}>
                     <Image source={require("../images/phone-call.png")}/>
+                    </TouchableHighlight>
                     <Text style={styles.text}>CONTACT US</Text>
                     </View>
             </View>
+            <View style={styles.fifthrow}>
+            </View>
+            
           </View>
-      
-
+          
+          </BackgroundTheme>
         );
       }
     }
@@ -67,18 +93,19 @@ class HomeScreen extends React.Component{
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        backgroundColor: '#1f2041',
+
+        
       },
     
       firstrow: {
         flex: 1,
-        backgroundColor: "#ffc857"
+        
         
       },
     
       secondrow: {
         flex: 1,
-        backgroundColor: "#ffc857"
+       
       },
       iconbutton: {
         flexDirection: 'column',
@@ -88,15 +115,16 @@ class HomeScreen extends React.Component{
         paddingRight: 20,
         paddingTop: 15,
         alignItems: 'center',
-        color: 'white'
+        backgroundColor: '#FFFFFF'
+        
       },
       text: {
-        color: 'white',
-        fontSize: 15
+      
+        //fontSize: 15
       },
       thirdrow: {
         flex: 1,
-        backgroundColor: "#119da4",
+        backgroundColor:'rgba(0, 0, 0, 0.7)',
         marginLeft: 1,
         flexDirection: 'column',
         justifyContent: 'flex-end'
@@ -106,9 +134,15 @@ class HomeScreen extends React.Component{
       fourthrow: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: "#19647e",
-        justifyContent: 'flex-end'
+        backgroundColor: '#4ea32f',
+        justifyContent: 'flex-end',
+        
       },
+      fifthrow: {
+        paddingTop: 60,
+        
+        
+      }
      
       
     });

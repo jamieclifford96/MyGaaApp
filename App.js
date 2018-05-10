@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, Icon, Card,StyleSheet,Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-//import FixtureListScreen from './pages/FixtureList.js';
+import FixtureListScreen from './pages/FixtureList.js';
 import News from './pages/ClubNews.js';
 import ClubMerchandiseScreen from './pages/ClubMerchandise.js';
 import ClubLottoScreen from './pages/ClubLotto.js';
@@ -18,9 +18,9 @@ const RootStack = StackNavigator(
     Home: {
       screen: HomeScreen,
     },
-  //  Fixtures : {
-  //      screen : FixtureListScreen,
-  //  },
+    Fixtures : {
+        screen : FixtureListScreen,
+    },
     News : {
         screen : News,
     },
