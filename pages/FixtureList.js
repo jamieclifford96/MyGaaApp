@@ -15,52 +15,47 @@ class FixtureListScreen extends React.Component{
 
     this.state = {      
       fixtures : data,
-      dataSource :ds.cloneWithRows(data)
+      dataSource :ds.cloneWithRows(data),
+      division : "ALL"
     };
 
-   
   }   
   
-  pickerdisplay(){
-    return (
-      <BackgroundTheme>
-        <Picker
-          //selectedValue={"Group 1"}
-          style={{ 
-            height: 30, 
-            width: 150 ,
-            color: "#000",
-          backgroundColor: '#fff'}
-          }
-          onValueChange={(itemValue, itemIndex) => this.loadFixtures(itemValue)}>
-          <Picker.Item key={0} label="All" value="All" />
-          {
-            this.state.fixtures.map((i, index) => (
-            <Picker.Item key={index++} label={i.division} value={i.division} />
-          ))}
-        </Picker>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => this.renderRow(rowData)}
-        />      
-      </BackgroundTheme>
-    );
-  
-  }
-  
-  static navigationOptions = {
-    headerRight: (
-      <Button
-        onPress={() => alert()}
-        title="Info"
-        color="rgba(150,150,150,1)"
-      />
-    ),
-    };
+  // https://reactnavigation.org/docs/en/header-buttons.html 
+  static navigationOptions = ({ navigation }) => {
 
-    getLocalJson(){
-      return require('../offline-data/fixtures.json');    
-    }
+    const params = navigation.state.params || {};
+    const fixtures = params.fixtures || [];
+
+    return {
+      headerTitle: <Picker
+      style={{ 
+        height: 30, 
+        width: 250 ,
+        color: "#000",
+      backgroundColor: '#fff'}
+      }
+      onValueChange={(itemValue, itemIndex) => params.setDivision(itemValue)}>
+      <Picker.Item key={0} label="All" value="All" />
+        { fixtures.map((i, index) => ( <Picker.Item key={index++} label={i.division} value={i.division}/> ))}
+      </Picker>,
+    };
+  };
+
+  componentWillMount() {
+    this.props.navigation.setParams({ 
+      fixtures: this.state.fixtures,
+      setDivision : this._setDivision
+     });
+  }
+
+  _setDivision = (division) => {
+    this.setState({ division: division });
+  };
+  
+  getLocalJson(){
+    return require('../offline-data/fixtures.json');    
+  }
     
   groupByDivision(data){
     let grouped = groupBy(data,(el) => el.group);
@@ -71,18 +66,6 @@ class FixtureListScreen extends React.Component{
         fixtures : grouped[key]
       };
     })
-  }
-  loadFixtures(division){
-    if(division === "All"){
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(this.state.fixtures)
-      });
-    }else{
-      let fixtures = this.state.fixtures.filter(el => el.division === division);
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(fixtures)
-      });
-    }   
   }
 
   renderRow(row){
@@ -120,32 +103,24 @@ class FixtureListScreen extends React.Component{
           </View>
       );
   }
-    render(){
+
+  render(){      
+      const division = this.state.division;
+      const dataSource = (division === "All") 
+        ? this.state.dataSource.cloneWithRows(this.state.fixtures) 
+        : this.state.dataSource.cloneWithRows(this.state.fixtures.filter(el => el.division === division));    
+
       return (
-        <BackgroundTheme>
-          <Picker
-            //selectedValue={"Group 1"}
-            style={{ 
-              height: 30, 
-              width: 150 ,
-              color: "#000",
-            backgroundColor: '#fff'}
-            }
-            onValueChange={(itemValue, itemIndex) => this.loadFixtures(itemValue)}>
-            <Picker.Item key={0} label="All" value="All" />
-            {
-              this.state.fixtures.map((i, index) => (
-              <Picker.Item key={index++} label={i.division} value={i.division} />
-            ))}
-          </Picker>
+        <BackgroundTheme>           
           <ListView
-            dataSource={this.state.dataSource}
+            dataSource={dataSource}
+            enableEmptySections={true}
             renderRow={(rowData) => this.renderRow(rowData)}
-          />      
+          /> 
         </BackgroundTheme>
-      );
-    
+      );    
     }
   }
+
   export default FixtureListScreen;
   
