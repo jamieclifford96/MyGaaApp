@@ -37,10 +37,10 @@ class HomeScreen extends React.Component{
             </View>
             <View style={styles.secondrow}>
             </View>
-            <View style={{ backgroundColor: '#4ea32f',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3, borderTopWidth: 6, borderBottomWidth: 6}}>
+            <View style={{ backgroundColor: 'rgba(0,0,0,0.6)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3, borderTopWidth: 6, borderBottomWidth: 6}}>
                 <View style={styles.iconbutton}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
-                    <Image style={{backgroundColor: 'rgba(255, 255, 255, 1)'}} source={require("../images/folded-newspaper.png")}/>
+                    <Image  source={require("../images/folded-newspaper.png")}/>
                 </TouchableHighlight>
                     <Text style={styles.text}>NEWS</Text>
                 </View>
@@ -53,13 +53,13 @@ class HomeScreen extends React.Component{
                 
                 <View  style={styles.iconbutton}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('Fixtures')}>
-                    <Image source={require("../images/calendar.png")}/>
+                    <Image style={{opacity : 1}} source={require("../images/calendar.png")}/>
                     </TouchableHighlight>
                     <Text style={styles.text}>FIXTURES</Text>
                
                 </View>
                 </View>
-                <View style={{ backgroundColor: "#4ea32f",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3,  borderBottomWidth: 6}}>
+                <View style={{ backgroundColor: "rgba(0,0,0,0.6)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3,  borderBottomWidth: 6}}>
                    <View style={styles.iconbutton}> 
                    <TouchableHighlight onPress={() => this.props.navigation.navigate('ClubLotto')}>
                     <Image source={require("../images/lottery-game.png")}/>
@@ -115,7 +115,6 @@ class HomeScreen extends React.Component{
         paddingRight: 20,
         paddingTop: 15,
         alignItems: 'center',
-        backgroundColor: '#FFFFFF'
         
       },
       text: {
@@ -124,7 +123,7 @@ class HomeScreen extends React.Component{
       },
       thirdrow: {
         flex: 1,
-        backgroundColor:'rgba(0, 0, 0, 0.7)',
+        backgroundColor:'rgba(0, 0, 0, 1)',
         marginLeft: 1,
         flexDirection: 'column',
         justifyContent: 'flex-end'
