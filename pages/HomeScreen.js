@@ -37,10 +37,12 @@ class HomeScreen extends React.Component{
             </View>
             <View style={styles.secondrow}>
             </View>
-            <View style={{ backgroundColor: 'rgba(0,0,0,0.6)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3, borderTopWidth: 6, borderBottomWidth: 6}}>
+            <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderStartWidth:3, borderTopWidth: 6, borderBottomWidth: 6}}>
                 <View style={styles.iconbutton}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
-                    <Image  source={require("../images/folded-newspaper.png")}/>
+                  <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
+                    <Image  style={{width: 40, height: 40,  }} source={require("../images/newspaper.png")}/>
+                  </View>
                 </TouchableHighlight>
                     <Text style={styles.text}>NEWS</Text>
                 </View>
@@ -118,7 +120,8 @@ class HomeScreen extends React.Component{
         
       },
       text: {
-      
+        marginTop: 5,
+        color: 'white'
         //fontSize: 15
       },
       thirdrow: {
