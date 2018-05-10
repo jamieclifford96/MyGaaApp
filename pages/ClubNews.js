@@ -38,7 +38,7 @@ class News extends React.Component {
         activeOpacity={0.5}
         onPress={() => this.props.navigation.navigate('NewsDetails', data)}> 
         <ImageBackground  
-        style={{width: this.state.thumbnailSize.width, height: this.state.thumbnailSize.height, paddingBottom:10,marginBottom:10}} 
+        style={{width: this.state.thumbnailSize.width, height: this.state.thumbnailSize.height,marginBottom:10, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
           marginTop: 80,

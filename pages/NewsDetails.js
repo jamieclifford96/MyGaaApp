@@ -36,14 +36,15 @@ class NewsDetails extends React.Component {
     return (
       <BackgroundTheme>
         <View style={AppStyle.view}>
-          <Image style={{width: this.state.thumbnailSize.width, height: this.state.thumbnailSize.height, paddingBottom:10,marginBottom:10}} 
+          <Image style={{width: this.state.thumbnailSize.width*1.2, height: this.state.thumbnailSize.height*1.1, borderWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+this.state.thumbnailBase64}}/> 
         <ListView
             dataSource={this.state.dataSource}
-            renderRow={(row) => <Text style={{ fontSize: 20, color: 'white' }}> {row} </Text>}
+            renderRow={(row) => <Text style={{ backgroundColor:'"rgba(150,150,150,1)"',marginLeft:15, fontSize: 20, color: 'white' }}> {row} </Text>}
         /> 
 
           <Button
+          
             title="Go Back"
             onPress={() => this.props.navigation.goBack()}
           />

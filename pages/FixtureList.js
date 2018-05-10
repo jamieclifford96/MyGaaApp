@@ -21,11 +21,41 @@ class FixtureListScreen extends React.Component{
    
   }   
   
+  pickerdisplay(){
+    return (
+      <BackgroundTheme>
+        <Picker
+          //selectedValue={"Group 1"}
+          style={{ 
+            height: 30, 
+            width: 150 ,
+            color: "#000",
+          backgroundColor: '#fff'}
+          }
+          onValueChange={(itemValue, itemIndex) => this.loadFixtures(itemValue)}>
+          <Picker.Item key={0} label="All" value="All" />
+          {
+            this.state.fixtures.map((i, index) => (
+            <Picker.Item key={index++} label={i.division} value={i.division} />
+          ))}
+        </Picker>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => this.renderRow(rowData)}
+        />      
+      </BackgroundTheme>
+    );
   
+  }
   
   static navigationOptions = {
-      
-      
+    headerRight: (
+      <Button
+        onPress={() => alert()}
+        title="Info"
+        color="rgba(150,150,150,1)"
+      />
+    ),
     };
 
     getLocalJson(){
