@@ -40,59 +40,39 @@ class HomeScreen extends React.Component{
             <View style={styles.secondrow}>
             </View>
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white'}}>
-                <View style={styles.iconbutton}>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('News')}>
-                    <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                      <Image  style={{width: 40, height: 40,  }} source={require("../images/newspaper.png")}/>
-                    </View>
-                  </TouchableOpacity>
-                  <Text style={styles.text}>NEWS</Text>
-                </View>
-                <View style={styles.iconbutton}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('News')}>
-                <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/trophy.png")}/>
-                  </View>
-                </TouchableOpacity>
-                    <Text style={styles.text}>MATCH</Text>
-                </View>
                 
-                <View  style={styles.iconbutton}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Fixtures')}>
-                <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/calendar.png")}/>
-                  </View>
-                    </TouchableOpacity>
-                    <Text style={styles.text}>FIXTURES</Text>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News')}>
+                <Image style={{width: 70, height: 70,  }} source={require("../images/newspaper.png")}/>                    
+                <Text style={styles.text}>NEWS</Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News')}>
+                <Image  style={{width: 70, height: 70,  }} source={require("../images/trophy.png")}/>
+                <Text style={styles.text}>MATCH</Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('Fixtures')}>                
+                  <Image  style={{width: 70, height: 70,  }} source={require("../images/calendar.png")}/>
+                  <Text style={styles.text}>FIXTURES</Text>                  
+              </TouchableOpacity>                
                
-                </View>
-                </View>
-                <View style={{ backgroundColor: "rgba(0,0,0,0.4)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width,   borderBottomWidth: 3, borderBottomColor: 'white'}}>
-                   <View style={styles.iconbutton}> 
-                   <TouchableOpacity onPress={() => this.props.navigation.navigate('ClubLotto')}>
-                   <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/lottery.png")}/>
-                  </View>
-                    </TouchableOpacity>
-                    <Text style={styles.text}>LOTTO</Text>
+            </View>
+            <View style={{ backgroundColor: "rgba(0,0,0,0.4)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width,   borderBottomWidth: 3, borderBottomColor: 'white'}}>
+                   
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ClubLotto')}>
+                <Image  style={{width: 70, height: 70,  }} source={require("../images/lottery.png")}/>
+                <Text style={styles.text}>LOTTO</Text>
+              </TouchableOpacity>
+                     
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ClubMerchandise')}>
+                <Image  style={{width: 70, height: 70,  }} source={require("../images/shopping-cart.png")}/>
+                <Text style={styles.text}>SHOP</Text>
+              </TouchableOpacity>
                     
-                   </View>
-                   <View style={styles.iconbutton}> 
-                   <TouchableOpacity onPress={() => this.props.navigation.navigate('ClubMerchandise')}>
-                   <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/shopping-cart.png")}/>
-                  </View>
-                    </TouchableOpacity>
-                    <Text style={styles.text}>SHOP</Text>
-                   </View>
-                   <View style={styles.iconbutton}>
-                   <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactUs')}>
-                   <View style={{width: 70, height: 70, padding: 11, borderColor: 'white', borderRadius: 45, borderWidth: 3}}>
-                    <Image  style={{width: 40, height: 40,  }} source={require("../images/telephone.png")}/>
-                  </View>
-                    </TouchableOpacity>
-                    <Text style={styles.text}>CONTACT US</Text>
-                    </View>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ContactUs')}>
+                <Image  style={{width: 70, height: 70,  }} source={require("../images/telephone.png")}/>
+                <Text style={styles.text}>CONTACT US</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.fifthrow}>
             </View>
