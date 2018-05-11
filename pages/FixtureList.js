@@ -16,7 +16,7 @@ class FixtureListScreen extends React.Component{
     this.state = {      
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
-      division : "ALL"
+      division : "All"
     };
 
   }   
@@ -28,17 +28,20 @@ class FixtureListScreen extends React.Component{
     const fixtures = params.fixtures || [];
 
     return {
-      headerTitle: <Picker
-      style={{ 
-        height: 30, 
-        width: 250 ,
-        color: "#000",
-      backgroundColor: '#fff'}
-      }
-      onValueChange={(itemValue, itemIndex) => params.setDivision(itemValue)}>
-      <Picker.Item key={0} label="All" value="All" />
-        { fixtures.map((i, index) => ( <Picker.Item key={index++} label={i.division} value={i.division}/> ))}
-      </Picker>,
+      headerTitle: <View style={{ borderColor: 'white', borderWidth:1,}}> 
+        <Picker
+        style={{ 
+          height: 30, 
+          width: 250 ,
+          color: "#fff", 
+          //backgroundColor: '#fff'
+        }}
+        selectedValue={params.division}
+        onValueChange={(itemValue, itemIndex) => params.setDivision(itemValue)}>
+        <Picker.Item key={0} label="All" value="All" />
+          { fixtures.map((i, index) => ( <Picker.Item key={index++} label={i.division} value={i.division}/> ))}
+        </Picker>
+      </View>,
     };
   };
 
@@ -71,7 +74,7 @@ class FixtureListScreen extends React.Component{
   renderRow(row){
       return(
           <View >
-          <Text style={AppStyle.fixtureDivisionText}>{row.division}</Text>  
+          <Text style={AppStyle.fixturesDivisionHeading}>{row.division}</Text>  
           {        
             row.fixtures.map(function(fixture, index){
               return (
@@ -108,10 +111,11 @@ class FixtureListScreen extends React.Component{
       const division = this.state.division;
       const dataSource = (division === "All") 
         ? this.state.dataSource.cloneWithRows(this.state.fixtures) 
-        : this.state.dataSource.cloneWithRows(this.state.fixtures.filter(el => el.division === division));    
+        : this.state.dataSource.cloneWithRows(this.state.fixtures.filter(el => el.division === division));          
 
       return (
-        <BackgroundTheme>           
+        <BackgroundTheme>  
+          {/*<Text style={AppStyle.fixturesDivisionHeading}>{this.state.division}</Text>*/}         
           <ListView
             dataSource={dataSource}
             enableEmptySections={true}
