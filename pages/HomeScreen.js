@@ -104,9 +104,7 @@ class HomeScreen extends React.Component{
       iconbutton: {
         flexDirection: 'column',
         flex: 1,
-        paddingLeft: 4,
         paddingTop: 4,
-        paddingRight: 20,
         paddingTop: 20,
         alignItems: 'center',
         
