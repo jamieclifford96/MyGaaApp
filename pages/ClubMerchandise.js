@@ -13,7 +13,9 @@ class ClubMerchandiseScreen extends React.Component{
       shopURL : "https://www.oneills.com/shop-by-team/gaa/ireland/garrycastle-gaa.html",
     };
 
+    
   } 
+
 
   static navigationOptions = {
     title : "Club Gear Shop"
@@ -64,7 +66,8 @@ class ClubMerchandiseScreen extends React.Component{
           </TouchableOpacity>
 
         </View>
-        <Image  style={{width: this.state.screenWidth, height: this.state.screenWidth *.4}} source={require("../images/players.png")}/>
+        <Text> Width : {this.state.windowWidth} </Text>
+        <Image  style={{width: 360, height: 140}} source={require("../images/players.png")}/>
       </BackgroundTheme>
     );
   }
