@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, Icon, Card,StyleSheet,Image, Props  } from 'react-native';
-
+import BackgroundTheme from '../views/BackgroundTheme';
 class ClubLottoScreen extends React.Component {
   constructor(props){
     super(props);
@@ -22,16 +22,21 @@ class ClubLottoScreen extends React.Component {
 
     render(){
       return(
-    <View style={styles.container}>
-      <View style={styles.lottonumbers}>
-      <Text>The Lotto numbers for Monday May 8th 2018 were</Text>
-      </View>
-    <View style={styles.results}>
-    <Text> 11, 22, 23, 24 </Text>
-    <Text>{this.state.results[2]} </Text>
-    <Button title="Press Me" onPress={() => this.buttonTest()}/>
-    </View>
-    </View>
+        <BackgroundTheme>
+          <View style={styles.container}>
+            <View style={styles.lottonumbers}>
+            <Text style={{fontSize: 23, color : 'white'}}>The Lotto numbers for Monday May 8th 2018 were</Text>
+            </View>
+          <View style={styles.results}>
+          
+          <Text style={{fontSize: 90, color:'white'}}>{this.state.results[0]},</Text>
+          <Text style={{fontSize: 90, color:'white'}}>{this.state.results[1]},</Text>
+            <Text style={{fontSize: 90, color:'white'}}>{this.state.results[2]},</Text>
+              <Text style={{fontSize: 90, color:'white'}}>{this.state.results[3]},</Text>
+           
+          </View>
+          </View>
+       </BackgroundTheme>
      );
     
     }
@@ -42,7 +47,7 @@ class ClubLottoScreen extends React.Component {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#ffffff',
+      
     },
  lottonumbers: {
     alignItems: 'center',
@@ -50,7 +55,9 @@ class ClubLottoScreen extends React.Component {
  },
  results: {
      alignItems: 'center',
-     fontSize: 40,
-     
+     borderWidth: 3,
+     flexDirection: 'row',
+     backgroundColor: 'rgba(0,0,0,0.4)',
+     paddingLeft:45,
  }
 });

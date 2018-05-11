@@ -46,7 +46,7 @@ class HomeScreen extends React.Component{
                 <Text style={styles.text}>NEWS</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News')}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports')}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/trophy.png")}/>
                 <Text style={styles.text}>MATCH</Text>
               </TouchableOpacity>

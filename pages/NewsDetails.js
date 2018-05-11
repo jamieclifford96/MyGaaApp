@@ -41,13 +41,7 @@ class NewsDetails extends React.Component {
         <ListView
             dataSource={this.state.dataSource}
             renderRow={(row) => <Text style={{ backgroundColor:'"rgba(150,150,150,1)"',marginLeft:15, fontSize: 20, color: 'white' }}> {row} </Text>}
-        /> 
-
-          <Button
-          
-            title="Go Back"
-            onPress={() => this.props.navigation.goBack()}
-          />
+        />
         </View>
       </BackgroundTheme>
     );

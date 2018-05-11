@@ -33,6 +33,9 @@ const RootStack = StackNavigator(
     ClubMerchandise: {
       screen: ClubMerchandiseScreen,
     },
+    MatchReports: {
+      screen: MatchReportsScreen,
+    }
   },
     {
       initialRouteName: 'Home',
