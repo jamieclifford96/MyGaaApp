@@ -31,7 +31,7 @@ class ClubMerchandiseScreen extends React.Component{
       <BackgroundTheme>
         <View style={{ 
           flex: 1}}>
-        <Text style={AppStyle.buttonText}> Our Club is happy to announce the availability of club gear which can now be purchased directly from the O'Neills Sports on-line shop. </Text> 
+        <Text style={AppStyle.fixturesDivisionHeading}> Our Club is happy to announce the availability of club gear which can now be purchased directly from the O'Neills Sports on-line shop. </Text> 
          {/* Shop Button */}
          <TouchableOpacity 
           style={AppStyle.buttonContainer} 
