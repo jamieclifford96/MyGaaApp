@@ -61,12 +61,11 @@ class ClubMerchandiseScreen extends React.Component{
                 fontSize: 40,
                 color: "#fff",
                 marginBottom : 4, 
-                fontFamily: 'arial',  
+                fontFamily: 'arial', 
               }}> Club Gear </Text> 
           </TouchableOpacity>
 
         </View>
-        <Text> Width : {this.state.windowWidth} </Text>
         <Image  style={{width: 360, height: 140}} source={require("../images/players.png")}/>
       </BackgroundTheme>
     );
