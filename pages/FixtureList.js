@@ -3,7 +3,7 @@ import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Pick
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
-
+import Spinner from 'react-native-loading-spinner-overlay';
 
 class FixtureListScreen extends React.Component{
   constructor(props) {
@@ -44,7 +44,7 @@ class FixtureListScreen extends React.Component{
       </View>,
     };
   };
-
+  
   componentWillMount() {
     this.props.navigation.setParams({ 
       fixtures: this.state.fixtures,
@@ -115,6 +115,7 @@ class FixtureListScreen extends React.Component{
 
       return (
         <BackgroundTheme>  
+          
           {/*<Text style={AppStyle.fixturesDivisionHeading}>{this.state.division}</Text>*/}         
           <ListView
             dataSource={dataSource}

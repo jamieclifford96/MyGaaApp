@@ -14,7 +14,7 @@ class MatchReportScreen extends React.Component{
     this.state = {      
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
-      division : "ALL"
+      division : "All"
     };
 
   }   
@@ -31,7 +31,7 @@ class MatchReportScreen extends React.Component{
         height: 30, 
         width: 250 ,
         color: "#000",
-      backgroundColor: '#fff'}
+      }
       }
       onValueChange={(itemValue, itemIndex) => params.setDivision(itemValue)}>
       <Picker.Item key={0} label="All" value="All" />
@@ -66,36 +66,36 @@ class MatchReportScreen extends React.Component{
     }
   
     renderRow(row){
-        return(
-            <View >
-            <Text style={AppStyle.fixtureDivisionText}>{row.division}</Text>  
-            {        
-              row.fixtures.map(function(fixture, index){
-                return (
-                  <View key={index}
-                    style={{
-                      flexDirection: 'column',
-                      //alignItems: 'center',
-                      margin :5,
-                      padding : 5,
-                      backgroundColor: 'rgba(39, 77, 78, 0.7)'
-                    }}> 
-                    <View style={{ flexDirection: 'row'  }}>                          
-                      <Text style={AppStyle.fixtureItemText}>{fixture.home}</Text>  
-                      <Text style={AppStyle.fixtureItemText}>VS</Text>        
-                      <Text style={AppStyle.fixtureItemText}>{fixture.away}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row'  }}>  
-                    <Image source={require('../images/datetime.png')} style={AppStyle.fixtureIcon} />         
-                      <Text style={AppStyle.fixtureItemText}>{fixture.dateTime}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row'  }}>  
-                      <Image source={require('../images/scoreboard.png')} style={AppStyle.fixtureIcon} />     
-                      <Text style={AppStyle.fixtureItemText}>3-2</Text>
-                    </View>
-                  </View>
-                );
-              })
+      return(
+        <View >
+        <Text style={AppStyle.fixturesDivisionHeading}>{row.division}</Text>  
+        {        
+          row.fixtures.map(function(fixture, index){
+            return (
+              <View key={index}
+                style={{
+                  flexDirection: 'column',
+                  //alignItems: 'center',
+                  margin :5,
+                  padding : 5,
+                  backgroundColor: 'rgba(39, 77, 78, 0.7)'
+                }}> 
+                <View style={{ flexDirection: 'row'  }}>                          
+                  <Text style={AppStyle.fixtureItemText}>{fixture.home}</Text>  
+                  <Text style={AppStyle.fixtureItemText}>VS</Text>        
+                  <Text style={AppStyle.fixtureItemText}>{fixture.away}</Text>
+                </View>
+                <View style={{ flexDirection: 'row'  }}>  
+                <Image source={require('../images/datetime.png')} style={AppStyle.fixtureIcon} />         
+                  <Text style={AppStyle.fixtureItemText}>{fixture.dateTime}</Text>
+                </View>
+                <View style={{ flexDirection: 'row'  }}>  
+                  <Image source={require('../images/scoreboard.png')} style={AppStyle.fixtureIcon} />     
+                  <Text style={AppStyle.fixtureItemText}>3-1</Text>
+                </View>
+              </View>
+            );
+          })
             }
             </View>
         );
