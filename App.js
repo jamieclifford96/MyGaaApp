@@ -8,7 +8,7 @@ import ClubLottoScreen from './pages/ClubLotto.js';
 import MatchReportsScreen from './pages/MatchReports.js';
 import NewsDetails from './pages/NewsDetails.js';
 import HomeScreen from './pages/HomeScreen.js';
-
+import ContactUs from './pages/ContactUs.js';
 import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
@@ -35,6 +35,9 @@ const RootStack = StackNavigator(
     },
     MatchReports: {
       screen: MatchReportsScreen,
+    },
+    ContactUs : {
+      screen: ContactUs,
     }
   },
     {

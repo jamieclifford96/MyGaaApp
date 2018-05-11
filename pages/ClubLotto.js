@@ -14,11 +14,6 @@ class ClubLottoScreen extends React.Component {
     };
   }
 
-  buttonTest(){
-    let array = this.state.results;
-    array[2] = 555;
-    this.setState({results : array});
-  }
   
   static navigationOptions = {
       title: 'Club Lotto',
@@ -80,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 2,
     alignItems: 'center',
     width : 50,
-    height : 90
+    height : 105
   },
   lottoBallText : {
     paddingTop :7, 

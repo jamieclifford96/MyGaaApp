@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions,TouchableHighlight,TouchableOpacity } from 'react-native';
+import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions,TouchableHighlight,TouchableOpacity,TouchableNativeFeedback } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import BackgroundTheme from '../views/BackgroundTheme';
 //import FixtureListScreen from './pages/FixtureList.js';
@@ -48,7 +48,7 @@ class HomeScreen extends React.Component{
               
               <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports')}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/trophy.png")}/>
-                <Text style={styles.text}>MATCH</Text>
+                <Text style={styles.text}>MATCH REPORTS</Text>
               </TouchableOpacity>
               
               <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('Fixtures')}>                

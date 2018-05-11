@@ -23,7 +23,7 @@ export default StyleSheet.create({
     //backgroundColor: '#485a96',
     //borderWidth: 1,
     //borderColor: '#fff',
-    height: 60,
+   
     //borderRadius: 5 ,
     margin: 5,    
   },
@@ -69,5 +69,13 @@ export default StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.4)", 
     fontFamily: 'arial',  
     textAlign: 'center' 
+  },
+  bigbutton: {
+    height: 400,
+    width: 400,
+  },
+  contacttext : {
+    color: 'white',
+    fontSize: 20
   }
 })
