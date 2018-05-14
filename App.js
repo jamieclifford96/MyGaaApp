@@ -9,6 +9,7 @@ import MatchReportsScreen from './pages/MatchReports.js';
 import NewsDetails from './pages/NewsDetails.js';
 import HomeScreen from './pages/HomeScreen.js';
 import ContactUs from './pages/ContactUs.js';
+import LoginScreen from './pages/LoginScreen.js';
 import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
@@ -38,10 +39,13 @@ const RootStack = StackNavigator(
     },
     ContactUs : {
       screen: ContactUs,
+    },
+    Login : {
+      screen : LoginScreen
     }
   },
     {
-      initialRouteName: 'Home',
+      initialRouteName: 'Login',
       navigationOptions: {
         headerStyle: {
           backgroundColor: 'rgba(150,150,150,1)',
