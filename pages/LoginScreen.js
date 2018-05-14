@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid} from 'react-native';
 import BackgroundTheme from '../views/BackgroundTheme';
 
 const base64 = require('base-64');
@@ -11,26 +11,54 @@ export default class LoginScreen extends Component {
         this.state = {
             username : "",
             password : "",
-            isLoggedIn : false
+            isLoggedIn : false,
+            authToken : ""
         };
     }
 
     login(){
-        /*
-        var headers = new Headers();
-        headers.append("Authorization", "Basic " + base64.encode(this.state.username + ":" + this.state.password));
+        if(this.state.username.length == 0 ||this.state.username.password == 0){
+            ToastAndroid.showWithGravityAndOffset(
+                "Username or password is empty",
+                ToastAndroid.LONG,
+                ToastAndroid.CENTER,
+                0,
+                -200
+              );
+            return;
+        }
+
+        //http://86.41.137.78:8000/gaaservice/webapi/fixture/
+        let headers = new Headers();
+        let authTokenHeader = "Basic " + base64.encode(this.state.username + ":" + this.state.password);
+        //let authTokenHeader = "Basic " + base64.encode("username:password");
+        headers.append("Authorization", authTokenHeader );
         
-        fetch("https://url", {
+        fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/0", {
                 headers: headers
             })
             .then((response) => {
                 if(response.status != 200){
-
+                    ToastAndroid.showWithGravityAndOffset(
+                        "Failed to login, check your credentials",
+                        ToastAndroid.LONG,
+                        ToastAndroid.CENTER,
+                        0,
+                        -200
+                      );
+                      this.passwordInput.clear();
+                      this.usernameInput.clear();
+                }
+                else{
+                    this.setState({
+                        isLoggedIn :true,
+                        authToken :authTokenHeader
+                    });
+    
+                    this.props.navigation.navigate('Home', { token : this.state.authToken});
                 }
             })
           .done();
-        */
-        this.props.navigation.navigate('Home');
     }
 
   render() {
@@ -49,19 +77,21 @@ export default class LoginScreen extends Component {
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false} 
+                ref={(input) => this.usernameInput = input}
                 onChangeText={(text) => this.setState({username :text})} />
             <TextInput 
                 placeholder="password" 
                 placeholderTextColor="#fff" 
                 returnKeyType="go"
                 secureTextEntry
+                autoCapitalize="none"
                 style={styles.input}
                 ref={(input) => this.passwordInput = input}
                 onChangeText={(text) => this.setState({password :text})} />
             
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login-button.png")}/> 
-                <Text style={styles.text}>LOGIN</Text>
+                <Text style={styles.text}>{this.state.authToken}</Text>
               </TouchableOpacity>
         </View>
         

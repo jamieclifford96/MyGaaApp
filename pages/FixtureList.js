@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker } from 'react-native';
+import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid } from 'react-native';
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
@@ -9,15 +9,42 @@ class FixtureListScreen extends React.Component{
   constructor(props) {
     super(props);
 
+    const token = props.navigation.state.params.token;
+
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-    let data = this.groupByDivision(this.getLocalJson());
+    let data = this.groupByDivision([]);
 
     this.state = {      
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
       division : "All"
     };
+   
+
+    let headers = new Headers();
+    headers.append("Authorization", token );
+    headers.append("Accept", "application/json" );
+    
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture", {
+            headers: headers
+        })
+        .then((response) => {
+            if(response.status != 200){
+              ToastAndroid.show("Ops something went wrong", ToastAndroid.LONG);
+            }
+            else{
+              return response.json();
+            }
+        })
+        .then( (myJson => {
+          let payload = this.groupByDivision(myJson);          
+          this.setState({                      
+            fixtures : payload,
+            dataSource :ds.cloneWithRows(payload),
+          });
+        }))
+      .done();
 
   }   
   
@@ -61,6 +88,10 @@ class FixtureListScreen extends React.Component{
   }
     
   groupByDivision(data){
+    if(data.length == 0){
+      return [];
+    }
+
     let grouped = groupBy(data,(el) => el.group);
 
     return Object.keys(grouped).map((key) => {

@@ -29,6 +29,11 @@ class HomeScreen extends React.Component{
    };
    
    render() {
+        const { navigation } = this.props;
+        const token = {
+          token : navigation.getParam('token', '')
+        };
+
         return (
           <BackgroundTheme style={{backgroundColor: 'rgba(0,0,0,0.9)'}}>
           <View style={styles.container}>
@@ -41,17 +46,17 @@ class HomeScreen extends React.Component{
             </View>
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white'}}>
                 
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News')}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News', token)}>
                 <Image style={{width: 70, height: 70,  }} source={require("../images/newspaper.png")}/>                    
                 <Text style={styles.text}>NEWS</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports')}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports', token)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/trophy.png")}/>
                 <Text style={styles.text}>MATCH REPORTS</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('Fixtures')}>                
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('Fixtures', token)}>                
                   <Image  style={{width: 70, height: 70,  }} source={require("../images/calendar.png")}/>
                   <Text style={styles.text}>FIXTURES</Text>                  
               </TouchableOpacity>                
@@ -59,7 +64,7 @@ class HomeScreen extends React.Component{
             </View>
             <View style={{ backgroundColor: "rgba(0,0,0,0.4)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width,   borderBottomWidth: 3, borderBottomColor: 'white'}}>
                    
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ClubLotto')}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ClubLotto', token)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/lottery.png")}/>
                 <Text style={styles.text}>LOTTO</Text>
               </TouchableOpacity>
@@ -69,7 +74,7 @@ class HomeScreen extends React.Component{
                 <Text style={styles.text}>SHOP</Text>
               </TouchableOpacity>
                     
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ContactUs')}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ContactUs', token)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/telephone.png")}/>
                 <Text style={styles.text}>CONTACT US</Text>
               </TouchableOpacity>
