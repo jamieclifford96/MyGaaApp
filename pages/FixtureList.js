@@ -31,7 +31,7 @@ class FixtureListScreen extends React.Component{
         })
         .then((response) => {
             if(response.status != 200){
-              ToastAndroid.show("Ops something went wrong", ToastAndroid.LONG);
+              ToastAndroid.show("Oops something went wrong", ToastAndroid.LONG);
             }
             else{
               return response.json();

@@ -7,11 +7,48 @@ class ClubLottoScreen extends React.Component {
 
     let windowWidth = Dimensions.get('window').width;
 
+    const token = props.navigation.state.params.token;
+
     this.state = {
       screenWidth : windowWidth,
       day : "Monday May 8th 2018",
-      results: [99,2,33,4]
+      results: [99,2,33,4],
+      message: ""
     };
+    let headers = new Headers();
+    headers.append("Authorization", token );
+    headers.append("Accept", "application/json" );
+    
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/lotto", {
+            headers: headers
+        })
+        .then((response) => {
+            if(response.status != 200){
+              ToastAndroid.show("Oops something went wrong", ToastAndroid.LONG);
+            }
+            else{
+              return response.json();
+            }
+        })
+        .then( (myJson => {
+          myJson.sort((a, b) =>{
+            let dateA = new Date(a.drawDate);
+            let dateB = new Date(b.drawDate);
+
+            return dateA - dateB;
+          });
+
+
+          let payload = myJson[myJson.length -1];      
+          this.setState({                      
+            results : payload.draw ,
+            day : payload.drawDate,
+            message : payload.message      
+          });
+        }))
+      .done();
+
+  
   }
 
   
@@ -45,7 +82,10 @@ class ClubLottoScreen extends React.Component {
 
             <Image  style={{width: 200, height: 190 ,marginBottom: 20}} source={require("../images/loto-jar-inverted.png")}/>
           </View>         
-            
+          <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
+          <Text style={{fontSize: 18, color : 'white', textAlign: 'center'}}>{this.state.message}</Text>
+          </View>
+
        </BackgroundTheme>
      );
     

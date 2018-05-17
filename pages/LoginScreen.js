@@ -69,7 +69,7 @@ export default class LoginScreen extends Component {
         </View>
         <View style={styles.logocontainer}>
             <TextInput 
-                placeholder="username" 
+                placeholder="USERNAME" 
                 placeholderTextColor="#fff" 
                 returnKeyType="next"
                 style={styles.input}
@@ -80,7 +80,7 @@ export default class LoginScreen extends Component {
                 ref={(input) => this.usernameInput = input}
                 onChangeText={(text) => this.setState({username :text})} />
             <TextInput 
-                placeholder="password" 
+                placeholder="PASSWORD" 
                 placeholderTextColor="#fff" 
                 returnKeyType="go"
                 secureTextEntry
