@@ -35,6 +35,7 @@ class ClubLottoScreen extends React.Component {
             let dateA = new Date(a.drawDate);
             let dateB = new Date(b.drawDate);
 
+          
             return dateA - dateB;
           });
 
@@ -57,11 +58,12 @@ class ClubLottoScreen extends React.Component {
     };
 
     render(){
+      const date = new  Date(this.state.day);
       return(
         <BackgroundTheme>
         
           <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop: 20, marginBottom: 20}}>             
-            <Text style={{fontSize: 23, color : 'white', textAlign: 'center'}}>The Lotto numbers for {this.state.day} were</Text>
+            <Text style={{fontSize: 23, color : 'white', textAlign: 'center'}}>The Lotto numbers for {date.toDateString()} were</Text>
           </View>
 
           <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}> 

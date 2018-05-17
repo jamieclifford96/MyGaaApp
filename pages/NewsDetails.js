@@ -10,15 +10,16 @@ class NewsDetails extends React.Component {
         super(params);
     
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    
-       let data = params.navigation.state.params.text.split("\n").filter(x => x != "\n");
+        
+       let data = params.navigation.state.params.newsMessage.split("\n").filter(x => x != "\n");
         let windowWidth = Dimensions.get('window').width;
     
         this.state = {      
           title : params.navigation.state.params.title,
-          text : params.navigation.state.params.text,
-          datetime : params.navigation.state.params.datetime,
-          thumbnailBase64 : params.navigation.state.params.thumbnailBase64,
+          text : params.navigation.state.params.newsMessage,
+          datetime : params.navigation.state.params.dateTime,
+          
+          //thumbnailBase64 : params.navigation.state.params.thumbnailBase64,
           dataSource :ds.cloneWithRows(data),
           thumbnailSize :{
             width : windowWidth * 0.9,
@@ -28,16 +29,26 @@ class NewsDetails extends React.Component {
          //this.getMoviesFromApiAsync();
     } 
 
-  static navigationOptions = {
-    title : "Details" 
+  static navigationOptions = ({ navigation }) => {
+    const params = navigation.state.params;
+
+    return {
+      title : params.title
+    }; 
   };
+
+  componentWillMount() {
+    this.props.navigation.setParams({ 
+      title: this.state.title
+     });
+  }
 
   render() {
     return (
       <BackgroundTheme>
         <View style={AppStyle.view}>
-          <Image style={{width: this.state.thumbnailSize.width*1.2, height: this.state.thumbnailSize.height*1.1, borderWidth: 3, borderColor: 'white'}} 
-        source={{uri: "data:image/jpeg;base64,"+this.state.thumbnailBase64}}/> 
+          {/*<Image style={{width: this.state.thumbnailSize.width*1.2, height: this.state.thumbnailSize.height*1.1, borderWidth: 3, borderColor: 'white'}} 
+        source={{uri: "data:image/jpeg;base64,"+this.state.thumbnailBase64}}/>*/} 
         <ListView
             dataSource={this.state.dataSource}
             renderRow={(row) => <Text style={{ backgroundColor:'"rgba(150,150,150,1)"',marginLeft:15, fontSize: 20, color: 'white' }}> {row} </Text>}
@@ -48,4 +59,4 @@ class NewsDetails extends React.Component {
   }
 }
 
-export default NewsDetails;
+export default NewsDetails

@@ -20,7 +20,6 @@ class FixtureListScreen extends React.Component{
       dataSource :ds.cloneWithRows(data),
       division : "All"
     };
-   
 
     let headers = new Headers();
     headers.append("Authorization", token );
@@ -102,12 +101,18 @@ class FixtureListScreen extends React.Component{
     })
   }
 
+
+formatDate(date){
+  return "Test";
+}
   renderRow(row){
       return(
           <View >
           <Text style={AppStyle.fixturesDivisionHeading}>{row.division}</Text>  
           {        
-            row.fixtures.map(function(fixture, index){
+            row.fixtures.map((fixture, index) => {
+              const date = new Date(fixture.dateTime);
+
               return (
                 <View key={index}
                   style={{
@@ -124,7 +129,7 @@ class FixtureListScreen extends React.Component{
                   </View>
                   <View style={{ flexDirection: 'row'  }}>  
                   <Image source={require('../images/datetime.png')} style={AppStyle.fixtureIcon} />         
-                    <Text style={AppStyle.fixtureItemText}>{fixture.dateTime}</Text>
+                    <Text style={AppStyle.fixtureItemText}>{date.getDay()}/{date.getMonth()}/{date.getFullYear()}</Text>
                   </View>
                   <View style={{ flexDirection: 'row'  }}>  
                     <Image source={require('../images/venue.png')} style={AppStyle.fixtureIcon} />     
