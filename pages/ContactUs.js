@@ -16,17 +16,20 @@ const data = [
     {
       name : "John Doe",
       position : "Coach",
-      number : "0871231231"
+      number : "0871231231",
+      email: "johndoe@gmail.com"
     },
     {
       name : "Jane Doe",
       position : "Chairman",
-      number : "0861231231"
+      number : "0861231231",
+      email: "johndoe@gmail.com"
     },
     {
       name : "Jacob Smith",
       position : "Member",
-      number : "0876543211"
+      number : "0876543211",
+      email: "johndoe@gmail.com"
     }
 ];
     
