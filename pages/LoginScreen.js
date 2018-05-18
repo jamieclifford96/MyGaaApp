@@ -19,7 +19,9 @@ export default class LoginScreen extends Component {
               }
         };
     }
-
+    static navigationOptions() {
+        header: null
+    }
     login(){
         Keyboard.dismiss();
         if(this.state.username.length == 0 ||this.state.username.password == 0){

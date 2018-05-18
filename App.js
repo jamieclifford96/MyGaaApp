@@ -19,6 +19,9 @@ const RootStack = StackNavigator(
   {
     Home: {
       screen: HomeScreen,
+      navigationOptions: {
+        header: null
+      }
     },
     Fixtures : {
         screen : FixtureListScreen,
@@ -42,13 +45,15 @@ const RootStack = StackNavigator(
       screen: ContactUs,
     },
     Login : {
-      screen : LoginScreen
+      screen : LoginScreen,
+      navigationOptions: {
+        header: null
+      }
     }
   },
     {
       initialRouteName: 'Login',
       navigationOptions: {
-        header: null,
         headerStyle: {
           backgroundColor: 'rgba(150,150,150,1)',
         },
