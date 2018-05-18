@@ -121,7 +121,7 @@ class MatchReportScreen extends React.Component{
                 </View>
                 <View style={{ flexDirection: 'row'  }}>  
                   <Image source={require('../images/scoreboard.png')} style={AppStyle.fixtureIcon} />     
-                <Text style={AppStyle.fixtureItemText}>{fixture.homeScore} - {fixture.awayScore}</Text>
+                <Text style={AppStyle.fixtureItemText}>({fixture.homeScore}) - ({fixture.awayScore})</Text>
                 </View>
               </View>
             );

@@ -68,7 +68,8 @@ export default StyleSheet.create({
     color: "#fff",
     backgroundColor: "rgba(0,0,0,0.4)", 
     fontFamily: 'arial',  
-    textAlign: 'center' 
+    textAlign: 'center',
+    
   },
   bigbutton: {
     height: 400,

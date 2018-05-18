@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions} from 'react-native';
+import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import BackgroundTheme from '../views/BackgroundTheme';
 
 const base64 = require('base-64');
@@ -21,6 +21,7 @@ export default class LoginScreen extends Component {
     }
 
     login(){
+        Keyboard.dismiss();
         if(this.state.username.length == 0 ||this.state.username.password == 0){
             ToastAndroid.showWithGravityAndOffset(
                 "Username or password is empty",
@@ -67,10 +68,13 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
+     
       <BackgroundTheme>
+          
         <View style={styles.logocontainer}>
             <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 10, marginLeft: 20, marginRight: 10}} source={require("../images/gaa_logo-edited.png")}/>
         </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.logocontainer}>
             <TextInput 
                 placeholder="USERNAME" 
@@ -97,8 +101,9 @@ export default class LoginScreen extends Component {
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
               </TouchableOpacity>
         </View>
-        
+        </TouchableWithoutFeedback>
       </BackgroundTheme>
+      
     )
   }
 };

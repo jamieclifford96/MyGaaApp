@@ -48,6 +48,7 @@ const RootStack = StackNavigator(
     {
       initialRouteName: 'Login',
       navigationOptions: {
+        header: null,
         headerStyle: {
           backgroundColor: 'rgba(150,150,150,1)',
         },
