@@ -100,7 +100,9 @@ class MatchReportScreen extends React.Component{
         <View >
         <Text style={AppStyle.fixturesDivisionHeading}>{row.division}</Text>  
         {        
+          
           row.fixtures.map(function(fixture, index){
+            const date = new Date(fixture.dateTime);
             return (
               <View key={index}
                 style={{
@@ -117,7 +119,7 @@ class MatchReportScreen extends React.Component{
                 </View>
                 <View style={{ flexDirection: 'row'  }}>  
                 <Image source={require('../images/datetime.png')} style={AppStyle.fixtureIcon} />         
-                  <Text style={AppStyle.fixtureItemText}>{fixture.dateTime}</Text>
+                  <Text style={AppStyle.fixtureItemText}>{date.toUTCString()}</Text>
                 </View>
                 <View style={{ flexDirection: 'row'  }}>  
                   <Image source={require('../images/scoreboard.png')} style={AppStyle.fixtureIcon} />     
