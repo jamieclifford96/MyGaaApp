@@ -74,7 +74,7 @@ export default class LoginScreen extends Component {
       <BackgroundTheme>
           
         <View style={styles.logocontainer}>
-            <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 10, marginLeft: 20, marginRight: 10}} source={require("../images/gaa_logo-edited.png")}/>
+            <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 70, marginLeft: 20, marginRight: 10}} source={require("../images/gaa_logo-edited.png")}/>
         </View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.logocontainer}>

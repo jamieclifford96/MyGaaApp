@@ -62,11 +62,11 @@ class ClubLottoScreen extends React.Component {
       return(
         <BackgroundTheme>
         
-         < View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 0, borderColor: 'white',marginTop:3, marginBottom: 0}}>             
-            <Text style={{fontSize: 23, color : 'white', textAlign: 'center'}}>The Lotto numbers for {date.toDateString()} were</Text>
+         < View style={{backgroundColor: 'rgba(0,0,0,0)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop:3, marginBottom: 0}}>             
+            <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{date.toDateString()}</Text>
           </View>
 
-          <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}> 
+          <View style={{backgroundColor: 'rgba(0,0,0,0.0)', borderTopWidth: 0, borderBottomWidth: 0, borderColor: 'white', alignItems: 'center'}}> 
             <View style={{ flexDirection: 'row', paddingTop : 20, paddingBottom : 20,  width: this.state.screenWidth }}>
               <ImageBackground style={styles.lottoBall} source={require('../images/loto-ball-inverted.png')}>            
                 <Text style={styles.lottoBallText}>{this.state.results[0]}</Text>

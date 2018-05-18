@@ -78,5 +78,17 @@ export default StyleSheet.create({
   contacttext : {
     color: 'white',
     fontSize: 20
-  }
+  },
+  icontext: {
+    marginTop: 1,
+    color: 'white'
+  },
+  iconbutton: {
+    flexDirection: 'column',
+    flex: 1,
+    paddingTop: 4,
+    paddingTop: 20,
+    alignItems: 'center',
+    
+  },
 })
