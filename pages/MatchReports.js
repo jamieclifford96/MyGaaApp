@@ -9,7 +9,7 @@ class MatchReportScreen extends React.Component{
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-    let data = this.groupByDivision(this.getLocalJson());
+    let data = this.groupByDivision([]);
 
     const token = props.navigation.state.params.token;
     this.state = {      
@@ -33,11 +33,17 @@ class MatchReportScreen extends React.Component{
         }
     })
     .then( (myJson => {
-      let payload = this.groupByDivision(myJson);          
+      let payload = this.groupByDivision(myJson);   
+      console.log(payload);       
       this.setState({                      
         fixtures : payload,
         dataSource :ds.cloneWithRows(payload),
       });
+      
+      this.props.navigation.setParams({ 
+        fixtures: this.state.fixtures,
+        setDivision : this._setDivision
+       });
     }))
   .done();
   
@@ -79,7 +85,7 @@ class MatchReportScreen extends React.Component{
     }
       
     groupByDivision(data){
-      let grouped = groupBy(data,(el) => el.group);
+      let grouped = groupBy(data,(el) => el.division);
   
       return Object.keys(grouped).map((key) => {
         return {

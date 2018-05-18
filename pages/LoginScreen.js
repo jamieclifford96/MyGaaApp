@@ -95,7 +95,6 @@ export default class LoginScreen extends Component {
             
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
-                <Text style={styles.text}>{this.state.authToken}</Text>
               </TouchableOpacity>
         </View>
         

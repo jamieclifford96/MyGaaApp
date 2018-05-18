@@ -42,6 +42,11 @@ class FixtureListScreen extends React.Component{
             fixtures : payload,
             dataSource :ds.cloneWithRows(payload),
           });
+
+          this.props.navigation.setParams({ 
+            fixtures: this.state.fixtures,
+            setDivision : this._setDivision
+           });
         }))
       .done();
 
