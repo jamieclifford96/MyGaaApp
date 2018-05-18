@@ -119,7 +119,7 @@ class MatchReportScreen extends React.Component{
                 </View>
                 <View style={{ flexDirection: 'row'  }}>  
                 <Image source={require('../images/datetime.png')} style={AppStyle.fixtureIcon} />         
-                  <Text style={AppStyle.fixtureItemText}>{date.toUTCString()}</Text>
+                  <Text style={AppStyle.fixtureItemText}>{date.toDateString()}</Text>
                 </View>
                 <View style={{ flexDirection: 'row'  }}>  
                   <Image source={require('../images/scoreboard.png')} style={AppStyle.fixtureIcon} />     

@@ -133,7 +133,7 @@ formatDate(date){
                   </View>
                   <View style={{ flexDirection: 'row'  }}>  
                   <Image source={require('../images/datetime.png')} style={AppStyle.fixtureIcon} />         
-                    <Text style={AppStyle.fixtureItemText}>{date.toDateString()}</Text>
+                    <Text style={AppStyle.fixtureItemText}>{date.toUTCString()}</Text>
                   </View>
                   <View style={{ flexDirection: 'row'  }}>  
                     <Image source={require('../images/venue.png')} style={AppStyle.fixtureIcon} />     
