@@ -62,7 +62,7 @@ class ClubLottoScreen extends React.Component {
       return(
         <BackgroundTheme>
         
-          <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop: 20, marginBottom: 20}}>             
+         < View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 0, borderColor: 'white',marginTop:3, marginBottom: 0}}>             
             <Text style={{fontSize: 23, color : 'white', textAlign: 'center'}}>The Lotto numbers for {date.toDateString()} were</Text>
           </View>
 
@@ -82,7 +82,7 @@ class ClubLottoScreen extends React.Component {
               </ImageBackground>
             </View>
 
-            <Image  style={{width: 200, height: 190 ,marginBottom: 20}} source={require("../images/loto-jar-inverted.png")}/>
+            <Image  style={{width: 150, height: 135 ,marginBottom: 20}} source={require("../images/loto-jar-inverted.png")}/>
           </View>         
           <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
           <Text style={{fontSize: 18, color : 'white', textAlign: 'center'}}>{this.state.message}</Text>

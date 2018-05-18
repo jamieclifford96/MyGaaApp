@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid} from 'react-native';
+import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions} from 'react-native';
 import BackgroundTheme from '../views/BackgroundTheme';
 
 const base64 = require('base-64');
@@ -7,12 +7,16 @@ const base64 = require('base-64');
 export default class LoginScreen extends Component {
     constructor(props){
         super(props);
-
+        let windowWidth = Dimensions.get('window').width;
         this.state = {
             username : "",
             password : "",
             isLoggedIn : false,
-            authToken : ""
+            authToken : "",
+            thumbnailSize :{
+                width : windowWidth,
+                height :windowWidth * 0.32
+              }
         };
     }
 
@@ -65,7 +69,7 @@ export default class LoginScreen extends Component {
     return (
       <BackgroundTheme>
         <View style={styles.logocontainer}>
-            <Image style={{ height: 100, width: 250 }} source={require("../images/gaa_logo-edited.png")}/>
+            <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 10, marginLeft: 20, marginRight: 10}} source={require("../images/gaa_logo-edited.png")}/>
         </View>
         <View style={styles.logocontainer}>
             <TextInput 
@@ -90,7 +94,7 @@ export default class LoginScreen extends Component {
                 onChangeText={(text) => this.setState({password :text})} />
             
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
-                <Image style={{width: 80, height: 80,  }} source={require("../images/login-button.png")}/> 
+                <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
                 <Text style={styles.text}>{this.state.authToken}</Text>
               </TouchableOpacity>
         </View>

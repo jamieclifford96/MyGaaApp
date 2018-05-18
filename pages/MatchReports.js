@@ -3,20 +3,44 @@ import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Pick
 import { groupBy } from 'lodash';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import AppStyle from '../styles/AppStyle.js';
-class MatchReportScreen extends React.Component{
-  constructor(props) {
+class MatchReportScreen extends React.Component{ 
+  constructor(props) { 
     super(props);
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     let data = this.groupByDivision(this.getLocalJson());
 
+    const token = props.navigation.state.params.token;
     this.state = {      
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
       division : "All"
     };
-
+    let headers = new Headers();
+    headers.append("Authorization", token );
+    headers.append("Accept", "application/json" );
+    
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/results/", {
+      headers: headers
+    })
+    .then((response) => {
+        if(response.status != 200){
+          ToastAndroid.show("Oops something went wrong", ToastAndroid.LONG);
+        }
+        else{
+          return response.json();
+        }
+    })
+    .then( (myJson => {
+      let payload = this.groupByDivision(myJson);          
+      this.setState({                      
+        fixtures : payload,
+        dataSource :ds.cloneWithRows(payload),
+      });
+    }))
+  .done();
+  
   }   
   
   // https://reactnavigation.org/docs/en/header-buttons.html 
@@ -91,7 +115,7 @@ class MatchReportScreen extends React.Component{
                 </View>
                 <View style={{ flexDirection: 'row'  }}>  
                   <Image source={require('../images/scoreboard.png')} style={AppStyle.fixtureIcon} />     
-                  <Text style={AppStyle.fixtureItemText}>3-1</Text>
+                <Text style={AppStyle.fixtureItemText}>{fixture.homeScore} - {fixture.awayScore}</Text>
                 </View>
               </View>
             );

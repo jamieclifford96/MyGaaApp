@@ -23,7 +23,7 @@ class FixtureListScreen extends React.Component{
 
     let headers = new Headers();
     headers.append("Authorization", token );
-    headers.append("Accept", "application/json" );
+    headers.append("Accept", "application/json");
     
     fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture", {
             headers: headers
@@ -112,7 +112,6 @@ formatDate(date){
           {        
             row.fixtures.map((fixture, index) => {
               const date = new Date(fixture.dateTime);
-
               return (
                 <View key={index}
                   style={{
@@ -129,7 +128,7 @@ formatDate(date){
                   </View>
                   <View style={{ flexDirection: 'row'  }}>  
                   <Image source={require('../images/datetime.png')} style={AppStyle.fixtureIcon} />         
-                    <Text style={AppStyle.fixtureItemText}>{date.getDay()}/{date.getMonth()}/{date.getFullYear()}</Text>
+                    <Text style={AppStyle.fixtureItemText}>{date.toDateString()}</Text>
                   </View>
                   <View style={{ flexDirection: 'row'  }}>  
                     <Image source={require('../images/venue.png')} style={AppStyle.fixtureIcon} />     
