@@ -44,11 +44,13 @@ class NewsDetails extends React.Component {
   }
 
   render() {
+    const date = new Date(this.state.datetime);
     return (
       <BackgroundTheme>
         <View style={AppStyle.view}>
           {/*<Image style={{width: this.state.thumbnailSize.width*1.2, height: this.state.thumbnailSize.height*1.1, borderWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+this.state.thumbnailBase64}}/>*/} 
+        <Text style={{marginBottom: 30, marginLeft: 30, color: 'white'}}> {date.toDateString()} </Text>
         <ListView
             dataSource={this.state.dataSource}
             renderRow={(row) => <Text style={{ backgroundColor:'"rgba(150,150,150,1)"',marginLeft:15, fontSize: 20, color: 'white' }}> {row} </Text>}
