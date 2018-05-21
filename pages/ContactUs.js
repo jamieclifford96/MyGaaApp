@@ -3,6 +3,7 @@ import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensi
 import { StackNavigator } from 'react-navigation';
 import BackgroundTheme from '../views/BackgroundTheme';
 import AppStyle from '../styles/AppStyle';
+import Communications from 'react-native-communications';
 
 class ContactUs extends React.Component {
     static navigationOptions = {
@@ -54,17 +55,17 @@ renderRow(row){
             <Text style={AppStyle.contacttext}>Number: {row.number}</Text>
         
         <View style={{ backgroundColor: 'rgba(0,0,0,0.2)',flexDirection: 'row',  width: this.state.thumbnailSize.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
-             <TouchableOpacity style={AppStyle.iconbutton} onPress={() => this.props.navigation.navigate('News', token)}>
+             <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>
                 <Image style={{width: 70, height: 70,  }} source={require("../images/telephone.png")}/>                    
                 <Text style={AppStyle.icontext}>CALL</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports', token)}>
+              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/speech-bubble.png")}/>
                 <Text style={AppStyle.icontext}>TEXT</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => this.props.navigation.navigate('Fixtures', token)}>                
+              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>                
                   <Image  style={{width: 70, height: 70,  }} source={require("../images/envelope.png")}/>
                   <Text style={AppStyle.icontext}>EMAIL</Text>                  
               </TouchableOpacity>      
