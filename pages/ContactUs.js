@@ -52,7 +52,7 @@ renderRow(row){
         <View style={{  backgroundColor: 'rgba(0,0,0,0.6)',marginTop: 10,width: this.state.thumbnailSize.width, borderBottomWidth: 0, borderTopWidth: 3, borderColor: 'white'}}>
             <Text style={AppStyle.contacttext}>Name: {row.name}</Text>
             <Text style={{marginTop: 10,color: 'white', marginBottom: 10,fontSize: 20}}>Position: {row.position}</Text>
-            <Text style={AppStyle.contacttext}>Number: {row.number}</Text>
+            <Text style={AppStyle.contacttext}>Number: {row.number}</Text>email
         
         <View style={{ backgroundColor: 'rgba(0,0,0,0.2)',flexDirection: 'row',  width: this.state.thumbnailSize.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>
@@ -60,12 +60,12 @@ renderRow(row){
                 <Text style={AppStyle.icontext}>CALL</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>
+              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.text(row.number, true)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/speech-bubble.png")}/>
                 <Text style={AppStyle.icontext}>TEXT</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>                
+              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.email()  }>                
                   <Image  style={{width: 70, height: 70,  }} source={require("../images/envelope.png")}/>
                   <Text style={AppStyle.icontext}>EMAIL</Text>                  
               </TouchableOpacity>      
