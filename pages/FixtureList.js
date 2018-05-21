@@ -111,7 +111,6 @@ class FixtureListScreen extends React.Component{
       return [];
     }
     let currentTime = Date.now();
-    console.log(currentTime);
     let placeholder= [];
     data.forEach(element => {
       if (new Date(element.dateTime).getTime() >= currentTime){
