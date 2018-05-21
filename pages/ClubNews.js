@@ -17,7 +17,7 @@ class News extends React.Component {
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
       thumbnailSize :{
-        width : windowWidth * 0.9,
+        width : windowWidth * 1,
         height :windowWidth * 0.5
       }
     };
@@ -63,12 +63,12 @@ class News extends React.Component {
         activeOpacity={0.5}
         onPress={() => this.props.navigation.navigate('NewsDetails', data)}> 
         <ImageBackground  
-        style={{width: this.state.thumbnailSize.width, height: this.state.thumbnailSize.height,marginBottom:10, borderColor: 'white'}} 
+        style={{width: this.state.thumbnailSize.width,marginBottom:10, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
+          borderBottomWidth: 3,
+          backgroundColor: 'rgba(0,0,0,0)',
           
-          backgroundColor: 'rgba(0,0,0,.5)',
-          alignItems: 'center',
           flex: 2,
         }}>
           <Text style={{color: 'white', marginLeft: 210, marginTop: 15}}>{date.toDateString()}</Text>
@@ -77,9 +77,9 @@ class News extends React.Component {
             color: 'white',
             marginLeft:10,
             marginRight:10,
-            marginTop: 90
-          }}>{data.title} </Text> 
-          {/*<Text style={AppStyle.buttonText}> {data.datetime} </Text>*/} 
+            marginTop: 5
+          }}> {data.title} </Text> 
+                   {/*<Text style={AppStyle.buttonText}> {data.datetime} </Text>*/} 
         </View>
         </ImageBackground>
       </TouchableOpacity>
