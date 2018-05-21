@@ -13,26 +13,26 @@ class ContactUs extends React.Component {
     super(props);
 
         const ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 != r2});
-const data = [
-    {
-      name : "John Doe",
-      position : "Coach",
-      number : "0871231231",
-      email: "johndoe@gmail.com"
-    },
-    {
-      name : "Jane Doe",
-      position : "Chairman",
-      number : "0861231231",
-      email: "johndoe@gmail.com"
-    },
-    {
-      name : "Jacob Smith",
-      position : "Member",
-      number : "0876543211",
-      email: "johndoe@gmail.com"
-    }
-];
+        const data = [
+        {
+        name : "John Doe",
+        position : "Coach",
+        number : "0871231231",
+        email: "johndoe@gmail.com"
+        },
+        {
+        name : "Jane Doe",
+        position : "Chairman",
+        number : "0861231231",
+        email: "johndoe@gmail.com"
+        },
+        {
+        name : "Jacob Smith",
+        position : "Member",
+        number : "0876543211",
+        email: "johndoe@gmail.com"
+        }
+    ];
     
 
     let windowWidth = Dimensions.get('window').width;
@@ -52,7 +52,8 @@ renderRow(row){
         <View style={{  backgroundColor: 'rgba(0,0,0,0.6)',marginTop: 10,width: this.state.thumbnailSize.width, borderBottomWidth: 0, borderTopWidth: 3, borderColor: 'white'}}>
             <Text style={AppStyle.contacttext}>Name: {row.name}</Text>
             <Text style={{marginTop: 10,color: 'white', marginBottom: 10,fontSize: 20}}>Position: {row.position}</Text>
-            <Text style={AppStyle.contacttext}>Number: {row.number}</Text>email
+            <Text style={AppStyle.contacttext}>Number: {row.number}</Text>
+            <Text style={AppStyle.contacttext}>Email: {row.email}</Text>
         
         <View style={{ backgroundColor: 'rgba(0,0,0,0.2)',flexDirection: 'row',  width: this.state.thumbnailSize.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>
@@ -65,7 +66,7 @@ renderRow(row){
                 <Text style={AppStyle.icontext}>TEXT</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.email()  }>                
+              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.email([row.email],null,null,"Enquiry",null)  }>                
                   <Image  style={{width: 70, height: 70,  }} source={require("../images/envelope.png")}/>
                   <Text style={AppStyle.icontext}>EMAIL</Text>                  
               </TouchableOpacity>      
