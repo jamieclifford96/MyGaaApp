@@ -33,7 +33,7 @@ class MatchReportScreen extends React.Component{
         }
     })
     .then( (myJson => {
-      let payload = this.groupByDivision(myJson);   
+      let payload = this.groupByDivision(this.filterData(myJson));   
       console.log(payload);       
       this.setState({                      
         fixtures : payload,
@@ -94,7 +94,16 @@ class MatchReportScreen extends React.Component{
         };
       })
     }
-  
+    filterData(data){
+      if(data.length == 0){
+        return [];
+      }
+      else{
+        var reversed = data.reverse();
+        return reversed;
+      }
+      
+    }
     renderRow(row){
       return(
         <View >

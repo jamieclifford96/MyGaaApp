@@ -36,7 +36,8 @@ class ClubMerchandiseScreen extends React.Component{
       <BackgroundTheme>     
         <View style={{ flex: 1}}>
 
-          <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop: 20, marginBottom: 20}}>             
+          <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop: 20, marginBottom: 20}}>   
+                   
             <Text style={{fontSize: 23, color : 'white', textAlign: 'center', padding:5 }}>Our Club is happy to announce the availability of club gear which can now be purchased directly from the O'Neills Sports on-line shop.</Text>
           </View>
 
