@@ -37,7 +37,7 @@ class FixtureListScreen extends React.Component{
             }
         })
         .then( (myJson => {
-          let payload = this.groupByDivision(myJson);          
+          let payload = this.groupByDivision(this.filterData(myJson));          
           this.setState({                      
             fixtures : payload,
             dataSource :ds.cloneWithRows(payload),
@@ -104,6 +104,21 @@ class FixtureListScreen extends React.Component{
         fixtures : grouped[key]
       };
     })
+  }
+
+  filterData(data){
+    if(data.length == 0){
+      return [];
+    }
+    let currentTime = Date.now();
+    console.log(currentTime);
+    let placeholder= [];
+    data.forEach(element => {
+      if (new Date(element.dateTime).getTime() >= currentTime){
+        placeholder.push(element);
+      }
+    });
+    return placeholder;
   }
 
 
