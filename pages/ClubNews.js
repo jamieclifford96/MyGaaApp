@@ -77,11 +77,11 @@ class News extends React.Component {
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
           borderBottomWidth: 3,
-          backgroundColor: 'rgba(0,0,0,0)',
-          
+          backgroundColor: 'rgba(39, 77, 78, 0.7)',
+          borderTopWidth: 3,
           flex: 2,
         }}>
-          <Text style={{color: 'white', marginLeft: 210, marginTop: 15}}>{date.toDateString()}</Text>
+          <Text style={{color: 'white', marginLeft: 280, marginTop: 15}}>{date.toDateString()}</Text>
           <Text style={{
             fontSize: 25,
             color: 'white',
