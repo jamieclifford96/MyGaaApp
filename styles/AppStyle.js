@@ -62,7 +62,8 @@ export default StyleSheet.create({
   },
   fixturesDivisionHeading :{ 
     flexDirection: 'column',
-    margin :5,
+    marginTop :5,
+    marginBottom: 5,
     padding : 5,
     fontSize: 22,
     color: "#fff",

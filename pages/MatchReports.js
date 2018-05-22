@@ -131,7 +131,8 @@ formatDate(date){
                   style={{
                     flexDirection: 'column',
                     //alignItems: 'center',
-                    margin :5,
+                    marginTop :5,
+                    marginBottom: 5,
                     padding : 5,
                     backgroundColor: 'rgba(39, 77, 78, 0.7)',
                     width : this.state.width
