@@ -19,6 +19,7 @@ class HomeScreen extends React.Component{
         thumbnailSize :{
             width : windowWidth,
             height :windowWidth * 0.32
+            
           }
         
     }
@@ -49,6 +50,7 @@ class HomeScreen extends React.Component{
               <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News', token)}>
                 <Image style={{width: 70, height: 70,  }} source={require("../images/newspaper.png")}/>                    
                 <Text style={styles.text}>NEWS</Text>
+                
               </TouchableOpacity>
               
               <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports', token)}>

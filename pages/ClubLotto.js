@@ -62,7 +62,7 @@ class ClubLottoScreen extends React.Component {
       return(
         <BackgroundTheme>
         
-         < View style={{backgroundColor: 'rgba(0,0,0,0)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop:3, marginBottom: 0}}>             
+         < View style={{ backgroundColor: 'rgba(39, 77, 78, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop:0, marginBottom: 0, width: this.state.screenWidth}}>             
             <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{date.toDateString()}</Text>
           </View>
 
@@ -84,8 +84,8 @@ class ClubLottoScreen extends React.Component {
 
             <Image  style={{width: 150, height: 135 ,marginBottom: 20}} source={require("../images/loto-jar-inverted.png")}/>
           </View>         
-          <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
-          <Text style={{fontSize: 18, color : 'white', textAlign: 'center'}}>{this.state.message}</Text>
+          <View style={{ backgroundColor: 'rgba(39, 77, 78, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
+          <Text style={{fontSize:22, color : 'white', textAlign: 'center'}}>{this.state.message}</Text>
           </View>
 
        </BackgroundTheme>
