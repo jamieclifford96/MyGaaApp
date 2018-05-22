@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid } from 'react-native';
+import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions } from 'react-native';
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
@@ -14,11 +14,13 @@ class FixtureListScreen extends React.Component{
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     let data = this.groupByDivision([]);
-
+    let windowWidth = Dimensions.get('window').width;
     this.state = {      
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
-      division : "All"
+      division : "All",
+      width : windowWidth,
+      height :windowWidth * 0.5
     };
 
     let headers = new Headers();
@@ -138,7 +140,8 @@ formatDate(date){
                     //alignItems: 'center',
                     margin :5,
                     padding : 5,
-                    backgroundColor: 'rgba(39, 77, 78, 0.7)'
+                    backgroundColor: 'rgba(39, 77, 78, 0.7)',
+                    width : this.state.width
                   }}> 
                   <View style={{ flexDirection: 'row'  }}>                          
                     <Text style={AppStyle.fixtureItemText}>{fixture.home}</Text>  
