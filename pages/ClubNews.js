@@ -37,7 +37,7 @@ class News extends React.Component {
       }
   })
   .then( (myJson => {
-    let payload = myJson;          
+    let payload = this.filterData(myJson);          
     this.setState({                      
       fixtures : payload,
       dataSource :ds.cloneWithRows(payload),
@@ -56,6 +56,16 @@ class News extends React.Component {
     return require('../offline-data/news.json');    
   }
 
+  filterData(data){
+    if(data.length == 0){
+      return [];
+    }
+    else{
+      var reversed = data.reverse();
+      return reversed;
+    }
+    
+  }
   renderPost(data){
     const date = new Date(data.dateTime);
     return (
