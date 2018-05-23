@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: '#DDDDDD',
     padding: 10,
     marginBottom: 10,
-    fontFamily: 'arial',
+    fontFamily: 'Helvetica',
   },
   view :{ 
     flex: 1, 
@@ -17,6 +17,9 @@ export default StyleSheet.create({
     text :{
 
   },
+  baseText: {
+    
+  },
   buttonContainer :{
     flexDirection: 'row',
     alignItems: 'center',
@@ -25,7 +28,8 @@ export default StyleSheet.create({
     //borderColor: '#fff',
    
     //borderRadius: 5 ,
-    margin: 5,    
+    margin: 5,  
+    fontFamily: 'Helvetica',  
   },
   buttonImage :{
     padding: 10,
@@ -39,18 +43,20 @@ export default StyleSheet.create({
     color: "#fff",
     marginBottom : 4,
     marginRight :20,  
-    fontFamily: 'arial',  
+    fontFamily: 'Helvetica',
   },
   fixtureItemText :{ 
     fontSize: 15,
     color: "#fff",
-    padding : 5    
+    padding : 5,  
+    fontFamily: 'Helvetica',
   },
   fixtureDivisionText :{ 
     backgroundColor: 'rgb(39, 77, 78)',
     fontSize: 17,
     fontStyle : 'italic',
     color: "#fff",
+    fontFamily: 'Helvetica',
     padding : 5    
   },
   fixtureIcon: {
@@ -68,7 +74,7 @@ export default StyleSheet.create({
     fontSize: 22,
     color: "#fff",
     backgroundColor: "rgba(0,0,0,0.4)", 
-    fontFamily: 'arial',  
+    fontFamily: 'Helvetica',  
     textAlign: 'center',
     
   },
@@ -82,7 +88,8 @@ export default StyleSheet.create({
   },
   icontext: {
     marginTop: 1,
-    color: 'white'
+    color: 'white',
+    fontFamily: 'Helvetica',
   },
   iconbutton: {
     flexDirection: 'column',

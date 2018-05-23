@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ListView, Dimensions, TouchableOpacity,ImageBackground } from 'react-native';
+import { Button, View, Text, Image, ListView, Dimensions, TouchableOpacity,ImageBackground, ActivityIndicator } from 'react-native';
 import AppStyle from '../styles/AppStyle.js'
 import { groupBy } from 'lodash';
 import BackgroundTheme from '../views/BackgroundTheme.js'
-
+import Spinner from 'react-native-loading-spinner-overlay';
 class News extends React.Component {
   constructor(props) {
     super(props);
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const token = props.navigation.state.params.token;
-    let data = this.getLocalJson();
+    let data = [];
     let windowWidth = Dimensions.get('window').width;
 
     this.state = {      
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
+      visable : false,
       thumbnailSize :{
         width : windowWidth * 1,
-        height :windowWidth * 0.5
+        height :windowWidth * 0.5,
+        
       }
+      
     };
     let headers = new Headers();
     headers.append("Authorization", token );
@@ -47,7 +50,7 @@ class News extends React.Component {
 
     //this.getMoviesFromApiAsync();
   } 
-
+ 
   static navigationOptions = {
     title : "News"
   };
@@ -69,6 +72,7 @@ class News extends React.Component {
   renderPost(data){
     const date = new Date(data.dateTime);
     return (
+     
       <TouchableOpacity 
         activeOpacity={0.5}
         onPress={() => this.props.navigation.navigate('NewsDetails', data)}> 
@@ -76,10 +80,11 @@ class News extends React.Component {
         style={{width: this.state.thumbnailSize.width,marginBottom:5, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
-          borderBottomWidth: 3,
-          backgroundColor: 'rgba(39, 77, 78, 0.7)',
-          borderTopWidth: 3,
+          //borderBottomWidth: 3,
+          backgroundColor: 'rgba(255,70,70, 0.7)',
+          //borderTopWidth: 3,
           flex: 2,
+          height: this.state.thumbnailSize.width * .3,
         }}>
           <Text style={{color: 'white', marginLeft: 280, marginTop: 15}}>{date.toDateString()}</Text>
           <Text style={{
@@ -100,6 +105,7 @@ class News extends React.Component {
 
     return (
       <BackgroundTheme>
+        <ActivityIndicator size="large" color="#0000ff" />
       <ListView
         dataSource={this.state.dataSource}
         renderRow={(rowData) =>this.renderPost(rowData)}

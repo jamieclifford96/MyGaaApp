@@ -7,7 +7,7 @@ class BackgroundTheme extends React.Component{
         <ImageBackground style={{
             flex: 1,
             alignItems: 'center',
-        }} source={require('../images/background2.jpg')}>
+        }} source={require('../images/stadium-seats-red.png')}>
             {this.props.children}
             
            </ImageBackground>
