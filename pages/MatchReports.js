@@ -27,7 +27,7 @@ class MatchReportScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    fetch("http://159.107.167.64:8080/gaaservice/webapi/results/", {
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/results/", {
             headers: headers
         })
         .then((response) => {
