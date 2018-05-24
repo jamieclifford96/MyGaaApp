@@ -74,7 +74,7 @@ export default class LoginScreen extends Component {
       <BackgroundTheme>
           
         <View style={styles.logocontainer}>
-            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50, marginLeft: 20, marginRight: 10}} source={require("../images/crest-noBackground.png")}/>
+            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50, marginLeft: 20, marginRight: 10}} source={require("../images/crest.png")}/>
         </View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.logocontainer}>

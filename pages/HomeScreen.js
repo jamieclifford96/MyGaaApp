@@ -41,7 +41,7 @@ class HomeScreen extends React.Component{
          
           
             <View style={styles.firstrow}>
-            <Image style={{ height: this.state.thumbnailSize.width/3, width: this.state.thumbnailSize.width *0.9, marginTop: 100, marginLeft: 20}} source={require("../images/gaa_logo-edited.png")}/>
+            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 65, marginLeft: 65}} source={require("../images/crest.png")}/>
             </View>
             <View style={styles.secondrow}>
             </View>
