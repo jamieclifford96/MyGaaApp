@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions, Keyboard, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions, Keyboard, TouchableWithoutFeedback,KeyboardAvoidingView} from 'react-native';
 import BackgroundTheme from '../views/BackgroundTheme';
 
 const base64 = require('base-64');
@@ -70,12 +70,20 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-     
+        
       <BackgroundTheme>
-          
-        <View style={styles.logocontainer}>
-            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50, marginLeft: 20, marginRight: 10}} source={require("../images/crest.png")}/>
-        </View>
+          <KeyboardAvoidingView
+        style={styles.keyboardPadding}
+        behavior='padding'
+      >
+      <View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        
+            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50, marginLeft: 20, marginRight: 10,
+        
+        justifyContent : 'center',}} source={require("../images/crest.png")}/>
+        
+        </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.logocontainer}>
             <TextInput 
@@ -104,6 +112,8 @@ export default class LoginScreen extends Component {
               </TouchableOpacity>
         </View>
         </TouchableWithoutFeedback>
+        </View>
+        </KeyboardAvoidingView>
       </BackgroundTheme>
       
     )
@@ -114,7 +124,8 @@ const styles = StyleSheet.create({
     logocontainer :{
         alignItems : 'center',
         flexGrow : 1,
-        justifyContent : 'center'
+        justifyContent : 'center',
+        
     },
     input:{
         height : 50,
@@ -141,5 +152,11 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontFamily: 'arial', 
         textAlign: 'center',
-    }
+    },
+    keyboardPadding :{
+        alignItems : 'center',
+        flexGrow : 1,
+        justifyContent: 'center'
+        
+    },
 });

@@ -10,7 +10,7 @@ class ClubMerchandiseScreen extends React.Component{
 
     this.state = {         
       screenWidth : windowWidth,   
-      shopURL : "https://www.oneills.com/shop-by-team/gaa/ireland/garrycastle-gaa.html",
+      //shopURL : "https://www.oneills.com/shop-by-team/gaa/ireland/garrycastle-gaa.html",
     };
 
     
@@ -34,7 +34,7 @@ class ClubMerchandiseScreen extends React.Component{
   render() {
     return (
       <BackgroundTheme>     
-        <View style={{ flex: 1}}>
+        <View style={{flex: 1}}>
 
           <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop: 20, marginBottom: 20}}>   
                    

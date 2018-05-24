@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions } from 'react-native';
+import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions,ActivityIndicator } from 'react-native';
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
@@ -19,6 +19,7 @@ class FixtureListScreen extends React.Component{
       fixtures : data,
       dataSource :ds.cloneWithRows(data),
       division : "All",
+      isSpinning: true,
       width : windowWidth,
       height :windowWidth * 0.5
     };
@@ -43,6 +44,7 @@ class FixtureListScreen extends React.Component{
           this.setState({                      
             fixtures : payload,
             dataSource :ds.cloneWithRows(payload),
+            isSpinning: false
           });
 
           this.props.navigation.setParams({ 
@@ -173,7 +175,7 @@ formatDate(date){
 
       return (
         <BackgroundTheme>  
-          
+          { this.state.isSpinning ? <ActivityIndicator animating={this.state.isSpinning} size="large" color="#fff" /> : null  }
           {/*<Text style={AppStyle.fixturesDivisionHeading}>{this.state.division}</Text>*/}         
           <ListView
             dataSource={dataSource}

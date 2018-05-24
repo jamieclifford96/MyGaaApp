@@ -15,6 +15,7 @@ class News extends React.Component {
 
     this.state = {      
       fixtures : data,
+      isSpinning: true,
       dataSource :ds.cloneWithRows(data),
       visable : false,
       thumbnailSize :{
@@ -36,6 +37,7 @@ class News extends React.Component {
         ToastAndroid.show("Oops something went wrong", ToastAndroid.LONG);
       }
       else{
+        
         return response.json();
       }
   })
@@ -44,6 +46,7 @@ class News extends React.Component {
     this.setState({                      
       fixtures : payload,
       dataSource :ds.cloneWithRows(payload),
+      isSpinning: false
     });
   }))
 .done();
@@ -74,17 +77,17 @@ class News extends React.Component {
     return (
      
       <TouchableOpacity 
-        activeOpacity={0.5}
+        activeOpacity={0.7}
         onPress={() => this.props.navigation.navigate('NewsDetails', data)}> 
         <ImageBackground  
-        style={{width: this.state.thumbnailSize.width,marginBottom:5, borderColor: 'white'}} 
+        style={{width: this.state.thumbnailSize.width,marginBottom:5, borderBottomWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
           //borderBottomWidth: 3,
-          backgroundColor: 'rgba(255,70,70, 0.7)',
+          backgroundColor: 'rgba(0,0,0, 0.5)',
           //borderTopWidth: 3,
           flex: 2,
-          height: this.state.thumbnailSize.width * .3,
+          height: this.state.thumbnailSize.width * .25,
         }}>
           <Text style={{color: 'white', marginLeft: 280, marginTop: 15}}>{date.toDateString()}</Text>
           <Text style={{
@@ -105,9 +108,10 @@ class News extends React.Component {
 
     return (
       <BackgroundTheme>
-        <ActivityIndicator size="large" color="#0000ff" />
+      { this.state.isSpinning ? <ActivityIndicator animating={this.state.isSpinning} size="large" color="#fff" /> : null  }
       <ListView
         dataSource={this.state.dataSource}
+        enableEmptySections={true}
         renderRow={(rowData) =>this.renderPost(rowData)}
       />
       </BackgroundTheme>

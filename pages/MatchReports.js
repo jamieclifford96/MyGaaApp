@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions } from 'react-native';
+import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions, ActivityIndicator } from 'react-native';
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
@@ -17,7 +17,8 @@ class MatchReportScreen extends React.Component{
       dataSource :ds.cloneWithRows(data),
       division : "All",
       width : windowWidth,
-      height :windowWidth * 0.5
+      height :windowWidth * 0.5,
+      isSpinning: true,
     };
 
     let headers = new Headers();
@@ -32,7 +33,9 @@ class MatchReportScreen extends React.Component{
               ToastAndroid.show("Oops something went wrong", ToastAndroid.LONG);
             }
             else{
+              
               return response.json();
+              
             }
         })
         .then( (myJson => {
@@ -40,6 +43,7 @@ class MatchReportScreen extends React.Component{
           this.setState({                      
             fixtures : payload,
             dataSource :ds.cloneWithRows(payload),
+            isSpinning: false
           });
 
           this.props.navigation.setParams({ 
@@ -131,7 +135,7 @@ formatDate(date){
                     marginTop :5,
                     marginBottom: 5,
                     padding : 5,
-                    backgroundColor: 'rgba(39, 77, 78, 0.7)',
+                    backgroundColor: 'rgba(39, 77, 78, 0.9)',
                     width : this.state.width
                   }}> 
                   <View style={{ flexDirection: 'row'  }}>                          
@@ -163,7 +167,7 @@ formatDate(date){
 
       return (
         <BackgroundTheme>  
-          
+           { this.state.isSpinning ? <ActivityIndicator animating={this.state.isSpinning} size="large" color="#fff" /> : null  }
           {/*<Text style={AppStyle.fixturesDivisionHeading}>{this.state.division}</Text>*/}         
           <ListView
             dataSource={dataSource}

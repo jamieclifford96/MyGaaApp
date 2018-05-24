@@ -15,22 +15,22 @@ class ContactUs extends React.Component {
         const ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 != r2});
         const data = [
         {
-        name : "John Doe",
+        name : "John Smith",
         position : "Coach",
         number : "0871231231",
-        email: "johndoe@gmail.com"
+        email: "john@gmail.com"
         },
         {
-        name : "Jane Doe",
+        name : "Jane Smith",
         position : "Chairman",
         number : "0861231231",
-        email: "johndoe@gmail.com"
+        email: "jane@gmail.com"
         },
         {
         name : "Jacob Smith",
         position : "Member",
         number : "0876543211",
-        email: "johndoe@gmail.com"
+        email: "jacob@gmail.com"
         }
     ];
     

@@ -73,7 +73,7 @@ export default StyleSheet.create({
     padding : 5,
     fontSize: 22,
     color: "#fff",
-    backgroundColor: "rgba(0,0,0,0.4)", 
+    backgroundColor: "rgba(0,0,0,0.9)", 
     fontFamily: 'Helvetica',  
     textAlign: 'center',
     
