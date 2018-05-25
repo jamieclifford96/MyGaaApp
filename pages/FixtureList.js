@@ -4,6 +4,7 @@ import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
 import Spinner from 'react-native-loading-spinner-overlay';
+import Loader from '../components/Loader.js';
 
 class FixtureListScreen extends React.Component{
   constructor(props) {
@@ -115,6 +116,8 @@ class FixtureListScreen extends React.Component{
       return [];
     }
     let currentTime = Date.now();
+    let twoDaysAgo = new Date(currentTime.year, currentTime.monthIndex, (currentTime.day-2));
+    currentTime = twoDaysAgo;
     let placeholder= [];
     data.forEach(element => {
       if (new Date(element.dateTime).getTime() >= currentTime){
@@ -175,13 +178,14 @@ formatDate(date){
 
       return (
         <BackgroundTheme>  
-          { this.state.isSpinning ? <ActivityIndicator animating={this.state.isSpinning} size="large" color="#fff" /> : null  }
-          {/*<Text style={AppStyle.fixturesDivisionHeading}>{this.state.division}</Text>*/}         
+          { this.state.isSpinning ?<Loader/>  :  
+          
           <ListView
             dataSource={dataSource}
             enableEmptySections={true}
             renderRow={(rowData) => this.renderRow(rowData)}
           /> 
+          }
         </BackgroundTheme>
       );    
     }

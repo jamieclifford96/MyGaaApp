@@ -4,6 +4,7 @@ import AppStyle from '../styles/AppStyle.js'
 import { groupBy } from 'lodash';
 import BackgroundTheme from '../views/BackgroundTheme.js'
 import Spinner from 'react-native-loading-spinner-overlay';
+import Loader from '../components/Loader.js'
 class News extends React.Component {
   constructor(props) {
     super(props);
@@ -108,12 +109,13 @@ class News extends React.Component {
 
     return (
       <BackgroundTheme>
-      { this.state.isSpinning ? <ActivityIndicator animating={this.state.isSpinning} size="large" color="#fff" /> : null  }
+      { this.state.isSpinning ? <Loader/> : 
       <ListView
         dataSource={this.state.dataSource}
         enableEmptySections={true}
         renderRow={(rowData) =>this.renderPost(rowData)}
       />
+      }
       </BackgroundTheme>
     );
   }

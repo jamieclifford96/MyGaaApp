@@ -3,6 +3,7 @@ import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Pick
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
+import Loader from '../components/Loader.js'
 import Spinner from 'react-native-loading-spinner-overlay';
 
 class MatchReportScreen extends React.Component{
@@ -167,17 +168,16 @@ formatDate(date){
 
       return (
         <BackgroundTheme>  
-           { this.state.isSpinning ? <ActivityIndicator animating={this.state.isSpinning} size="large" color="#fff" /> : null  }
-          {/*<Text style={AppStyle.fixturesDivisionHeading}>{this.state.division}</Text>*/}         
+           { this.state.isSpinning ? <Loader/> 
+           :        
           <ListView
             dataSource={dataSource}
             enableEmptySections={true}
             renderRow={(rowData) => this.renderRow(rowData)}
-          /> 
+          />  }
         </BackgroundTheme>
       );    
     }
   }
 
   export default MatchReportScreen;
-  

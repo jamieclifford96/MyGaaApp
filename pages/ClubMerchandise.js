@@ -40,7 +40,7 @@ class ClubMerchandiseScreen extends React.Component{
                    
             <Text style={{fontSize: 23, color : 'white', textAlign: 'center', padding:5 }}>Our Club is happy to announce the availability of club gear which can now be purchased directly from the O'Neills Sports on-line shop.</Text>
           </View>
-
+          
           {/* Shop Button */}
           <TouchableOpacity 
               style={{

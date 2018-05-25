@@ -53,6 +53,47 @@ class ClubLottoScreen extends React.Component {
   }
 
   
+getDayOfWeek(date)
+{
+
+  var day = date.getDay();
+  var fullstring = date.toDateString();
+  var daystring = fullstring.substr(0,3);
+  switch(daystring)
+  {
+    case "Sun": 
+    daystring = "Sunday"
+    break;
+    case "Mon":
+    daystring = "Monday"
+    break;
+    case "Tue":
+    daystring = "Tuesday"
+    break;
+    case "Wed":
+    daystring = "Wednesday"
+    break;
+    case "Thu":
+    daystring = "Thursday"
+    break;
+    case "Fri":
+    daystring = "Friday"
+    break;
+    case "Sat":
+    daystring = "Saturday"
+    break;
+    default :
+    daystring = "Not valid"
+    break;
+
+  }
+  let finalstring = date.toDateString();
+  finalstring = finalstring.substr(4,12)
+  daystring += " - " + finalstring;
+  
+  return daystring;
+}
+
   static navigationOptions = {
       title: 'Club Lotto',
     };
@@ -63,7 +104,7 @@ class ClubLottoScreen extends React.Component {
         <BackgroundTheme>
         
          < View style={{ backgroundColor: 'rgba(39, 77, 78, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop:0, marginBottom: 0, width: this.state.screenWidth}}>             
-            <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{date.toDateString()}</Text>
+            <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{this.getDayOfWeek(date)}</Text>
           </View>
 
           <View style={{backgroundColor: 'rgba(0,0,0,0.0)', borderTopWidth: 0, borderBottomWidth: 0, borderColor: 'white', alignItems: 'center'}}> 
