@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Image, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions, Keyboard, TouchableWithoutFeedback,KeyboardAvoidingView} from 'react-native';
+import {StyleSheet, View, Image, StatusBar, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions, Keyboard, TouchableWithoutFeedback,KeyboardAvoidingView} from 'react-native';
 import BackgroundTheme from '../views/BackgroundTheme';
 
 const base64 = require('base-64');
@@ -72,10 +72,13 @@ export default class LoginScreen extends Component {
     return (
         
       <BackgroundTheme>
+           <StatusBar hidden ={false}  backgroundColor="#000"
+     barStyle="light-content"/>
           <KeyboardAvoidingView style={styles.logocontainer}
         
         behavior='padding'
       >
+      
       <View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         

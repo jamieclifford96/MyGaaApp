@@ -103,7 +103,7 @@ getDayOfWeek(date)
       return(
         <BackgroundTheme>
         
-         < View style={{ backgroundColor: 'rgba(39, 77, 78, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop:0, marginBottom: 0, width: this.state.screenWidth}}>             
+         < View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop:0, marginBottom: 0, width: this.state.screenWidth}}>             
             <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{this.getDayOfWeek(date)}</Text>
           </View>
 
@@ -125,7 +125,7 @@ getDayOfWeek(date)
 
             <Image  style={{width: 150, height: 135 ,marginBottom: 20}} source={require("../images/loto-jar-inverted.png")}/>
           </View>         
-          <View style={{ backgroundColor: 'rgba(39, 77, 78, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
+          <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
           <Text style={{fontSize:18, color : 'white', textAlign: 'center'}}>{this.state.message}</Text>
           </View>
 

@@ -55,12 +55,13 @@ const RootStack = StackNavigator(
       initialRouteName: 'Login',
       navigationOptions: {
         headerStyle: {
-          backgroundColor: 'rgba(150,150,150,1)',
+          backgroundColor: '#870202',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        
       },
     }
   
@@ -78,7 +79,7 @@ export default class App extends React.Component {
 
   render() {
     return(
-      <RootStack/>
+      <RootStack duration={0} />
     );
   }
 }

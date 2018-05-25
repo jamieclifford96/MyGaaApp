@@ -49,7 +49,7 @@ class ContactUs extends React.Component {
 }
 renderRow(row){
     return(
-        <View style={{  backgroundColor: 'rgba(0,0,0,0.6)',marginTop: 10,width: this.state.thumbnailSize.width, borderBottomWidth: 0, borderTopWidth: 3, borderColor: 'white'}}>
+        <View style={{  backgroundColor: 'rgba(0,0,0,0.6)',marginBottom: 10,width: this.state.thumbnailSize.width, borderBottomWidth: 0, borderTopWidth: 3, borderColor: 'white'}}>
             <Text style={AppStyle.contacttext}>Name: {row.name}</Text>
             <Text style={{marginTop: 10,color: 'white', marginBottom: 10,fontSize: 20}}>Position: {row.position}</Text>
             <Text style={AppStyle.contacttext}>Number: {row.number}</Text>

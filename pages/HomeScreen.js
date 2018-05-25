@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions,TouchableHighlight,TouchableOpacity,TouchableNativeFeedback } from 'react-native';
+import { View, Text, Button, Icon, Card,StyleSheet,Image,ImageBackground,Dimensions,TouchableHighlight,TouchableOpacity,TouchableNativeFeedback, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import BackgroundTheme from '../views/BackgroundTheme';
 //import FixtureListScreen from './pages/FixtureList.js';
@@ -37,6 +37,8 @@ class HomeScreen extends React.Component{
 
         return (
           <BackgroundTheme style={{backgroundColor: 'rgba(0,0,0,0.9)'}}>
+           <StatusBar hidden ={false}  backgroundColor="#000"
+     barStyle="light-content"/>
           <View style={styles.container}>
          
           

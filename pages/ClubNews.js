@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ListView, Dimensions, TouchableOpacity,ImageBackground, ActivityIndicator } from 'react-native';
+import { Button, View, Text, Image, ListView, Dimensions, TouchableOpacity,ImageBackground, ActivityIndicator,StatusBar } from 'react-native';
 import AppStyle from '../styles/AppStyle.js'
 import { groupBy } from 'lodash';
 import BackgroundTheme from '../views/BackgroundTheme.js'
@@ -81,7 +81,7 @@ class News extends React.Component {
         activeOpacity={0.7}
         onPress={() => this.props.navigation.navigate('NewsDetails', data)}> 
         <ImageBackground  
-        style={{width: this.state.thumbnailSize.width,marginBottom:5, borderBottomWidth: 3, borderColor: 'white'}} 
+        style={{width: this.state.thumbnailSize.width, borderBottomWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
           //borderBottomWidth: 3,
@@ -96,8 +96,9 @@ class News extends React.Component {
             color: 'white',
             marginLeft:10,
             marginRight:10,
-            marginTop: 5
-          }}> {data.title} </Text> 
+            marginTop: 5,
+            
+          }}>{data.title} </Text> 
                    {/*<Text style={AppStyle.buttonText}> {data.datetime} </Text>*/} 
         </View>
         </ImageBackground>
@@ -109,6 +110,9 @@ class News extends React.Component {
 
     return (
       <BackgroundTheme>
+         <StatusBar hidden={false}
+    
+   />
       { this.state.isSpinning ? <Loader/> : 
       <ListView
         dataSource={this.state.dataSource}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions, ActivityIndicator } from 'react-native';
+import { Button, View, Text, Image, StatusBar, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions, ActivityIndicator } from 'react-native';
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
