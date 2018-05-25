@@ -72,14 +72,14 @@ export default class LoginScreen extends Component {
     return (
         
       <BackgroundTheme>
-          <KeyboardAvoidingView
-        style={styles.keyboardPadding}
+          <KeyboardAvoidingView style={styles.logocontainer}
+        
         behavior='padding'
       >
       <View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         
-            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50, marginLeft: 20, marginRight: 10,
+        <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50,
         
         justifyContent : 'center',}} source={require("../images/crest.png")}/>
         
@@ -153,10 +153,5 @@ const styles = StyleSheet.create({
         fontFamily: 'arial', 
         textAlign: 'center',
     },
-    keyboardPadding :{
-        alignItems : 'center',
-        flexGrow : 1,
-        justifyContent: 'center'
-        
-    },
+  
 });
