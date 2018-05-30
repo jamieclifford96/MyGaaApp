@@ -68,14 +68,16 @@ export default StyleSheet.create({
   },
   fixturesDivisionHeading :{ 
     flexDirection: 'column',
-    marginTop :5,
-    marginBottom: 5,
+    marginTop :0,
+    marginBottom: 0,
     padding : 5,
     fontSize: 22,
     color: "#fff",
     backgroundColor: "#A81919", 
     fontFamily: 'Helvetica',  
     textAlign: 'center',
+    borderBottomWidth : 3,
+    borderColor: 'white'
     
   },
   bigbutton: {

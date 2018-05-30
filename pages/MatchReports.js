@@ -8,6 +8,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 class MatchReportScreen extends React.Component{
   constructor(props) {
+    console.disableYellowBox = true;
     super(props);
     const token = props.navigation.state.params.token;
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -117,7 +118,29 @@ class MatchReportScreen extends React.Component{
     
   }
 
+checkVictory(row)
+{
+  var teamA = row.homeScore.split('-');
+  var teamB = row.awayScore.split('-');
 
+ 
+  if((parseInt((teamA[0] * 3)) + parseInt(teamA[1]))> (parseInt((teamB[0]*3)) + parseInt(teamB[1])))
+  {
+    return "W";
+  }
+  else if((parseInt((teamA[0] * 3)) + parseInt(teamA[1]))< (parseInt((teamB[0]*3)) + parseInt(teamB[1])))
+  {
+    return "L";
+  }
+  else {
+    return "D";
+  }
+
+
+
+
+  
+}
 formatDate(date){
   return "Test";
 }
@@ -129,16 +152,22 @@ formatDate(date){
             row.fixtures.map((fixture, index) => {
               const date = new Date(fixture.dateTime);
               return (
+                <View style={{ marginTop :0,
+                  marginBottom: 0,
+                  padding : 5,
+                  backgroundColor: '#C93838',
+                  width : this.state.width,
+                 borderBottomWidth: 3,
+                 borderBottomColor: 'white',
+                 flexDirection: 'row',
+                 justifyContent: 'flex-start',}
+                 }>
                 <View key={index}
                   style={{
                     flexDirection: 'column',
+                    width: this.state.width/2
                     //alignItems: 'center',
-                    marginTop :5,
-                    marginBottom: 5,
-                    padding : 5,
-                    backgroundColor: '#C93838',
-                    width : this.state.width,
-                  
+                   
                     
                   }}> 
                   <View style={{ flexDirection: 'row'  }}>                          
@@ -155,6 +184,11 @@ formatDate(date){
                     <Text style={AppStyle.fixtureItemText}>({fixture.homeScore}) - ({fixture.awayScore})</Text>
                   </View>
                 </View>
+                <View style={{flexDirection : 'row', marginLeft: 120, marginTop: 17.5, justifyContent: 'center',flex: 0,borderWidth: 3, borderColor: 'white', width: 60, height: 60, padding: 5}}>
+                <Text style={{fontSize: 30, color: 'white'}}>{this.checkVictory(fixture)}</Text>
+                </View>
+
+              </View>
               );
             })
           }
