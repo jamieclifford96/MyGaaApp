@@ -19,7 +19,7 @@ class ClubLottoScreen extends React.Component {
     headers.append("Authorization", token );
     headers.append("Accept", "application/json" );
    
-    fetch("http://86.41.137.78:8000/gaaservice/webapi/lotto", {
+    fetch("http://159.107.219.241:8080/gaaservice/webapi/lotto", {
             headers: headers
         })
         .then((response) => {
@@ -51,8 +51,21 @@ class ClubLottoScreen extends React.Component {
 
   
   }
-
-  
+sortMessage(message)
+{
+ var test =[];
+ test = message.split('.');
+ return test;
+}
+cycleArray(test)
+{
+  var full = "";
+  for(i = 0; i < test.length; i++)
+  {
+    full += test[i] + "\n\n";
+  }
+  return full;
+}
 getDayOfWeek(date)
 {
 
@@ -87,9 +100,59 @@ getDayOfWeek(date)
     break;
 
   }
+  let monthString = date.toDateString();
+  monthString = monthString.substr(4,3);
+
+  switch(monthString)
+  {
+    case "Jan": 
+    monthString = "1"
+    break;
+    case "Feb":
+    monthString = "2"
+    break;
+    case "Mar":
+    monthString = "3"
+    break;
+    case "Apr":
+    monthString = "4"
+    break;
+    case "May":
+    monthString= "5"
+    break;
+    case "Jun":
+    monthString= "6"
+    break;
+    case "Jul":
+    monthString= "7"
+    break;
+    case "Aug":
+    monthString= "8"
+    break;
+    case "Sep":
+    monthString= "9"
+    break;
+    case "Oct":
+    monthString= "10"
+    break;
+    case "Nov":
+    monthString= "11"
+    break;
+    case "Dec":
+    monthString= "12"
+    break;
+    default :
+    monthString = "Not valid"
+    break;
+
+  }
+  let dateString = date.toDateString();
+  dateString = dateString.substr(8,2);
+  let yearString =date.toDateString();
+  yearString = yearString.substr(11,4);
   let finalstring = date.toDateString();
-  finalstring = finalstring.substr(4,12)
-  daystring += " - " + finalstring;
+  finalstring = finalstring.substr(4,12);
+  daystring += " - " + dateString + "/" + monthString + "/" + yearString;
   
   return daystring;
 }
@@ -100,15 +163,18 @@ getDayOfWeek(date)
 
     render(){
       const date = new  Date(this.state.day);
+      var split = this.sortMessage(this.state.message);
       return(
         <BackgroundTheme>
         
-         < View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop:0, marginBottom: 0, width: this.state.screenWidth}}>             
+         < View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white',marginTop:0, marginBottom: 0, width: this.state.screenWidth}}>             
             <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{this.getDayOfWeek(date)}</Text>
           </View>
 
           <View style={{backgroundColor: 'rgba(0,0,0,0.0)', borderTopWidth: 0, borderBottomWidth: 0, borderColor: 'white', alignItems: 'center'}}> 
             <View style={{ flexDirection: 'row', paddingTop : 20, paddingBottom : 20,  width: this.state.screenWidth }}>
+            
+
               <ImageBackground style={styles.lottoBall} source={require('../images/loto-ball-inverted.png')}>            
                 <Text style={styles.lottoBallText}>{this.state.results[0]}</Text>
               </ImageBackground>
@@ -126,7 +192,7 @@ getDayOfWeek(date)
             <Image  style={{width: 150, height: 135 ,marginBottom: 20}} source={require("../images/loto-jar-inverted.png")}/>
           </View>         
           <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
-          <Text style={{fontSize:18, color : 'white', textAlign: 'center'}}>{this.state.message}</Text>
+          <Text style={{fontSize:18, color : 'white', textAlign: 'center'}}>{this.cycleArray(split)}</Text>
           </View>
 
        </BackgroundTheme>

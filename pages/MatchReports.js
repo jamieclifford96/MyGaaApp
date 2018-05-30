@@ -26,7 +26,7 @@ class MatchReportScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    fetch("http://86.41.137.78:8000/gaaservice/webapi/results/", {
+    fetch("http://159.107.219.241:8080/gaaservice/webapi/results/", {
             headers: headers
         })
         .then((response) => {
@@ -136,8 +136,10 @@ formatDate(date){
                     marginTop :5,
                     marginBottom: 5,
                     padding : 5,
-                    backgroundColor: 'rgba(39, 77, 78, 0.9)',
-                    width : this.state.width
+                    backgroundColor: '#C93838',
+                    width : this.state.width,
+                  
+                    
                   }}> 
                   <View style={{ flexDirection: 'row'  }}>                          
                     <Text style={AppStyle.fixtureItemText}>{fixture.home}</Text>  

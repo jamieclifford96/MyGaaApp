@@ -29,7 +29,7 @@ class FixtureListScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/", {
+    fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/", {
             headers: headers
         })
         .then((response) => {
