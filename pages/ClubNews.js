@@ -85,7 +85,7 @@ class News extends React.Component {
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
           //borderBottomWidth: 3,
-          backgroundColor: 'rgba(0,0,0, 0.5)',
+          backgroundColor: '#A81919',
           //borderTopWidth: 3,
           flex: 2,
           height: this.state.thumbnailSize.width * .25,

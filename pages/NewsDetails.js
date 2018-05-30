@@ -47,7 +47,7 @@ class NewsDetails extends React.Component {
     const date = new Date(this.state.datetime);
     return (
       <BackgroundTheme>
-        <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', width: this.state.thumbnailSize.width}}>
+        <View style={{backgroundColor: '#A81919', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', width: this.state.thumbnailSize.width}}>
           {/*<Image style={{width: this.state.thumbnailSize.width*1.2, height: this.state.thumbnailSize.height*1.1, borderWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+this.state.thumbnailBase64}}/>*/} 
         <Text style={{marginBottom: 30, marginLeft: 280, color: 'white'}}> {date.toDateString()} </Text>
@@ -56,7 +56,7 @@ class NewsDetails extends React.Component {
         <View>
         <ListView
             dataSource={this.state.dataSource}
-            renderRow={(row) => <Text style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)',width: this.state.width,fontSize: 20, color: 'white', paddingLeft: 30, paddingRight: 30 }}> {row} </Text>}
+            renderRow={(row) => <Text style={{ backgroundColor: '#C93838',width: this.state.width,fontSize: 20, color: 'white', paddingLeft: 30, paddingRight: 30, paddingTop:0, paddingBottom: 10 }}> {row} </Text>}
         />
         </View>
       </BackgroundTheme>

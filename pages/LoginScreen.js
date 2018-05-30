@@ -69,12 +69,11 @@ export default class LoginScreen extends Component {
     }
 
   render() {
-    return (
-        
+    return (       
       <BackgroundTheme>
            <StatusBar hidden ={false}  backgroundColor="#000"
      barStyle="light-content"/>
-          <KeyboardAvoidingView style={styles.logocontainer}
+          <KeyboardAvoidingView style={styles.keyboard}
         
         behavior='padding'
       >
@@ -82,15 +81,13 @@ export default class LoginScreen extends Component {
       <View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         
-        <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50,
-        
-        justifyContent : 'center',}} source={require("../images/crest.png")}/>
+        <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50, marginBottom: 50, justifyContent : 'center',}} source={require("../images/crest.png")}/>
         
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.logocontainer}>
             <TextInput 
-                placeholder="USERNAME" 
+                 placeholder="USERNAME" 
                 placeholderTextColor="#fff" 
                 returnKeyType="next"
                 style={styles.input}
@@ -112,7 +109,7 @@ export default class LoginScreen extends Component {
             
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
-              </TouchableOpacity>
+            </TouchableOpacity>
         </View>
         </TouchableWithoutFeedback>
         </View>
@@ -129,6 +126,12 @@ const styles = StyleSheet.create({
         flexGrow : 1,
         justifyContent : 'center',
         
+    },
+    keyboard :{
+        alignItems : 'center',
+        flexGrow : 1,
+        justifyContent : 'center',
+  
     },
     input:{
         height : 50,
