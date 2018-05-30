@@ -56,7 +56,7 @@ class NewsDetails extends React.Component {
         <View>
         <ListView
             dataSource={this.state.dataSource}
-            renderRow={(row) => <Text style={{ backgroundColor: 'rgba(39, 77, 78, 0.7)',width: this.state.width,fontSize: 20, color: 'white' }}> {row} </Text>}
+            renderRow={(row) => <Text style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)',width: this.state.width,fontSize: 20, color: 'white', paddingLeft: 30, paddingRight: 30 }}> {row} </Text>}
         />
         </View>
       </BackgroundTheme>
