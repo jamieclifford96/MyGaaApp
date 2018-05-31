@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, Image, StatusBar, Text, TextInput, TouchableOpacity,ToastAndroid, Dimensions, Keyboard, TouchableWithoutFeedback,KeyboardAvoidingView} from 'react-native';
 import BackgroundTheme from '../views/BackgroundTheme';
+import CreateUserScreen from './CreateUser';
 
 const base64 = require('base-64');
 
@@ -21,6 +22,9 @@ export default class LoginScreen extends Component {
     }
     static navigationOptions() {
         header: null
+    }
+    createUser(){
+        this.props.navigation.navigate('CreateUser', { token : this.state.authToken});
     }
     login(){
         Keyboard.dismiss();
@@ -87,7 +91,7 @@ export default class LoginScreen extends Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.logocontainer}>
             <TextInput 
-                 placeholder="USERNAME" 
+                placeholder="USERNAME" 
                 placeholderTextColor="#fff" 
                 returnKeyType="next"
                 style={styles.input}
@@ -106,7 +110,7 @@ export default class LoginScreen extends Component {
                 style={styles.input}
                 ref={(input) => this.passwordInput = input}
                 onChangeText={(text) => this.setState({password :text})} />
-            
+            <Text onPress={Keyboard.dismiss} accessible={false} onPress={() => this.createUser()} style={{color: 'white', textDecorationLine: 'underline'}}>SIGN UP</Text>
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
             </TouchableOpacity>

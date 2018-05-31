@@ -5,6 +5,7 @@ import FixtureListScreen from './pages/FixtureList.js';
 import News from './pages/ClubNews.js';
 import ClubMerchandiseScreen from './pages/ClubMerchandise.js';
 import ClubLottoScreen from './pages/ClubLotto.js';
+import CreateUserScreeen from './pages/CreateUser.js';
 import MatchReportsScreen from './pages/MatchReports.js';
 import NewsDetails from './pages/NewsDetails.js';
 import HomeScreen from './pages/HomeScreen.js';
@@ -43,6 +44,9 @@ const RootStack = StackNavigator(
     },
     ContactUs : {
       screen: ContactUs,
+    },
+    CreateUser: {
+       screen: CreateUserScreeen,
     },
     Login : {
       screen : LoginScreen,

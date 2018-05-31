@@ -114,8 +114,7 @@ class MatchReportScreen extends React.Component{
     else{
       var reversed = data.reverse();
       return reversed;
-    }
-    
+    }  
   }
 
 checkVictory(row)
@@ -123,7 +122,6 @@ checkVictory(row)
   var teamA = row.homeScore.split('-');
   var teamB = row.awayScore.split('-');
 
- 
   if((parseInt((teamA[0] * 3)) + parseInt(teamA[1]))> (parseInt((teamB[0]*3)) + parseInt(teamB[1])))
   {
     return "W";
@@ -135,11 +133,6 @@ checkVictory(row)
   else {
     return "D";
   }
-
-
-
-
-  
 }
 formatDate(date){
   return "Test";
