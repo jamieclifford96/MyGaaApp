@@ -52,8 +52,8 @@ renderRow(row){
         <View style={{  backgroundColor: '#C93838',marginBottom: 0,width: this.state.thumbnailSize.width, borderBottomWidth: 0, borderTopWidth: 3, borderColor: 'white'}}>
             <Text style={AppStyle.contacttext}>Name: {row.name}</Text>
             <Text style={{marginTop: 10,color: 'white', marginBottom: 10,fontSize: 20}}>Position: {row.position}</Text>
-            <Text style={AppStyle.contacttext}>Number: {row.number}</Text>
-            <Text style={AppStyle.contacttext}>Email: {row.email}</Text>
+            <Text style={{marginTop: 0,color: 'white', marginBottom: 10,fontSize: 20}}>Number: {row.number}</Text>
+            <Text style={{color: 'white', marginBottom: 10,fontSize: 20}}>Email: {row.email}</Text>
         
         <View style={{ backgroundColor: '#C93838',flexDirection: 'row',  width: this.state.thumbnailSize.width, borderTopWidth: 3, borderBottomWidth: 0, borderColor: 'white'}}>
              <TouchableOpacity style={AppStyle.iconbutton} onPress={() => Communications.phonecall(row.number, true)}>

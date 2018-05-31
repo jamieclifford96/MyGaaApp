@@ -10,6 +10,7 @@ import MatchReportsScreen from './pages/MatchReports.js';
 import NewsDetails from './pages/NewsDetails.js';
 import HomeScreen from './pages/HomeScreen.js';
 import ContactUs from './pages/ContactUs.js';
+import { fromLeft } from 'react-navigation-transitions';
 import LoginScreen from './pages/LoginScreen.js';
 import { YellowBox } from 'react-native';
 
@@ -57,6 +58,8 @@ const RootStack = StackNavigator(
   },
     {
       initialRouteName: 'Login',
+      
+    transitionConfig: () => fromLeft(),
       navigationOptions: {
         headerStyle: {
           backgroundColor: '#870202',
