@@ -37,11 +37,8 @@ class HomeScreen extends React.Component{
 
         return (
           <BackgroundTheme style={{backgroundColor: 'rgba(0,0,0,0.9)'}}>
-           <StatusBar hidden ={false}  backgroundColor="#000"
-     barStyle="light-content"/>
-          <View style={styles.container}>
-         
-          
+           <StatusBar hidden ={false}  backgroundColor="#000" barStyle="light-content"/>
+          <View style={styles.container}> 
             <View style={styles.firstrow}>
             <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 65, marginLeft: 65}} source={require("../images/crest.png")}/>
             </View>

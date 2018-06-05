@@ -27,7 +27,7 @@ class MatchReportScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/results/", {
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/results/", {
             headers: headers
         })
         .then((response) => {
@@ -35,7 +35,7 @@ class MatchReportScreen extends React.Component{
               ToastAndroid.show("Oops something went wrong", ToastAndroid.LONG);
             }
             else{
-              
+           
               return response.json();
               
             }
@@ -177,7 +177,7 @@ formatDate(date){
                     <Text style={AppStyle.fixtureItemText}>({fixture.homeScore}) - ({fixture.awayScore})</Text>
                   </View>
                 </View>
-                <View style={{flexDirection : 'row', marginLeft: 120, marginTop: 17.5, justifyContent: 'center',flex: 0,borderWidth: 3, borderColor: 'white', width: 60, height: 60, padding: 5}}>
+                <View style={{flexDirection : 'row', marginLeft: this.state.width/3.5, marginTop: 17.5, justifyContent: 'center',flex: 0,borderWidth: 3, borderColor: 'white', width: 60, height: 60, padding: 5}}>
                 <Text style={{fontSize: 30, color: 'white'}}>{this.checkVictory(fixture)}</Text>
                 </View>
 

@@ -19,7 +19,7 @@ class ClubLottoScreen extends React.Component {
     headers.append("Authorization", token );
     headers.append("Accept", "application/json" );
    
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/lotto", {
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/lotto", {
             headers: headers
         })
         .then((response) => {

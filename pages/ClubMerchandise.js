@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Button, Icon, Card,StyleSheet,Image,TouchableOpacity, Linking, Dimensions } from 'react-native';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
+import Communications from 'react-native-communications';
 class ClubMerchandiseScreen extends React.Component{
   constructor(props) {
     super(props);
@@ -38,7 +39,7 @@ class ClubMerchandiseScreen extends React.Component{
 
           <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop: 20, marginBottom: 20}}>   
                    
-            <Text style={{fontSize: 23, color : 'white', textAlign: 'center', padding:5 }}>Our Club is happy to announce the availability of club gear which can now be purchased directly from the O'Neills Sports on-line shop.</Text>
+            <Text style={{fontSize: 23, color : 'white', textAlign: 'center', padding:5 }}>Our Club is happy to announce the availability of club gear which can now be purchased by emailing</Text>
           </View>
           
           {/* Shop Button */}
