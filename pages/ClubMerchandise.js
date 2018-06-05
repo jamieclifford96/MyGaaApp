@@ -11,7 +11,7 @@ class ClubMerchandiseScreen extends React.Component{
 
     this.state = {         
       screenWidth : windowWidth,   
-      //shopURL : "https://www.oneills.com/shop-by-team/gaa/ireland/garrycastle-gaa.html",
+      shopURL : "https://www.oneills.com/shop-by-team/gaa/ireland/garrycastle-gaa.html",
     };
 
     
@@ -22,7 +22,7 @@ class ClubMerchandiseScreen extends React.Component{
     title : "Club Gear Shop"
   };
 
-  gotoONeals(){
+  gotoONeills(){
     Linking.canOpenURL(this.state.shopURL).then(supported => {
       if (supported) {
         Linking.openURL(this.state.shopURL);
@@ -39,7 +39,7 @@ class ClubMerchandiseScreen extends React.Component{
 
           <View style={{backgroundColor: 'rgba(0,0,0,0.4)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white',marginTop: 20, marginBottom: 20}}>   
                    
-            <Text style={{fontSize: 23, color : 'white', textAlign: 'center', padding:5 }}>Our Club is happy to announce the availability of club gear which can now be purchased by emailing</Text>
+            <Text style={{fontSize: 23, color : 'white', textAlign: 'center', padding:5 }}>Our Club is happy to announce the availability of club gear which can now be purchased by emailing or calling by clicking the buttons at the bottom of the pa</Text>
           </View>
           
           {/* Shop Button */}
@@ -52,7 +52,7 @@ class ClubMerchandiseScreen extends React.Component{
                 margin: 5,    
               }} 
               activeOpacity={0.5}
-              onPress={() =>this.gotoONeals()}> 
+              onPress={() =>this.gotoONeills()}> 
               <Image source={require('../images/shopping-cart-large.png')} style={{
                 paddingBottom : 10,
                 height: 150,
@@ -68,7 +68,7 @@ class ClubMerchandiseScreen extends React.Component{
           </TouchableOpacity>
 
         </View>
-        <Image  style={{width: 360, height: 140}} source={require("../images/players.png")}/>
+        <Image  style={{width: this.state.screenWidth, height: this.state.screenWidth/5}} source={require("../images/players.png")}/>
       </BackgroundTheme>
     );
   }

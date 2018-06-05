@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, StatusBar, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions, ActivityIndicator } from 'react-native';
+import { Button, View, Text, Image, StatusBar, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
 import Loader from '../components/Loader.js'
 import Spinner from 'react-native-loading-spinner-overlay';
+import AddMatchReportScreen from './AddMatchReport.js';
 
 class MatchReportScreen extends React.Component{
   constructor(props) {
@@ -64,7 +65,9 @@ class MatchReportScreen extends React.Component{
     const fixtures = params.fixtures || [];
 
     return {
-      headerTitle: <View style={{ borderColor: 'white', borderWidth:1,}}> 
+      headerTitle: 
+      <View style={{flexDirection: 'row'}}>
+      <View style={{ borderColor: 'white', borderWidth:1,}}> 
         <Picker
         style={{ 
           height: 30, 
@@ -77,7 +80,14 @@ class MatchReportScreen extends React.Component{
         <Picker.Item key={0} label="All" value="All" />
           { fixtures.map((i, index) => ( <Picker.Item key={index++} label={i.division} value={i.division}/> ))}
         </Picker>
-      </View>,
+       
+      </View>
+      <View>
+         <TouchableOpacity>
+          <Image style={{height: 35, width: 35, marginLeft: 50}}source={require('../images/plus.png')}/>
+        </TouchableOpacity>
+      </View>
+      </View>
     };
   };
   
@@ -106,7 +116,9 @@ class MatchReportScreen extends React.Component{
       };
     })
   }
-
+  AddAMatchReport(){
+    this.props.navigation.navigate('AddMatchReport', { token : this.state.authToken});
+}
   filterData(data){
     if(data.length == 0){
       return [];
