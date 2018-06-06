@@ -12,8 +12,10 @@ import HomeScreen from './pages/HomeScreen.js';
 import ContactUs from './pages/ContactUs.js';
 import { fromLeft } from 'react-navigation-transitions';
 import LoginScreen from './pages/LoginScreen.js';
+
 import AddMatchReportScreen from './pages/AddMatchReport.js';
 import { YellowBox } from 'react-native';
+import AddFixtureScreen from './pages/AddFixture.js';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
@@ -52,6 +54,9 @@ const RootStack = StackNavigator(
     },
     CreateUser: {
        screen: CreateUserScreeen,
+    },
+    AddFixture: {
+      screen: AddFixtureScreen,
     },
     Login : {
       screen : LoginScreen,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions,ActivityIndicator } from 'react-native';
+import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Picker,ToastAndroid, Dimensions,ActivityIndicator, TouchableOpacity } from 'react-native';
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
@@ -51,6 +51,7 @@ class FixtureListScreen extends React.Component{
           this.props.navigation.setParams({ 
             fixtures: this.state.fixtures,
             setDivision : this._setDivision
+            
            });
         }))
       .done();
@@ -64,7 +65,9 @@ class FixtureListScreen extends React.Component{
     const fixtures = params.fixtures || [];
 
     return {
-      headerTitle: <View style={{ borderColor: 'white', borderWidth:1,}}> 
+     
+      headerTitle: <View style={{flexDirection: 'row'}}><View style={{ borderColor: 'white', borderWidth:1,}}> 
+
         <Picker
         style={{ 
           height: 30, 
@@ -77,7 +80,13 @@ class FixtureListScreen extends React.Component{
         <Picker.Item key={0} label="All" value="All" />
           { fixtures.map((i, index) => ( <Picker.Item key={index++} label={i.division} value={i.division}/> ))}
         </Picker>
-      </View>,
+      </View>
+      <View>
+          <TouchableOpacity onPress={() => navigation.navigate('AddFixture', { token : params.authToken}) }>
+          <Image style={{height: 35, width: 35, marginLeft: 50}}source={require('../images/plus.png')}/>
+        </TouchableOpacity>
+      </View>
+      </View>
     };
   };
   

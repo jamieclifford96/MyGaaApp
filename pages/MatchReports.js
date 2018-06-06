@@ -7,6 +7,7 @@ import Loader from '../components/Loader.js'
 import Spinner from 'react-native-loading-spinner-overlay';
 import AddMatchReportScreen from './AddMatchReport.js';
 
+
 class MatchReportScreen extends React.Component{
   constructor(props) {
     console.disableYellowBox = true;
@@ -51,7 +52,8 @@ class MatchReportScreen extends React.Component{
 
           this.props.navigation.setParams({ 
             fixtures: this.state.fixtures,
-            setDivision : this._setDivision
+            setDivision : this._setDivision,
+            
            });
         }))
       .done();
@@ -83,7 +85,7 @@ class MatchReportScreen extends React.Component{
        
       </View>
       <View>
-         <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('AddMatchReport', { token : params.authToken}) }>
           <Image style={{height: 35, width: 35, marginLeft: 50}}source={require('../images/plus.png')}/>
         </TouchableOpacity>
       </View>
@@ -94,7 +96,8 @@ class MatchReportScreen extends React.Component{
   componentWillMount() {
     this.props.navigation.setParams({ 
       fixtures: this.state.fixtures,
-      setDivision : this._setDivision
+      setDivision : this._setDivision,
+      authToken: this.state.authToken
      });
   }
 
@@ -116,9 +119,7 @@ class MatchReportScreen extends React.Component{
       };
     })
   }
-  AddAMatchReport(){
-    this.props.navigation.navigate('AddMatchReport', { token : this.state.authToken});
-}
+ 
   filterData(data){
     if(data.length == 0){
       return [];

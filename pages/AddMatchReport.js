@@ -9,40 +9,15 @@ class AddMatchReportScreen extends React.Component{
       super(props);
       
       this.state = {
-          username: "",
-          password: "",
-          email: "",
+        home_team_name : "",
+        home_team_goals : 0,
+        home_team_points :0,
+        away_team_points :0,
+        away_team_goals : 0,
+        away_team_name : "",
+        date_of_match : null,    
       }
-      let headers = new Headers();
-        let authTokenHeader = "Basic " + base64.encode(this.state.username + ":" + this.state.password);
-        //let authTokenHeader = "Basic " + base64.encode("username:password");
-        headers.append("Authorization", authTokenHeader );
-        
-        fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/0", {
-                headers: headers
-            })
-            .then((response) => {
-                if(response.status != 200){
-                    ToastAndroid.showWithGravityAndOffset(
-                        "Failed to login, check your credentials",
-                        ToastAndroid.LONG,
-                        ToastAndroid.CENTER,
-                        0,
-                        -200
-                      );
-                      this.passwordInput.clear();
-                      this.usernameInput.clear();
-                }
-                else{
-                    this.setState({
-                        isLoggedIn :true,
-                        authToken :authTokenHeader
-                    });
-    
-                    this.props.navigation.navigate('Home', { token : this.state.authToken});
-                }
-            })
-          .done();
+      
     
 
     }
@@ -57,63 +32,77 @@ class AddMatchReportScreen extends React.Component{
     {
         return(
             <BackgroundTheme>
-            <KeyboardAvoidingView style={styles.keyboard}
-        
-        behavior='padding'
-      >
-               <View>
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-                <View style={{marginTop: 100, alignItems: 'center'}}>
+            <TextInput 
+                placeholder="HOME TEAM NAME" 
+                placeholderTextColor="#fff" 
+                returnKeyType="next"
+                style={styles.input}
+                onSubmitEditing={() => this.passwordInput.focus()}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false} 
+                ref={(input) => this.hometeamInput = input}
+                onChangeText={(text) => this.setState({home_team_name :text})} />
+            <TextInput 
+                placeholder="HOME TEAM GOALS SCORED" 
+                placeholderTextColor="#fff" 
+                returnKeyType="next"
+                style={styles.input}
+                onSubmitEditing={() => this.passwordInput.focus()}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false} 
+                ref={(input) => this.home_team_goalsInput = input}
+                onChangeText={(text) => this.setState({home_team_goals :text})} />
+                 
+                 <TextInput 
+                placeholder="HOME TEAM POINTS SCORED" 
+                placeholderTextColor="#fff" 
+                returnKeyType="next"
+                style={styles.input}
+                onSubmitEditing={() => this.passwordInput.focus()}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false} 
+                ref={(input) => this.hometeampoints = input}
+                onChangeText={(text) => this.setState({home_team_points :text})} />
+
+            <TextInput 
+                placeholder="AWAY TEAM NAME" 
+                placeholderTextColor="#fff" 
+                returnKeyType="next"
+                style={styles.input}
+                onSubmitEditing={() => this.passwordInput.focus()}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false} 
+                ref={(input) => this.awayteamnameInput = input}
+                onChangeText={(text) => this.setState({away_team_name :text})} />
                 <TextInput 
-                    placeholder="EMAIL" 
-                    placeholderTextColor="#fff" 
-                    returnKeyType="next"
-                    style={styles.input}
-                    onSubmitEditing={() => this.passwordInput.focus()}
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    autoCorrect={false} 
-                    ref={(input) => this.usernameInput = input}
-                    onChangeText={(text) => this.setState({email :text})} />
-                    <TextInput 
-                    placeholder="USERNAME" 
-                    placeholderTextColor="#fff" 
-                    returnKeyType="next"
-                    style={styles.input}
-                    onSubmitEditing={() => this.passwordInput.focus()}
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    autoCorrect={false} 
-                    ref={(input) => this.usernameInput = input}
-                    onChangeText={(text) => this.setState({username :text})} />
-                    <TextInput 
-                    placeholder="PASSWORD" 
-                    placeholderTextColor="#fff" 
-                    returnKeyType="go"
-                    secureTextEntry
-                    autoCapitalize="none"
-                    style={styles.input}
-                    ref={(input) => this.passwordInput = input}
-                    onChangeText={(text) => this.setState({password :text})} />
-                    <TextInput 
-                    placeholder="REPEAT PASSWORD" 
-                    placeholderTextColor="#fff" 
-                    returnKeyType="go"
-                    secureTextEntry
-                    autoCapitalize="none"
-                    style={styles.input}
-                    ref={(input) => this.passwordInput = input}
-                     />
-                     <TouchableOpacity>
-                     <Image style={{width : 70, height: 70}}source={require("../images/check-mark.png")}/>
-                     </TouchableOpacity>
-                    
-                </View>
-                </TouchableWithoutFeedback>
-               </View> 
-               </KeyboardAvoidingView>
+                placeholder="AWAY TEAM GOALS" 
+                placeholderTextColor="#fff" 
+                returnKeyType="next"
+                style={styles.input}
+                onSubmitEditing={() => this.passwordInput.focus()}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false} 
+                ref={(input) => this.awayteamgoals = input}
+                onChangeText={(text) => this.setState({away_team_points :text})} />
+
+            <TextInput 
+                placeholder="AWAY TEAM NAME" 
+                placeholderTextColor="#fff" 
+                returnKeyType="next"
+                style={styles.input}
+                onSubmitEditing={() => this.passwordInput.focus()}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false} 
+                ref={(input) => this.awayteampoints = input}
+                onChangeText={(text) => this.setState({away_team_points :text})} />
             </BackgroundTheme>
-        );
+                );
     }
 }
 
