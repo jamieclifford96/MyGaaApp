@@ -71,7 +71,7 @@ class FixtureListScreen extends React.Component{
         <Picker
         style={{ 
           height: 30, 
-          width: 250 ,
+          width: this.windowWidth,
           color: "#fff", 
           //backgroundColor: '#fff'
         }}
@@ -83,7 +83,7 @@ class FixtureListScreen extends React.Component{
       </View>
       <View>
           <TouchableOpacity onPress={() => navigation.navigate('AddFixture', { token : params.authToken}) }>
-          <Image style={{height: 35, width: 35, marginLeft: 50}}source={require('../images/plus.png')}/>
+          <Image style={{height: 35, width: 35, marginLeft: params.windowWidth/9}}source={require('../images/plus.png')}/>
         </TouchableOpacity>
       </View>
       </View>
@@ -93,7 +93,8 @@ class FixtureListScreen extends React.Component{
   componentWillMount() {
     this.props.navigation.setParams({ 
       fixtures: this.state.fixtures,
-      setDivision : this._setDivision
+      setDivision : this._setDivision,
+      windowWidth: this.windowWidth
      });
   }
 

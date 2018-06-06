@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button, View, Text, Image, ListView, Dimensions,TextInput,StyleSheet, TouchableWithoutFeedback, Keyboard,KeyboardAvoidingView,TouchableOpacity} from 'react-native';
-import AppStyle from '../styles/AppStyle.js'
-import BackgroundTheme from '../views/BackgroundTheme.js'
+import AppStyle from '../styles/AppStyle.js';
+import BackgroundTheme from '../views/BackgroundTheme.js';
+import ConfirmButton from '../components/ConfirmButton.js';
 
 
 class AddFixtureScreen extends React.Component{
@@ -95,6 +96,7 @@ render(){
             autoCorrect={false} 
             ref={(input) => this.awayteampoints = input}
             onChangeText={(text) => this.setState({away_team_points :text})} />
+            
         </BackgroundTheme>
     );
 }
