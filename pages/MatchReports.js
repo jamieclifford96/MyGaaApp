@@ -73,7 +73,7 @@ class MatchReportScreen extends React.Component{
         <Picker
         style={{ 
           height: 30, 
-          width: 250 ,
+          width: 50,
           color: "#fff", 
           //backgroundColor: '#fff'
         }}
@@ -97,6 +97,7 @@ class MatchReportScreen extends React.Component{
     this.props.navigation.setParams({ 
       fixtures: this.state.fixtures,
       setDivision : this._setDivision,
+      windowWidth: this.state.windowWidth,
       authToken: this.state.authToken
      });
   }

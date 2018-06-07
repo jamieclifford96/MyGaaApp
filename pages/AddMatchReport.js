@@ -16,19 +16,35 @@ class AddMatchReportScreen extends React.Component{
         away_team_points :0,
         away_team_goals : 0,
         away_team_name : "",
+        division: "",
         date_of_match : null,    
       }
-      
+      const token = props.navigation.state.params.token;
+    let headers = new Headers();
+    headers.append("Authorization", token );
+    headers.append("Accept", "application/json");
     
-
-    }
-    
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/results/", {
+            
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                home: this.state.home_team_name,
+                away: this.state.away_team_name,
+                homeScore: this.state.home_team_points,
+                awayScore: '',
+                division: this.state.division,
+                dateTime: ''
+              }),
+        })
+    }  
     static navigationOptions = {
         title: 'Add New Match Report',
       };
   
-      
-    
     render()
     {
         return(
@@ -57,7 +73,7 @@ class AddMatchReportScreen extends React.Component{
                     ref={(input) => this.home_team_goalsInput = input}
                     onChangeText={(text) => this.setState({home_team_goals :text})} />
                     
-                    <TextInput 
+                <TextInput 
                     placeholder="HOME TEAM POINTS SCORED" 
                     placeholderTextColor="#fff" 
                     returnKeyType="next"
@@ -90,10 +106,10 @@ class AddMatchReportScreen extends React.Component{
                     autoCapitalize="none"
                     autoCorrect={false} 
                     ref={(input) => this.awayteamgoals = input}
-                    onChangeText={(text) => this.setState({away_team_points :text})} />
+                    onChangeText={(text) => this.setState({away_team_goals :text})} />
 
                 <TextInput 
-                    placeholder="AWAY TEAM NAME" 
+                    placeholder="AWAY TEAM POINTS" 
                     placeholderTextColor="#fff" 
                     returnKeyType="next"
                     style={styles.input}
@@ -103,7 +119,7 @@ class AddMatchReportScreen extends React.Component{
                     autoCorrect={false} 
                     ref={(input) => this.awayteampoints = input}
                     onChangeText={(text) => this.setState({away_team_points :text})} />
-                    <ConfirmButton></ConfirmButton>
+                    <ConfirmButton/>
              </View>
             </BackgroundTheme>
                 );

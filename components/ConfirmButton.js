@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { ImageBackground, Image, StatusBar, View, Text,Dimensions,TouchableOpacity } from 'react-native';
 
+////////////////////////////////////////////////////
+//Class for confirm button component used in forms//
+////////////////////////////////////////////////////
+
 class ConfirmButton extends React.Component{
     constructor(props){
         super(props);
@@ -16,12 +20,12 @@ class ConfirmButton extends React.Component{
         
         return (
             <View>
-            <TouchableOpacity>           
-             <View style={{flexDirection: 'row', width: this.state.screenWidth/1.65, borderWidth: 3, borderColor: 'green', padding: 4, backgroundColor: 'rgba(255,255,255,0.7)'}}>
-                <Text style={{color: 'green', fontSize: 20, marginTop:5,marginLeft:60}}>CONFIRM</Text>
-                <Image style={{width: 35, height: 35, marginLeft: 5, tintColor: 'green'}} source={require("../images/check-mark.png")}/>              
-            </View>
-            </TouchableOpacity>
+                <TouchableOpacity>           
+                    <View style={{flexDirection: 'row', width: this.state.screenWidth/1.65, borderWidth: 3, borderColor: 'green', padding: 4, backgroundColor: 'rgba(255,255,255,0.7)'}}>
+                        <Text style={{color: 'green', fontSize: 20, marginTop:5,marginLeft:60}}>CONFIRM</Text>
+                        <Image style={{width: 35, height: 35, marginLeft: 5, tintColor: 'green'}} source={require("../images/check-mark.png")}/>              
+                    </View>
+                </TouchableOpacity>
             </View>
         );
     }

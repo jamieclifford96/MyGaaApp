@@ -3,7 +3,7 @@ import { Button, View, Text, Image, ListView, Dimensions,TextInput,StyleSheet, T
 import AppStyle from '../styles/AppStyle.js';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import ConfirmButton from '../components/ConfirmButton.js';
-
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 class AddFixtureScreen extends React.Component{
     constructor(props) {
@@ -11,13 +11,21 @@ class AddFixtureScreen extends React.Component{
 
       this.state = {
         home_team_name : "",
-        home_team_goals : 0,
-        home_team_points :0,
-        away_team_points :0,
-        away_team_goals : 0,
+        venue: "",
         away_team_name : "",
-        date_of_match : null,    
+        date_of_match : null,
+        ref : "",    
       }
+      const token = props.navigation.state.params.token;
+    let headers = new Headers();
+    headers.append("Authorization", token );
+    headers.append("Accept", "application/json");
+    
+    fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/", {
+            
+            method: 'POST',
+            headers: headers
+        })
       
     
     }
@@ -38,30 +46,7 @@ render(){
             autoCorrect={false} 
             ref={(input) => this.hometeamInput = input}
             onChangeText={(text) => this.setState({home_team_name :text})} />
-        <TextInput 
-            placeholder="HOME TEAM GOALS SCORED" 
-            placeholderTextColor="#fff" 
-            returnKeyType="next"
-            style={styles.input}
-            onSubmitEditing={() => this.passwordInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false} 
-            ref={(input) => this.home_team_goalsInput = input}
-            onChangeText={(text) => this.setState({home_team_goals :text})} />
-             
-             <TextInput 
-            placeholder="HOME TEAM POINTS SCORED" 
-            placeholderTextColor="#fff" 
-            returnKeyType="next"
-            style={styles.input}
-            onSubmitEditing={() => this.passwordInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false} 
-            ref={(input) => this.hometeampoints = input}
-            onChangeText={(text) => this.setState({home_team_points :text})} />
-
+        
         <TextInput 
             placeholder="AWAY TEAM NAME" 
             placeholderTextColor="#fff" 
@@ -73,20 +58,9 @@ render(){
             autoCorrect={false} 
             ref={(input) => this.awayteamnameInput = input}
             onChangeText={(text) => this.setState({away_team_name :text})} />
-            <TextInput 
-            placeholder="AWAY TEAM GOALS" 
-            placeholderTextColor="#fff" 
-            returnKeyType="next"
-            style={styles.input}
-            onSubmitEditing={() => this.passwordInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false} 
-            ref={(input) => this.awayteamgoals = input}
-            onChangeText={(text) => this.setState({away_team_points :text})} />
 
-        <TextInput 
-            placeholder="AWAY TEAM NAME" 
+          <TextInput 
+            placeholder="VENUE" 
             placeholderTextColor="#fff" 
             returnKeyType="next"
             style={styles.input}
@@ -94,9 +68,9 @@ render(){
             keyboardType="email-address"
             autoCapitalize="none"
             autoCorrect={false} 
-            ref={(input) => this.awayteampoints = input}
-            onChangeText={(text) => this.setState({away_team_points :text})} />
-            
+            ref={(input) => this.venueInput = input}
+            onChangeText={(text) => this.setState({venue :text})} />           
+            <Calendar/>
         </BackgroundTheme>
     );
 }

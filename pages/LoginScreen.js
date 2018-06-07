@@ -45,6 +45,7 @@ export default class LoginScreen extends Component {
         //let authTokenHeader = "Basic " + base64.encode("username:password");
         headers.append("Authorization", authTokenHeader );
         
+        
         fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/0", {
                 headers: headers
             })
@@ -69,8 +70,21 @@ export default class LoginScreen extends Component {
                     this.props.navigation.navigate('Home', { token : this.state.authToken});
                 }
             })
+            .catch(function(error) {
+                
+                    ToastAndroid.showWithGravityAndOffset(
+                        "Failed to connect, check your internet settings",
+                        ToastAndroid.LONG,
+                        ToastAndroid.CENTER,
+                        0,
+                        -200
+                      );
+            })
           .done();
-    }
+        }
+     
+        
+    
 
   render() {
     return (       
