@@ -38,9 +38,14 @@ class HomeScreen extends React.Component{
         return (
           <BackgroundTheme style={{backgroundColor: 'rgba(0,0,0,0.9)'}}>
            <StatusBar hidden ={false}  backgroundColor="#000" barStyle="light-content"/>
-          <View style={styles.container}> 
+          <View style={styles.container}>
+            <View>
+              <TouchableOpacity>
+                <Image style={{width:40, height:40, marginLeft: 10, marginTop: 10}} source={require("../images/menu.png")}/>
+              </TouchableOpacity>
+            </View> 
             <View style={styles.firstrow}>
-            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 65, marginLeft: 65}} source={require("../images/crest.png")}/>
+            <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 0, marginLeft: 65}} source={require("../images/crest.png")}/>
             </View>
             <View style={styles.secondrow}>
             </View>
@@ -80,7 +85,10 @@ class HomeScreen extends React.Component{
                 <Text style={styles.text}>CONTACT US</Text>
               </TouchableOpacity>
             </View>
-            <View style={styles.fifthrow}>
+            <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height/2, width: this.state.thumbnailSize.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('BookPitch', token)}>            
+                <Text style={styles.text}>PITCH BOOKING</Text>
+              </TouchableOpacity>
             </View>
             
           </View>

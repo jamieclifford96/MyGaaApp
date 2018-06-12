@@ -98,9 +98,9 @@ export default class LoginScreen extends Component {
       
       <View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        
+        <View>
         <Image style={{ height: this.state.thumbnailSize.width/1.6, width: this.state.thumbnailSize.width *0.65, marginTop: 50, marginBottom: 50, justifyContent : 'center',}} source={require("../images/crest.png")}/>
-        
+        </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.logocontainer}>
@@ -147,8 +147,9 @@ const styles = StyleSheet.create({
     },
     keyboard :{
         alignItems : 'center',
-        flexGrow : 1,
+        flexGrow : 3,
         justifyContent : 'center',
+        
   
     },
     input:{

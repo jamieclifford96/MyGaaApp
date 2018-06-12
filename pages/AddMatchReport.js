@@ -13,6 +13,8 @@ class AddMatchReportScreen extends React.Component{
         home_team_name : "",
         home_team_goals : 0,
         home_team_points :0,
+        home_team_fullscore : "",
+        away_team_fullscore: "",
         away_team_points :0,
         away_team_goals : 0,
         away_team_name : "",
@@ -45,6 +47,11 @@ class AddMatchReportScreen extends React.Component{
         title: 'Add New Match Report',
       };
   
+    scoreBuilder(goals, points)
+    {
+        let fullscore = "(" + goals + "-" + points + ")";
+        return fullscore;
+    }  
     render()
     {
         return(
@@ -71,8 +78,7 @@ class AddMatchReportScreen extends React.Component{
                     autoCapitalize="none"
                     autoCorrect={false} 
                     ref={(input) => this.home_team_goalsInput = input}
-                    onChangeText={(text) => this.setState({home_team_goals :text})} />
-                    
+                    onChangeText={(text) => this.setState({home_team_goals :text})} />                   
                 <TextInput 
                     placeholder="HOME TEAM POINTS SCORED" 
                     placeholderTextColor="#fff" 
@@ -84,7 +90,6 @@ class AddMatchReportScreen extends React.Component{
                     autoCorrect={false} 
                     ref={(input) => this.hometeampoints = input}
                     onChangeText={(text) => this.setState({home_team_points :text})} />
-
                 <TextInput 
                     placeholder="AWAY TEAM NAME" 
                     placeholderTextColor="#fff" 
@@ -96,7 +101,7 @@ class AddMatchReportScreen extends React.Component{
                     autoCorrect={false} 
                     ref={(input) => this.awayteamnameInput = input}
                     onChangeText={(text) => this.setState({away_team_name :text})} />
-                    <TextInput 
+                <TextInput 
                     placeholder="AWAY TEAM GOALS" 
                     placeholderTextColor="#fff" 
                     returnKeyType="next"
@@ -107,7 +112,6 @@ class AddMatchReportScreen extends React.Component{
                     autoCorrect={false} 
                     ref={(input) => this.awayteamgoals = input}
                     onChangeText={(text) => this.setState({away_team_goals :text})} />
-
                 <TextInput 
                     placeholder="AWAY TEAM POINTS" 
                     placeholderTextColor="#fff" 
@@ -119,12 +123,14 @@ class AddMatchReportScreen extends React.Component{
                     autoCorrect={false} 
                     ref={(input) => this.awayteampoints = input}
                     onChangeText={(text) => this.setState({away_team_points :text})} />
-                    <ConfirmButton/>
+                    <ConfirmButton onPress={() => this.scoreBuilder(this.state.home_team_goals, this.state.home_team_points)} onPress={() => this.scoreBuilder(this.state.away_team_goals, this.state.away_team_points)}/>
              </View>
             </BackgroundTheme>
                 );
     }
 }
+
+
 
 export default AddMatchReportScreen;
 const styles = StyleSheet.create({

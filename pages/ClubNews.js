@@ -3,7 +3,7 @@ import { Button, View, Text, Image, ListView, Dimensions, TouchableOpacity,Image
 import AppStyle from '../styles/AppStyle.js'
 import { groupBy } from 'lodash';
 import BackgroundTheme from '../views/BackgroundTheme.js'
-import Spinner from 'react-native-loading-spinner-overlay';
+
 import Loader from '../components/Loader.js'
 class News extends React.Component {
   constructor(props) {

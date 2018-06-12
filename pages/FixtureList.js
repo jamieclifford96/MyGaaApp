@@ -3,7 +3,6 @@ import { Button, View, Text, Image, ImageBackground, ListView, SectionList, Pick
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
-import Spinner from 'react-native-loading-spinner-overlay';
 import Loader from '../components/Loader.js';
 
 class FixtureListScreen extends React.Component{
@@ -71,7 +70,7 @@ class FixtureListScreen extends React.Component{
         <Picker
         style={{ 
           height: 30, 
-          width: this.windowWidth,
+          width:200,
           color: "#fff", 
           //backgroundColor: '#fff'
         }}
@@ -81,9 +80,9 @@ class FixtureListScreen extends React.Component{
           { fixtures.map((i, index) => ( <Picker.Item key={index++} label={i.division} value={i.division}/> ))}
         </Picker>
       </View>
-      <View>
+      <View style={{marginLeft: 40}}>
           <TouchableOpacity onPress={() => navigation.navigate('AddFixture', { token : params.authToken}) }>
-          <Image style={{height: 35, width: 35, marginLeft: params.windowWidth/9}}source={require('../images/plus.png')}/>
+          <Image style={{ height: 35, width: 35, marginLeft: params.windowWidth/9}}source={require('../images/plus.png')}/>
         </TouchableOpacity>
       </View>
       </View>

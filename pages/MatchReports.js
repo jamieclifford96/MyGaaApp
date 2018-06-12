@@ -3,8 +3,7 @@ import { Button, View, Text, Image, StatusBar, ImageBackground, ListView, Sectio
 import { groupBy } from 'lodash';
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
-import Loader from '../components/Loader.js'
-import Spinner from 'react-native-loading-spinner-overlay';
+import Loader from '../components/Loader.js';
 import AddMatchReportScreen from './AddMatchReport.js';
 
 
@@ -73,7 +72,7 @@ class MatchReportScreen extends React.Component{
         <Picker
         style={{ 
           height: 30, 
-          width: 50,
+          width: 200,
           color: "#fff", 
           //backgroundColor: '#fff'
         }}
@@ -222,5 +221,4 @@ formatDate(date){
       );    
     }
   }
-
   export default MatchReportScreen;

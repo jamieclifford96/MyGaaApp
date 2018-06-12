@@ -3,7 +3,7 @@ import { Button, View, Text, Image, ListView, Dimensions,TextInput,StyleSheet, T
 import AppStyle from '../styles/AppStyle.js';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import ConfirmButton from '../components/ConfirmButton.js';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+//import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 class AddFixtureScreen extends React.Component{
     constructor(props) {
@@ -70,7 +70,7 @@ render(){
             autoCorrect={false} 
             ref={(input) => this.venueInput = input}
             onChangeText={(text) => this.setState({venue :text})} />           
-            <Calendar/>
+          
         </BackgroundTheme>
     );
 }

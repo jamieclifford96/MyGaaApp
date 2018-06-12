@@ -12,7 +12,7 @@ import HomeScreen from './pages/HomeScreen.js';
 import ContactUs from './pages/ContactUs.js';
 import { fromLeft } from 'react-navigation-transitions';
 import LoginScreen from './pages/LoginScreen.js';
-
+import BookPitchScreen from './pages/BookPitch.js';
 import AddMatchReportScreen from './pages/AddMatchReport.js';
 import { YellowBox } from 'react-native';
 import AddFixtureScreen from './pages/AddFixture.js';
@@ -54,6 +54,9 @@ const RootStack = StackNavigator(
     },
     CreateUser: {
        screen: CreateUserScreeen,
+    },
+    BookPitch: {
+      screen: BookPitchScreen,
     },
     AddFixture: {
       screen: AddFixtureScreen,
