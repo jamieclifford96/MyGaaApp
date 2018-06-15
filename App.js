@@ -16,6 +16,8 @@ import BookPitchScreen from './pages/BookPitch.js';
 import AddMatchReportScreen from './pages/AddMatchReport.js';
 import { YellowBox } from 'react-native';
 import AddFixtureScreen from './pages/AddFixture.js';
+import BookingCalendarScreen from './pages/BookingCalendar.js';
+import BookingDayScreen from './pages/BookingDay.js';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
@@ -55,11 +57,17 @@ const RootStack = StackNavigator(
     CreateUser: {
        screen: CreateUserScreeen,
     },
+    BookingDay: {
+      screen: BookingDayScreen,
+    },
     BookPitch: {
       screen: BookPitchScreen,
     },
     AddFixture: {
       screen: AddFixtureScreen,
+    },
+    BookingCalendar: {
+      screen: BookingCalendarScreen,
     },
     Login : {
       screen : LoginScreen,

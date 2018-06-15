@@ -28,7 +28,8 @@ class FixtureListScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/", {
+    this.componentDidMount = () =>  {
+    fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/", {
             headers: headers
         })
         .then((response) => {
@@ -54,7 +55,7 @@ class FixtureListScreen extends React.Component{
            });
         }))
       .done();
-
+      }
   }   
   
   // https://reactnavigation.org/docs/en/header-buttons.html 
@@ -131,6 +132,7 @@ class FixtureListScreen extends React.Component{
     data.forEach(element => {
       if (new Date(element.dateTime).getTime() >= currentTime){
         placeholder.push(element);
+        
       }
     });
     return placeholder;

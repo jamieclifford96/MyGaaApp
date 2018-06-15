@@ -19,6 +19,12 @@ export default class LoginScreen extends Component {
                 height :windowWidth * 0.32
               }
         };
+
+
+
+        console.log("DATE!!!!!!!! "+new Date())
+        console.log("DATE!!!!!!!! "+new Date().toISOString())
+        console.log("DATE!!!!!!!! "+new Date().toString("yyyy-MM-DDTHH:mm:ss.sss"))
     }
     static navigationOptions() {
         header: null
@@ -28,7 +34,7 @@ export default class LoginScreen extends Component {
     }
     login(){
         Keyboard.dismiss();
-        if(this.state.username.length == 0 ||this.state.username.password == 0){
+        /*if(this.state.username.length == 0 ||this.state.username.password == 0){
             ToastAndroid.showWithGravityAndOffset(
                 "Username or password is empty",
                 ToastAndroid.LONG,
@@ -37,16 +43,17 @@ export default class LoginScreen extends Component {
                 -200
               );
             return;
-        }
+        }*/
 
         //http://86.41.137.78:8000/gaaservice/webapi/fixture/
         let headers = new Headers();
-        let authTokenHeader = "Basic " + base64.encode(this.state.username + ":" + this.state.password);
+        //let authTokenHeader = "Basic " + base64.encode(this.state.username + ":" + this.state.password);
         //let authTokenHeader = "Basic " + base64.encode("username:password");
+        let authTokenHeader = "Basic " + base64.encode("jamie"+ ":" + "123")
         headers.append("Authorization", authTokenHeader );
         
         
-        fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/0", {
+        fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/0", {
                 headers: headers
             })
             .then((response) => {
@@ -83,7 +90,28 @@ export default class LoginScreen extends Component {
           .done();
         }
      
-        
+      testPost(){
+        fetch("http://159.107.219.241:8080/gaaservice/webapi/results/", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Basic " + base64.encode("jamie:123"),
+
+            },
+            body : "{\"dateTime\": \"2017-10-06T15:32:18.605\",\"home\": \"teester\",\"away\": \"11\",\"homeScore\": \"1\",\"awayScore\": \"1\",\"division\": \"U12\"}"
+                        
+        })
+        .then((response) => response.text())
+        .then((json) => {
+            console.log(json)
+            alert(json);
+        })
+        .catch((error)=> {
+            console.log(error)
+        alert(error);
+        });
+      }  
     
 
   render() {
@@ -126,6 +154,9 @@ export default class LoginScreen extends Component {
                 onChangeText={(text) => this.setState({password :text})} />
             <Text onPress={Keyboard.dismiss} accessible={false} onPress={() => this.createUser()} style={{color: 'white', textDecorationLine: 'underline'}}>SIGN UP</Text>
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
+                <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.testPost()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
             </TouchableOpacity>
         </View>

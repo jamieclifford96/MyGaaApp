@@ -28,7 +28,9 @@ class MatchReportScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    fetch("http://86.41.137.78:8000/gaaservice/webapi/results/", {
+    this.componentDidMount = () =>
+    {
+    fetch("http://159.107.219.241:8080/gaaservice/webapi/results/", {
             headers: headers
         })
         .then((response) => {
@@ -56,7 +58,7 @@ class MatchReportScreen extends React.Component{
            });
         }))
       .done();
-
+      }
   }   
   
   // https://reactnavigation.org/docs/en/header-buttons.html 
