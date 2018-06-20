@@ -10,7 +10,7 @@ class BookingCalendarScreen extends React.Component{
       super(props);
       
       this.state = {
-          day: ""
+          dayState: "damn"
       };
     }
 
@@ -19,19 +19,15 @@ static navigationOptions = {
 }
 ViewDetailsOfDay(day)
 {
-    if(this.state.day != day)
-    {
-        this.state.day = day;
-    }
-    else
-    {
-        this.props.navigation.navigate('BookingDay', this.state.token, this.state.day.toString());
-    }
+    //alert(this.state.dayState);
+    this.state.dayState = day.dateString;
+    //alert(day.dateString);
+    this.props.navigation.navigate('BookingDay', this.state.dayState);
+    
 }
-
-    render(){
+   render(){
         return(
-            <CalendarList onDayPress={(day) => this.ViewDetailsOfDay(day)}>
+            <CalendarList onDayPress={(day) => this.props.dayProps = day.dateString} onDayPress={(day) => this.ViewDetailsOfDay(day)}>
 
             </CalendarList>
         )

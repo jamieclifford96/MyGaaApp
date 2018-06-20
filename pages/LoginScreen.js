@@ -91,7 +91,7 @@ export default class LoginScreen extends Component {
         }
      
       testPost(){
-        fetch("http://159.107.219.241:8080/gaaservice/webapi/results/", {
+        fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -99,8 +99,12 @@ export default class LoginScreen extends Component {
                 'Authorization': "Basic " + base64.encode("jamie:123"),
 
             },
-            body : "{\"dateTime\": \"2017-10-06T15:32:18.605\",\"home\": \"teester\",\"away\": \"11\",\"homeScore\": \"1\",\"awayScore\": \"1\",\"division\": \"U12\"}"
-                        
+            body :  {
+                "id": "6",
+                "datetime": "2017-10-06",
+                "team": "U12",
+                "pitch": "Training Pitch"
+            }    
         })
         .then((response) => response.text())
         .then((json) => {
@@ -116,8 +120,8 @@ export default class LoginScreen extends Component {
 
   render() {
     return (       
-      <BackgroundTheme>
-           <StatusBar hidden ={false}  backgroundColor="#000"
+      <View style={styles.background}>
+     <StatusBar hidden ={false}  backgroundColor="#000"
      barStyle="light-content"/>
           <KeyboardAvoidingView style={styles.keyboard}
         
@@ -156,14 +160,12 @@ export default class LoginScreen extends Component {
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
             </TouchableOpacity>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.testPost()}>
-                <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
-            </TouchableOpacity>
+       
         </View>
         </TouchableWithoutFeedback>
         </View>
         </KeyboardAvoidingView>
-      </BackgroundTheme>
+      </View>
       
     )
   }
@@ -209,5 +211,8 @@ const styles = StyleSheet.create({
         fontFamily: 'arial', 
         textAlign: 'center',
     },
+    background:{
+        backgroundColor: "#rgba(52,53,57,1)",
+    }
   
 });

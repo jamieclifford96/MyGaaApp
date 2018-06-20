@@ -81,7 +81,7 @@ class News extends React.Component {
         activeOpacity={0.7}
         onPress={() => this.props.navigation.navigate('NewsDetails', data)}> 
         <ImageBackground  
-        style={{width: this.state.thumbnailSize.width, borderBottomWidth: 3, borderColor: 'white'}} 
+        style={{width: this.state.thumbnailSize.width *0.9, borderBottomWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
           //borderBottomWidth: 3,
@@ -109,7 +109,7 @@ class News extends React.Component {
   render() {
 
     return (
-      <BackgroundTheme>
+     <View style={{backgroundColor: '#A81919'}}>
          <StatusBar hidden={false}
     
    />
@@ -120,7 +120,7 @@ class News extends React.Component {
         renderRow={(rowData) =>this.renderPost(rowData)}
       />
       }
-      </BackgroundTheme>
+      </View>
     );
   }
 }

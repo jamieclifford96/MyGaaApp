@@ -9,18 +9,72 @@ class BookingDayScreen extends React.Component{
     constructor(props) {
       super(props);
       
+      const day3 = props.navigation.state.params;
       this.state = {
+        day: day3
       };
     }
 
-static navigationOptions = {
-    title: "Booking Day"
+    static navigationOptions = ({ navigation }) => {
+    
+    const params = navigation.state;
+    let dateString = params.dateString;
+    return {
+        title: dateString
+    }
 }
-
+componentWillMount()
+{
+    
+    //this.props.navigation.setParams({ day: this.setDay });
+}
+setDay = () =>
+{
+    this.setState({day: this.props.day3});
+}
     render(){
         return(
-           <Text>TEST</Text> 
+           <View>
+               <View style={styles.heading}>
+                   <Text style={styles.headingText}>{this.state.day}</Text>
+               </View>
+               <View style={styles.box2}>
+                   <View style={styles.times}>
+
+                   </View>
+                   <View style={styles.teams}>
+
+                   </View>
+               </View>
+           </View>       
         )
     }
 }
+
 export default BookingDayScreen;
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      
+    },
+    heading: {
+        borderTopWidth: 3,
+        borderBottomWidth: 3,
+        alignItems: 'center',
+    },
+    headingText: {
+        fontSize: 20,
+    },
+    box2: {
+        flexDirection: 'row',
+    },
+    times: {
+        flex: 1,
+        borderRightWidth: 3,
+        backgroundColor: 'red',
+    },
+    teams : {
+        flex: 2,
+        backgroundColor: 'blue',
+    }
+  });
