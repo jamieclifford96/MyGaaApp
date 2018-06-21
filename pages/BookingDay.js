@@ -28,6 +28,15 @@ componentWillMount()
     
     //this.props.navigation.setParams({ day: this.setDay });
 }
+renderTime()
+{
+    //fetch rows
+    //display according to time
+    //if time is there set and plus hours for duration
+    //else select time button
+
+    
+}
 setDay = () =>
 {
     this.setState({day: this.props.day3});
@@ -40,7 +49,45 @@ setDay = () =>
                </View>
                <View style={styles.box2}>
                    <View style={styles.times}>
-
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>9:00am</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>10:00am</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText} >11:00am</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>12:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>13:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>14:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText} >15:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>16:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>17:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>18:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>19:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>20:00pm</Text>
+                        </View>
+                        <View style={styles.time}>
+                            <Text style={styles.timeText}>21:00pm</Text>
+                        </View>
                    </View>
                    <View style={styles.teams}>
 
@@ -76,5 +123,17 @@ const styles = StyleSheet.create({
     teams : {
         flex: 2,
         backgroundColor: 'blue',
+    },
+    time: {
+        height: 50,
+        borderBottomWidth: 3,
+        borderColor: 'white',
+    },
+    timeText: {
+        fontSize: 20,
+        color: 'white',
+        alignItems: 'center',
+        paddingTop: 10,
+        paddingLeft:5,
     }
   });

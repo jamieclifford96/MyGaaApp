@@ -99,12 +99,12 @@ export default class LoginScreen extends Component {
                 'Authorization': "Basic " + base64.encode("jamie:123"),
 
             },
-            body :  {
-                "id": "6",
-                "datetime": "2017-10-06",
+            body:JSON.stringify({
+                "id": "15",
+                "date": "2017-10-06",
                 "team": "U12",
                 "pitch": "Training Pitch"
-            }    
+            })  
         })
         .then((response) => response.text())
         .then((json) => {
@@ -158,6 +158,9 @@ export default class LoginScreen extends Component {
                 onChangeText={(text) => this.setState({password :text})} />
             <Text onPress={Keyboard.dismiss} accessible={false} onPress={() => this.createUser()} style={{color: 'white', textDecorationLine: 'underline'}}>SIGN UP</Text>
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
+                <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.testPost()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
             </TouchableOpacity>
        

@@ -11,7 +11,7 @@ class BackgroundTheme extends React.Component{
         <ImageBackground style={{
             flex: 1,
             alignItems: 'center',
-        }} source={require('../images/pitch.jpeg')}>
+        }} source={require('../images/background_color.png')}>
  <StatusBar hidden ={false}  backgroundColor="#870202"
      barStyle="light-content"/>
             

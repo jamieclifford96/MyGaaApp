@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ListView, Dimensions,StyleSheet, TouchableOpacity,Picker } from 'react-native';
+import { Button, View, Text, Image, ListView, Dimensions,StyleSheet, TouchableOpacity,Picker, ScrollView, Footer, FooterTab } from 'react-native';
 import AppStyle from '../styles/AppStyle.js';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import ConfirmButton from '../components/ConfirmButton.js';
 
-class BookPitchScreen extends React.Component {
+class SelectPitchScreen extends React.Component {
     constructor(props) {
        
     let windowWidth = Dimensions.get('window').width;
+    let windowHeight = Dimensions.get('window').height;
         super(props);
 
         this.state ={
             width : windowWidth,
-            height : windowWidth/3,
+            height : windowHeight,
             selectedPitch: "",
             token: props.navigation.state.params.token,
         }
@@ -25,30 +26,41 @@ class BookPitchScreen extends React.Component {
     }
      render(){
          return(
-        <BackgroundTheme>
-            <View>
-        <Image style={{ height: this.state.width/1.6, width: this.state.width *0.65, marginTop: 50, marginBottom: 50, justifyContent : 'center',}} source={require("../images/crest.png")}/>
-        </View>
-            <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.height/2, width: this.state.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('BookPitch', this.state.token)}>            
-                <Text style={styles.text}>BOOK A PITCH</Text>
-              </TouchableOpacity>
-            </View>
-            <View>
-            <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.height/2, width: this.state.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('SelectPitch', this.state.token)}>            
-                <Text style={styles.text}>VIEW TIMETABLES FOR PITCHES</Text>
-              </TouchableOpacity>
-            </View>
-            </View>
-        </BackgroundTheme>
+            <BackgroundTheme>
+                <View style={{height:this.state.height * 0.125, borderBottomColor: 'white', borderBottomWidth: 3}}>
 
+                </View>
+                <View style={{alignItems: 'center', }}>
+                    <Text style={{color: 'white', fontSize: 30, fontFamily: 'Open Sans'}}>Choose A Pitch</Text>
+                </View>
+                <View style={{height:this.state.height * 0.125, borderBottomColor: 'white', borderBottomWidth: 3}}>
+
+                </View>
+                <View style={{flexDirection: 'row'}}>
+                    <View>
+                        <TouchableOpacity>
+                            <Image style={{width:70, height:70, marginLeft: 10, marginTop: 10}} source={require("../images/number-one-in-a-circle.png")}/>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity>
+                            <Image style={{width:70, height:70, marginLeft: 10, marginTop: 10}} source={require("../images/number-two-in-a-circle.png")}/>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity>
+                            <Image style={{width:70, height:70, marginLeft: 10, marginTop: 10}} source={require("../images/number-three-in-a-circle.png")}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+        
+            </BackgroundTheme>
          )
      };
     }
     
     
-export default BookPitchScreen;
+export default SelectPitchScreen;
 
 const styles = StyleSheet.create({
 text: {
