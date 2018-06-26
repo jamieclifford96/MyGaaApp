@@ -19,6 +19,10 @@ import AddFixtureScreen from './pages/AddFixture.js';
 import BookingCalendarScreen from './pages/BookingCalendar.js';
 import BookingDayScreen from './pages/BookingDay.js';
 import SelectPitchScreen from './pages/SelectPitch.js';
+import SelectTimeScreen from './pages/SelectTime.js';
+import SelectTeamScreen from './pages/SelectTeam.js';
+import ReviewBookingScreen from './pages/ReviewBooking.js';
+
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 
@@ -68,9 +72,30 @@ const RootStack = StackNavigator(
     },
     BookingCalendar: {
       screen: BookingCalendarScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    ReviewBooking:{
+      screen:ReviewBookingScreen,
+      navigationOptions:{
+        header: null
+      }
     },
     SelectPitch: {
       screen: SelectPitchScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SelectTime: {
+      screen: SelectTimeScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SelectTeam:{
+      screen:SelectTeamScreen,
       navigationOptions: {
         header: null
       }
