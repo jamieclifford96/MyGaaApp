@@ -3,7 +3,7 @@ import { Button, View, Text, Image, ListView, Dimensions,TextInput,StyleSheet, T
 import AppStyle from '../styles/AppStyle.js'
 import BackgroundTheme from '../views/BackgroundTheme.js'
 
-
+const base64 = require('base-64');
 class CreateUserScreen extends React.Component{
     constructor(props) {
       super(props);
@@ -18,7 +18,7 @@ class CreateUserScreen extends React.Component{
         //let authTokenHeader = "Basic " + base64.encode("username:password");
         headers.append("Authorization", authTokenHeader );
         
-        fetch("http://86.41.137.78:8000/gaaservice/webapi/fixture/0", {
+        fetch("http://86.41.137.78:8000/gaaservice/webapi/users", {
                 headers: headers
             })
             .then((response) => {

@@ -9,7 +9,7 @@ import BackgroundTheme from '../views/BackgroundTheme';
 //import MatchReportsScreen from './pages/MatchReports.js';
 //import NewsDetails from './pages/NewsDetails.js';
 
-
+const base64 = require('base-64');
 class HomeScreen extends React.Component{
  
    constructor(props) {
@@ -18,9 +18,10 @@ class HomeScreen extends React.Component{
     this.state = {
         thumbnailSize :{
             width : windowWidth,
-            height :windowWidth * 0.32
-            
-          }
+            height :windowWidth * 0.32,
+          },
+          token: props.navigation.state.params.token,
+          test : props.navigation.state
         
     }
    };
@@ -28,19 +29,14 @@ class HomeScreen extends React.Component{
    static navigationOptions = {
     showNavigationBar: false
    };
-   
    render() {
-        const { navigation } = this.props;
-        const token = {
-          token : navigation.getParam('token', '')
-        };
 
         return (
           <BackgroundTheme style={{backgroundColor: 'rgba(0,0,0,0.9)'}}>
            <StatusBar hidden ={false}  backgroundColor="#000" barStyle="light-content"/>
           <View style={styles.container}>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.showToken()}>
                 <Image style={{width:40, height:40, marginLeft: 10, marginTop: 10}} source={require("../images/menu.png")}/>
               </TouchableOpacity>
             </View> 
@@ -51,18 +47,18 @@ class HomeScreen extends React.Component{
             </View>
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width, borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white'}}>
                 
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News', token)}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('News', this.state.token)}>
                 <Image style={{width: 70, height: 70,  }} source={require("../images/newspaper.png")}/>                    
                 <Text style={styles.text}>NEWS</Text>
                 
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports', token)}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('MatchReports', this.state.token)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/trophy.png")}/>
                 <Text style={styles.text}>MATCH REPORTS</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('Fixtures', token)}>                
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('Fixtures', this.state.token)}>                
                   <Image  style={{width: 70, height: 70,  }} source={require("../images/calendar.png")}/>
                   <Text style={styles.text}>FIXTURES</Text>                  
               </TouchableOpacity>                
@@ -70,7 +66,7 @@ class HomeScreen extends React.Component{
             </View>
             <View style={{ backgroundColor: "rgba(0,0,0,0.4)",flexDirection: 'row', height: this.state.thumbnailSize.height, width: this.state.thumbnailSize.width,   borderBottomWidth: 3, borderBottomColor: 'white'}}>
                    
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ClubLotto', token)}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ClubLotto', this.state.token)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/lottery.png")}/>
                 <Text style={styles.text}>LOTTO</Text>
               </TouchableOpacity>
@@ -80,13 +76,13 @@ class HomeScreen extends React.Component{
                 <Text style={styles.text}>SHOP</Text>
               </TouchableOpacity>
                     
-              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ContactUs', token)}>
+              <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('ContactUs', this.state.token)}>
                 <Image  style={{width: 70, height: 70,  }} source={require("../images/telephone.png")}/>
                 <Text style={styles.text}>CONTACT US</Text>
               </TouchableOpacity>
             </View>
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height/2, width: this.state.thumbnailSize.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('BookPitch', token)}>            
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('BookPitch', this.state.token)}>            
                 <Text style={styles.text}>PITCH BOOKING</Text>
               </TouchableOpacity>
             </View>
@@ -101,7 +97,7 @@ class HomeScreen extends React.Component{
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-
+        
         
       },
     
@@ -125,7 +121,8 @@ class HomeScreen extends React.Component{
       },
       text: {
         marginTop: 1,
-        color: 'white'
+        color: 'white',
+        fontFamily: 'Open Sans'
         //fontSize: 15
       },
       thirdrow: {

@@ -28,9 +28,11 @@ class BookingCalendarScreen extends React.Component{
         dataSource : null,
         pitch: props.navigation.state.params.pitch,
         token: props.navigation.state.params.token,
+        duration: props.navigation.state.params.duration,
         bookings: data,
         month: new Date().getMonth(),
         year: new Date().getFullYear(),
+        date: ""
       };
     }
 
@@ -57,8 +59,7 @@ getBookings(){
         else{
             
             return response.json();
-          
-        }
+         }
     })
     .then( (myJson => {
       let payload = myJson;          
@@ -85,36 +86,48 @@ ViewDetailsOfDay(day)
     else{
         daywithzero=day.day;
     }
-
+    console.log(daywithzero);
     if(monthwithzero < 10)
     {
         monthwithzero ="0"+monthwithzero;
     }
-    
+    console.log(monthwithzero);
     let daystring = this.state.year + "-" + monthwithzero + "-" + daywithzero;
+    this.setState({date:daystring});
     let total = 12;
+    if(this.state.duration == 2)
+    {
+        total = total/2;
+    }
+    if(this.state.duration ==3)
+    {
+        total =total/3;
+    }
     //alert(this.state.dayState);
     //alert(day.dateString);
     for(i =0; i < this.state.bookings.length; i++)
     {
         //alert(this.state.bookings[i].date);
         //alert(daystring)
-        if(this.state.bookings[i].date == daystring)
+        if(this.state.bookings[i].date == daystring && this.state.bookings[i].pitch == this.state.pitch)
         {
             total--;
         }
     }
+    console.log(daystring);
     this.setState({freeSlots: total});
    
 }
 NextPage()
     {
         let data = {
-            pitch : this.state.selectedPitch,
+            pitch : this.state.pitch,
             token : this.state.token,
             bookings: this.state.bookings,
+            date: this.state.date,
+            duration: this.state.duration
         }
-        if(this.state.selectedPitch != "")
+        if(this.state.date != "")
         {
            // alert(this.state.selectedPitch);
             this.props.navigation.navigate('SelectTime', data);
@@ -124,11 +137,16 @@ NextPage()
             alert("Please select a Day!")
         }
     }
-
+    showToken()
+    {
+      console.log(this.props.navigation.state);
+      alert(this.state.token);
+    }
 
    render(){
         return(
             <BackgroundTheme>
+             
             <View>
                 <StatusBar backgroundColor='rgb(42,39,45)'/>
             </View>

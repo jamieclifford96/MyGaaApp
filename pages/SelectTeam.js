@@ -21,6 +21,10 @@ let data =[];
             pitch: props.navigation.state.params.pitch,
             token: props.navigation.state.params.token,
             bookings: props.navigation.state.params.bookings,
+            date: props.navigation.state.params.date,
+            duration: props.navigation.state.params.duration,
+            time: props.navigation.state.params.time,
+            
             dataSource : ds.cloneWithRows(data),
             selectedTeam: "",
             //token: props.navigation.state.params.token,
@@ -35,8 +39,13 @@ let data =[];
     NextPage()
     {
         let data = {
-            pitch : this.state.selectedPitch,
-            token : this.state.token
+            pitch : this.state.pitch,
+            token : this.state.token,
+            bookings: this.state.bookings,
+            date: this.state.date,
+            time: this.state.time,
+            team: this.state.selectedTeam,
+            duration: this.state.duration
         }
         if(this.state.selectedTeam != "")
         {
@@ -95,6 +104,7 @@ let data =[];
      render(){
          return(
             <BackgroundTheme>
+                
                 <View>
                     <StatusBar backgroundColor='rgb(42,39,45)'/>
                 </View>

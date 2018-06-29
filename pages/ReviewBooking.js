@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, ListView, Dimensions,StyleSheet, TouchableOpacity,Picker, ScrollView, Footer, FooterTab,StatusBar } from 'react-native';
+import { Button, View, Text, Image, ListView, Dimensions,StyleSheet, TouchableOpacity,Picker, ScrollView, Footer, FooterTab,StatusBar, ToastAndroid} from 'react-native';
 import AppStyle from '../styles/AppStyle.js';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import ConfirmButton from '../components/ConfirmButton.js';
+
+const base64 = require('base-64');
 
 class ReviewBookingScreen extends React.Component {
     constructor(props) {
        
     let windowWidth = Dimensions.get('window').width;
     let windowHeight = Dimensions.get('window').height;
+
+    const token = props.navigation.state.params.token;
 
         super(props);
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -18,9 +22,14 @@ let data =[];
             height : windowHeight,
             footerwidth: windowWidth *0.5,
             selectedPitch: "",
+            selectedDate: "",
             pitch: props.navigation.state.params.pitch,
             token: props.navigation.state.params.token,
             bookings: props.navigation.state.params.bookings,
+            team: props.navigation.state.params.team,
+            time: props.navigation.state.params.time,
+            date: props.navigation.state.params.date,
+            duration: props.navigation.state.params.duration,
             dataSource : ds.cloneWithRows(data),
             selectedTeam: "",
             //token: props.navigation.state.params.token,
@@ -36,7 +45,7 @@ let data =[];
     {
         let data = {
             pitch : this.state.selectedPitch,
-            token : this.state.token
+            token : token,
         }
         if(this.state.selectedPitch != "")
         {
@@ -47,6 +56,40 @@ let data =[];
         {
             alert("Please select a Day!")
         }
+    }
+    confirmBooking()
+    {
+        let jsonBody = JSON.stringify({
+            id: "27",
+            date: this.state.date,
+            team: this.state.team,
+            pitch: this.state.pitch,
+            time: this.state.time,
+            duration: this.state.duration
+          });
+
+        fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': this.state.token,
+
+            },
+            body :jsonBody     
+        })
+        .then((response) => response.text())
+        .then((json) => {
+            
+        })
+        .catch((error)=> {
+        alert(error);
+        console.log(error);
+        });
+
+        
+        this.props.navigation.navigate('Home', this.state.token);
+        alert("Booking Confirmed!");
     }
     renderRow(row)
     {
@@ -92,6 +135,22 @@ let data =[];
         }
 
     }
+    showToken()
+    {
+      console.log(this.props.navigation.state);
+      alert(this.state.token);
+    }
+    getHourText()
+    {
+        if(this.state.duration == 1)
+        {
+            return " Hour";
+        }
+        else
+        {
+            return " Hours";
+        }
+    }
      render(){
          return(
             <BackgroundTheme>
@@ -102,14 +161,48 @@ let data =[];
 
                 </View>
                 <View style={{alignItems: 'center', }}>
-                    <Text style={{color: 'white', fontSize: 30, fontFamily: 'Open Sans'}}>Choose A Team</Text>
+                    <Text style={{color: 'white', fontSize: 30, fontFamily: 'Open Sans'}}>Review Booking</Text>
                 </View>
-                <View style={{flexDirection: 'row', marginTop: this.state.height * 0.125}}>
-                <View>
-                    <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.03125}} source={require("../images/placeholder.png")}/>
+                <View style={{flexDirection: 'column', marginTop: this.state.height * 0.01,marginLeft:-this.state.width * 0.45}}>
+                    <View style={{flexDirection: 'row'}}>
+                        <View>
+                            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0325, marginRight: this.state.height * 0.03125}} source={require("../images/placeholder.png")}/>
+                        </View>
+                        <View>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0325, fontSize:20 }}> :  {this.state.pitch}</Text>
+                        </View>
                     </View>
-                    <View>
-                        <Text> {this.state.selectedPitch}</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <View>
+                            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/calendarGrey.png")}/>
+                        </View>
+                        <View>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.date}</Text>
+                        </View>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <View>
+                            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/time.png")}/>
+                        </View>
+                        <View>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.time}</Text>
+                        </View>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <View>
+                            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/hourglass.png")}/>
+                        </View>
+                        <View>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.duration} {this.getHourText()}</Text>
+                        </View>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <View>
+                            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/group.png")}/>
+                        </View>
+                        <View>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725,fontSize:20 }}> :   {this.state.team}</Text>
+                        </View>
                     </View>
                 </View>
                 
@@ -124,7 +217,7 @@ let data =[];
                     <View><Text style={{fontSize: 25, color: '#a29eaa'}}>Confirm Booking</Text></View>
                 </View>
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress ={() => this.confirmBooking()}>
                         <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625, marginLeft: this.state.height * 0.09, marginTop: this.state.height * 0.03125}} source={require("../images/tick.png")}/>
                     </TouchableOpacity>
                 </View>

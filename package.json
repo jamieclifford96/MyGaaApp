@@ -17,6 +17,7 @@
     "react-native-communications": "^2.2.1",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-loading-spinner-overlay": "^0.5.2",
+    "react-native-modal-datetime-picker": "^5.1.0",
     "react-navigation": "^1.5.12",
     "react-navigation-transitions": "^1.0.4"
   },

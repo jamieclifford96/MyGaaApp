@@ -49,7 +49,8 @@ export default class LoginScreen extends Component {
         let headers = new Headers();
         //let authTokenHeader = "Basic " + base64.encode(this.state.username + ":" + this.state.password);
         //let authTokenHeader = "Basic " + base64.encode("username:password");
-        let authTokenHeader = "Basic " + base64.encode("jamie"+ ":" + "123")
+        let authTokenHeader = "Basic " + base64.encode("jamie"+ ":" + "123");
+        
         headers.append("Authorization", authTokenHeader );
         
         
@@ -91,18 +92,20 @@ export default class LoginScreen extends Component {
         }
      
       testPost(){
+        
         fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': "Basic " + base64.encode("jamie:123"),
+                
 
             },
             body:JSON.stringify({
-                "id": "15",
+                "id": "21",
                 "date": "2017-10-06",
                 "team": "U12",
+                "time": "12:00:00",
                 "pitch": "Training Pitch"
             })  
         })
@@ -159,11 +162,7 @@ export default class LoginScreen extends Component {
             <Text onPress={Keyboard.dismiss} accessible={false} onPress={() => this.createUser()} style={{color: 'white', textDecorationLine: 'underline'}}>SIGN UP</Text>
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.testPost()}>
-                <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
-            </TouchableOpacity>
-       
+            </TouchableOpacity>       
         </View>
         </TouchableWithoutFeedback>
         </View>

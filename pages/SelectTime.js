@@ -4,6 +4,7 @@ import AppStyle from '../styles/AppStyle.js';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import ConfirmButton from '../components/ConfirmButton.js';
 
+
 class SelectTimeScreen extends React.Component {
     constructor(props) {
        
@@ -13,6 +14,10 @@ class SelectTimeScreen extends React.Component {
         super(props);
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 let data =[];
+const times=["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
+
+
+
         this.state ={
             width : windowWidth,
             height : windowHeight,
@@ -22,7 +27,10 @@ let data =[];
             pitch: props.navigation.state.params.pitch,
             token: props.navigation.state.params.token,
             bookings: props.navigation.state.params.bookings,
+            duration: props.navigation.state.params.duration,
+            date: props.navigation.state.params.date,
             dataSource : ds.cloneWithRows(data),
+            available: "",
             //token: props.navigation.state.params.token,
         }
     
@@ -30,13 +38,18 @@ let data =[];
         let headers = new Headers();
         headers.append("Authorization", this.state.token );
        headers.append("Accept", "application/json");
-  
+        
     }
+
     NextPage()
     {
         let data = {
-            pitch : this.state.selectedPitch,
-            token : this.state.token
+            pitch : this.state.pitch,
+            token : this.state.token,
+            bookings: this.state.bookings,
+            date: this.state.date,
+            time: this.state.selectedTime,
+            duration: this.state.duration
         }
        
         if(this.state.selectedTime != "")
@@ -46,9 +59,10 @@ let data =[];
         }
         else
         {
-            alert("Please select a Day!")
+            alert("Please select a Time!")
         }
     }
+
     renderRow(row)
     {
         if(row.bookings.time != '09:00:00')
@@ -93,9 +107,16 @@ let data =[];
         }
 
     }
+  
+    showToken()
+    {
+      console.log(this.props.navigation.state);
+      alert(this.state.token);
+    }
      render(){
          return(
             <BackgroundTheme>
+                 
                 <View>
                     <StatusBar backgroundColor='rgb(42,39,45)'/>
                 </View>
@@ -105,21 +126,81 @@ let data =[];
                 <View style={{alignItems: 'center', }}>
                     <Text style={{color: 'white', fontSize: 30, fontFamily: 'Open Sans'}}>Choose A Time</Text>
                 </View>
-                <View style={{height:this.state.height * 0.125, borderBottomColor: 'white', borderBottomWidth: 3}}>
-
+                <View style={{height:this.state.height * 0.0625, borderBottomColor: 'white', borderBottomWidth: 3}}>
+                    
                 </View>
-                <View style={{flexDirection: 'row', marginTop: this.state.height * 0.125}}>
-                <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
-                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "14:00:00"})}>
-                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>14:00:00</Text>
-                        </TouchableOpacity>
-                    </View> 
-                </View>
+                
                 <View style={{flex: 1}}>
-                    <View>
-                        
+                    <View style={{flexDirection: 'row'}}>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "09:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
+                                <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>09:00</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => this.setState({selectedTime: "10:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>                       
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>10:00</Text>    
+                        </View>
+                    </TouchableOpacity>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "11:00:00"})}>
+                         <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}> 
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>11:00</Text>   
+                         </View>
+                        </TouchableOpacity>
                     </View>
-                <View style={{position: 'absolute', left:-this.state.footerwidth, right: 0, bottom: 0, backgroundColor: 'rgb(42,39,45)', width: this.state.width, height: this.state.height * 0.125, flexDirection: 'row'}}>
+                    <View style={{flexDirection: 'row',marginTop: this.state.height * 0.015}}>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "12:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
+                                <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>12:00</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => this.setState({selectedTime: "13:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>                       
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>13:00</Text>    
+                        </View>
+                    </TouchableOpacity>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "14:00:00"})}>
+                         <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}> 
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>14:00</Text>   
+                         </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{flexDirection: 'row',marginTop: this.state.height * 0.015}}>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "15:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
+                                <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>15:00</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => this.setState({selectedTime: "16:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>                       
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>16:00</Text>    
+                        </View>
+                    </TouchableOpacity>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "17:00:00"})}>
+                         <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}> 
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>17:00</Text>   
+                         </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{flexDirection: 'row', marginTop: this.state.height * 0.015}}>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "18:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
+                                <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>18:00</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => this.setState({selectedTime: "19:00:00"})}>
+                        <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>                       
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>19:00</Text>    
+                        </View>
+                    </TouchableOpacity>
+                        <TouchableOpacity onPress = {() => this.setState({selectedTime: "20:00:00"})}>
+                         <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}> 
+                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>20:00</Text>   
+                         </View>
+                        </TouchableOpacity>
+                    </View>
+                    
+                <View style={{position: 'absolute', left:this.state.width * -0.05, right: 0, bottom: 0, backgroundColor: 'rgb(42,39,45)', width: this.state.width, height: this.state.height * 0.125, flexDirection: 'row'}}>
                 <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625, marginLeft: this.state.height * 0.03125, marginTop: this.state.height * 0.03125}} source={require("../images/group.png")}/>
                 <View style={{flexDirection: 'column', marginLeft:this.state.height * 0.03125, marginTop: this.state.height * 0.020833333333 }}>
                     <View><Text style={{fontSize: 20, color: '#545359'}}>STEP 4</Text></View>

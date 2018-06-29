@@ -14,7 +14,9 @@ class FixtureListScreen extends React.Component{
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     let data = this.groupByDivision([]);
+
     let windowWidth = Dimensions.get('window').width;
+    
     this.state = {      
       fixtures : data,
       dataSource :ds.cloneWithRows(data),

@@ -66,6 +66,9 @@ const RootStack = StackNavigator(
     },
     BookPitch: {
       screen: BookPitchScreen,
+      navigationOptions: {
+        header: null
+      }
     },
     AddFixture: {
       screen: AddFixtureScreen,
