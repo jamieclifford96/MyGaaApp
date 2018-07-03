@@ -4,6 +4,7 @@ import AppStyle from '../styles/AppStyle.js';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import ConfirmButton from '../components/ConfirmButton.js';
 
+
 const base64 = require('base-64');
 
 class ReviewBookingScreen extends React.Component {
@@ -24,7 +25,6 @@ let data =[];
             selectedPitch: "",
             selectedDate: "",
             pitch: props.navigation.state.params.pitch,
-            token: props.navigation.state.params.token,
             bookings: props.navigation.state.params.bookings,
             team: props.navigation.state.params.team,
             time: props.navigation.state.params.time,
@@ -59,14 +59,14 @@ let data =[];
     }
     confirmBooking()
     {
-        let jsonBody = JSON.stringify({
-            id: "27",
-            date: this.state.date,
-            team: this.state.team,
-            pitch: this.state.pitch,
-            time: this.state.time,
-            duration: this.state.duration
-          });
+        console.log(this.state.selectedPitch);
+        let jsonBody = JSON.stringify(    {
+            "datetime":"2018-05-05",
+            "id": "102",
+            "team": "U12",
+            "pitch": "Training Pitch",
+            "time": "18:00:00"
+        });
 
         fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
             method: 'POST',
@@ -91,50 +91,7 @@ let data =[];
         this.props.navigation.navigate('Home', this.state.token);
         alert("Booking Confirmed!");
     }
-    renderRow(row)
-    {
-        if(row.bookings.time != '09:00:00')
-        {
-            return(<Text>09:00</Text>);
-        }
-        else if(row.bookings.time != '10:00:00'){
-            return(<Text>10:00</Text>);
-        }
-        else if(row.bookings.time != '11:00:00'){
-            return(<Text>11:00</Text>);
-        }
-        else if(row.bookings.time != '12:00:00'){
-            return(<Text>12:00</Text>);
-        }
-        else if(row.bookings.time != '13:00:00'){
-            return(<Text>13:00</Text>);
-        }
-        else if(row.bookings.time != '14:00:00'){
-            return(<Text>14:00</Text>);
-        }
-        else if(row.bookings.time != '15:00:00'){
-            return(<Text>15:00</Text>);
-        }
-        else if(row.bookings.time != '16:00:00'){
-            return(<Text>16:00</Text>);
-        }
-        else if(row.bookings.time != '17:00:00'){
-            return(<Text>17:00</Text>);
-        }
-        else if(row.bookings.time != '18:00:00'){
-            return(<Text>18:00</Text>);
-        }
-        else if(row.bookings.time != '19:00:00'){
-            return(<Text>19:00</Text>);
-        }
-        else if(row.bookings.time != '20:00:00'){
-            return(<Text>20:00</Text>);
-        }
-        else if(row.bookings.time != '21:00:00'){
-            return(<Text>21:00</Text>);
-        }
-
-    }
+    
     showToken()
     {
       console.log(this.props.navigation.state);

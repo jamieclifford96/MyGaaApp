@@ -14,6 +14,7 @@ class SelectTimeScreen extends React.Component {
         super(props);
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 let data =[];
+let number =9;
 const times=["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
 
 
@@ -43,6 +44,7 @@ const times=["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17
 
     NextPage()
     {
+        console.log(this.state.pitch);
         let data = {
             pitch : this.state.pitch,
             token : this.state.token,
@@ -59,54 +61,20 @@ const times=["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17
         }
         else
         {
-            alert("Please select a Time!")
+            alert("Please select a Time!");
         }
     }
 
-    renderRow(row)
+    /*renderRow(row)
     {
-        if(row.bookings.time != '09:00:00')
+        for(i=0; i <this.state.bookings.lenth;i++)
         {
-            return(<Text>09:00</Text>);
+            for(j=9; j<21;j++)
+            {
+                
+            }
         }
-        else if(row.bookings.time != '10:00:00'){
-            return(<Text>10:00</Text>);
-        }
-        else if(row.bookings.time != '11:00:00'){
-            return(<Text>11:00</Text>);
-        }
-        else if(row.bookings.time != '12:00:00'){
-            return(<Text>12:00</Text>);
-        }
-        else if(row.bookings.time != '13:00:00'){
-            return(<Text>13:00</Text>);
-        }
-        else if(row.bookings.time != '14:00:00'){
-            return(<Text>14:00</Text>);
-        }
-        else if(row.bookings.time != '15:00:00'){
-            return(<Text>15:00</Text>);
-        }
-        else if(row.bookings.time != '16:00:00'){
-            return(<Text>16:00</Text>);
-        }
-        else if(row.bookings.time != '17:00:00'){
-            return(<Text>17:00</Text>);
-        }
-        else if(row.bookings.time != '18:00:00'){
-            return(<Text>18:00</Text>);
-        }
-        else if(row.bookings.time != '19:00:00'){
-            return(<Text>19:00</Text>);
-        }
-        else if(row.bookings.time != '20:00:00'){
-            return(<Text>20:00</Text>);
-        }
-        else if(row.bookings.time != '21:00:00'){
-            return(<Text>21:00</Text>);
-        }
-
-    }
+    }*/
   
     showToken()
     {

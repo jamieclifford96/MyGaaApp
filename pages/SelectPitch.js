@@ -20,6 +20,12 @@ class SelectPitchScreen extends React.Component {
             selectedPitch: "",
             token:props.navigation.state.params,
             duration: 0,
+            background: "#545359",
+            background2: "#545359",
+            background3: "#545359",
+            toggle: false,
+            toggle2: false,
+            toggle3: false,
         }
     
         
@@ -33,26 +39,51 @@ class SelectPitchScreen extends React.Component {
         let data = {
             pitch : this.state.selectedPitch,
             token : this.state.token,
-            duration: this.state.duration
         }
-        if(this.state.selectedPitch != "" && this.state.duration != 0)
+        if(this.state.selectedPitch != "")
         {
            // alert(this.state.selectedPitch);
             this.props.navigation.navigate('BookingCalendar', data);
         }
-        else if(this.state.duration == 0 && this.state.selectedPitch != "")
-        {
-            alert("Please select a session duration!");
-        }
-        else if(this.state.selectedPitch =="" && this.state.duration != 0)
-        {
-            alert("Please select a pitch!")
-        }
         else{
-            alert("Please select a pitch and a session duration");
+            alert("Please select a pitch!");
         }
     }
-   
+    chooseSelected1()
+    {
+       this.setState({toggle: !this.state.toggle});
+       this.setState({selectedPitch: "Main Pitch"});
+       if(this.state.toggle2 == true)
+       {
+         this.state.toggle2 = false;
+       }
+       if(this.state.toggle3 == true){
+       this.setState({toggle3: false});
+    }}
+    chooseSelected2()
+    {
+        this.setState({toggle2: !this.state.toggle2});
+        this.setState({selectedPitch: "Training Pitch"});
+        if(this.state.toggle == true)
+        {
+          this.state.toggle = false;
+        }
+        if(this.state.toggle3 == true){
+        this.setState({toggle3: false});
+     }
+    }
+    chooseSelected3()
+    {
+        this.setState({toggle3: !this.state.toggle3});
+        this.setState({selectedPitch: "New Pitch"});
+        if(this.state.toggle2 == true)
+        {
+          this.state.toggle2 = false;
+        }
+        if(this.state.toggle == true){
+        this.setState({toggle: false});
+     }
+    }
     showToken()
     {
       console.log(this.props.navigation.state);
@@ -73,40 +104,19 @@ class SelectPitchScreen extends React.Component {
                 </View>
                 <View style={{flexDirection: 'row', marginTop: this.state.height * 0.0625,  marginBottom:this.state.height * 0.0625}}>
                 
-                <TouchableOpacity onPress = {() => this.setState({selectedPitch: "Main Pitch"})}>
-                    <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
-                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>Main Pitch</Text>
+                <TouchableOpacity onPress = {() => this.chooseSelected1()}>
+                    <View style={[styles.button, this.state.toggle && styles.buttonalt]}>
+                            <Text style={[{color:'#a29eaa', marginTop: this.state.height * 0.03125}, this.state.toggle && {color:'#fff'}] }>Main Pitch</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => this.setState({selectedPitch: "Training Pitch"})}>
-                    <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>                       
-                        <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>Training Pitch</Text>    
+                <TouchableOpacity onPress = {() => this.chooseSelected2()}>
+                    <View style={[styles.button, this.state.toggle2 && styles.buttonalt]}>                       
+                        <Text style={[{color:'#a29eaa', marginTop: this.state.height * 0.03125}, this.state.toggle2 && {color:'#fff'}]}>Training Pitch</Text>    
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => this.setState({selectedPitch: "New Pitch"})}>
-                    <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}> 
-                        <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>New Pitch</Text>   
-                    </View>
-                </TouchableOpacity>
-                </View>
-                <View style={{alignItems: 'center', marginLeft: this.state.height*0.0325 }}>
-                    <Text style={{color: 'white', fontSize: 30, fontFamily: 'Open Sans'}}>Select The Session Duration </Text>
-                </View>
-                <View style={{flexDirection: 'row', marginTop: this.state.height * 0.0625, alignItems: 'center'}}>
-                
-                <TouchableOpacity onPress = {() => this.setState({duration: 1})}>
-                    <View style={{ borderRadius: 40,width: 80,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
-                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>1</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress = {() => this.setState({duration: 2})}>
-                    <View style={{ borderRadius: 40,width: 80,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>                       
-                        <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>2</Text>    
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress = {() => this.setState({duration: 3})}>
-                    <View style={{ borderRadius: 40,width: 80,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}> 
-                        <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>3</Text>   
+                <TouchableOpacity onPress = {() => this.chooseSelected3()}>
+                    <View style={[styles.button, this.state.toggle3 && styles.buttonalt]}> 
+                        <Text style={[{color:'#a29eaa', marginTop: this.state.height * 0.03125}, this.state.toggle3 && {color:'#fff'}]}>New Pitch</Text>   
                     </View>
                 </TouchableOpacity>
                 </View>
@@ -155,6 +165,18 @@ middleStyle: {
 stylenew: {
     backgroundColor: 'rgba(0,0,0,0)',
     borderColor:'white',
+},
+button: {
+    borderRadius: 40,
+    width: 120,
+    height: 80,
+    borderWidth: 5,
+    borderColor: "#545359",
+    backgroundColor:"rgba(0,0,0,0)",
+    alignItems:'center'
+},
+buttonalt:{
+    borderColor: "#fff"
 }
 });
 /*  <View>     

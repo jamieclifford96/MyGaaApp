@@ -38,6 +38,7 @@ let data =[];
     }
     NextPage()
     {
+        console.log(this.state.pitch);
         let data = {
             pitch : this.state.pitch,
             token : this.state.token,
@@ -119,22 +120,28 @@ let data =[];
                 </View>
                 <View style={{flexDirection: 'row', marginTop: this.state.height * 0.125}}>
                
-                
+                <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U12"})}>
                     <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
-                        <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U12"})}>
+                        
                             <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>U12</Text>
-                        </TouchableOpacity>
+                       
+                    
                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U14"})}>
                     <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>
-                        <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U14"})}>
+                        
                         <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>U14</Text>
-                        </TouchableOpacity>
+                        
                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U16"})}>
                     <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}>
-                        <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U16"})}>
+                       
                         <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>U16</Text>
-                        </TouchableOpacity>
+                        
                     </View>
+                    </TouchableOpacity>
                 </View>
                 
                 <View style={{flex: 1}}>

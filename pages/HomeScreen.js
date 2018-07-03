@@ -20,7 +20,7 @@ class HomeScreen extends React.Component{
             width : windowWidth,
             height :windowWidth * 0.32,
           },
-          token: props.navigation.state.params.token,
+          token: props.navigation.state.params,
           test : props.navigation.state
         
     }

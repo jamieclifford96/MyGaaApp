@@ -42,17 +42,22 @@ class BookPitchScreen extends React.Component {
             <View style={{height:this.state.height * 0.125, marginTop: this.state.height * 0.50}}>
                 <Text style={styles.text}>Pitch Booking</Text>
             </View>
+            <TouchableOpacity style={styles.iconbutton} onPress ={() => this.showToken()}/*={() => this.props.navigation.navigate('BookPitch', this.state.token)}*/> 
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.height/2, width: this.state.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white', marginTop: this.state.height * 0.75}}>
-            <TouchableOpacity style={styles.iconbutton} onPress ={() => this.showToken()}/*={() => this.props.navigation.navigate('BookPitch', this.state.token)}*/>            
+                       
                 <Text style={styles.text}>VIEW TIMETABLES</Text>
-              </TouchableOpacity>
+             
             </View>
+
+             </TouchableOpacity>
             <View>
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('SelectPitch', this.state.token)}>  
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.height/2, width: this.state.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('SelectPitch', this.state.token)}>            
+                      
                 <Text style={styles.text}>BOOK A PITCH</Text>
-              </TouchableOpacity>
+              
             </View>
+            </TouchableOpacity>
             </View>
         </BackgroundTheme>
 

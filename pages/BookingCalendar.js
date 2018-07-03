@@ -30,9 +30,10 @@ class BookingCalendarScreen extends React.Component{
         token: props.navigation.state.params.token,
         duration: props.navigation.state.params.duration,
         bookings: data,
-        month: new Date().getMonth(),
+        month: new Date().getMonth().toLocaleString(),
         year: new Date().getFullYear(),
-        date: ""
+        date: "",
+        markedDay: {'2018-05-16': {selected: true, marked: true, selectedColor: 'blue'}}
       };
     }
 
@@ -71,38 +72,41 @@ getBookings(){
    
   .done();
 }
+changeMonth(month)
+{
+    console.log(month);
+    //this.setState({month:month});
+}
 ViewDetailsOfDay(day)
 {
-    
-    //alert(this.state.month);
+    this.state.markedDay = {};
+    this.state.markedDay ={[day.dateString]:{selected: true,selectedColor: "rgb(72,115,61)"}}
+    date = day.dateString;
+    console.log(date);
+    let month = this.state.month.toString();
+
     let daywithzero = "";
-    let monthwithzero = (this.state.month.toPrecision());
+    let monthwithzero = this.state.month;
     monthwithzero++;
 
     if(day.day < 10)
     {
         daywithzero = "0"+day.day;
     }
-    else{
+    else
+    {
         daywithzero=day.day;
     }
-    console.log(daywithzero);
+
     if(monthwithzero < 10)
     {
         monthwithzero ="0"+monthwithzero;
     }
     console.log(monthwithzero);
     let daystring = this.state.year + "-" + monthwithzero + "-" + daywithzero;
-    this.setState({date:daystring});
+    this.setState({date:date});
     let total = 12;
-    if(this.state.duration == 2)
-    {
-        total = total/2;
-    }
-    if(this.state.duration ==3)
-    {
-        total =total/3;
-    }
+
     //alert(this.state.dayState);
     //alert(day.dateString);
     for(i =0; i < this.state.bookings.length; i++)
@@ -161,7 +165,7 @@ NextPage()
             </View>
             <View style={{flexDirection: 'row', marginTop: 0}}>
                 <View style={{borderBottomWidth: 1, borderBottomColor:"#545359" }}>
-                    <Calendar onDayPress={(day) => {this.ViewDetailsOfDay(day)}} style={{width: this.state.width, backgroundColor:"rgb(31,29,35)", borderTopWidth: 1, borderTopColor: "#545359" }} theme={{calendarBackground: 'rgb(31,29,35)', dayTextColor: 'rgb(225,225,225)', todayTextColor: 'rgb(187,144,63)',arrowColor: '#545359', monthTextColor: 'rgb(154,150,162)',} }></Calendar>
+                    <Calendar markedDates={this.state.markedDay} onMonthChange={(month) => console.log(this.state.pitch)} onDayPress={(day) => {this.ViewDetailsOfDay(day)}} style={{width: this.state.width, backgroundColor:"rgb(31,29,35)", borderTopWidth: 1, borderTopColor: "#545359" }} theme={{calendarBackground: 'rgb(31,29,35)', dayTextColor: 'rgb(225,225,225)', todayTextColor: 'rgb(187,144,63)',arrowColor: '#545359', monthTextColor: 'rgb(154,150,162)',} }></Calendar>
                 </View>
             </View>
             <View style={{ flexDirection: 'row' }}>
