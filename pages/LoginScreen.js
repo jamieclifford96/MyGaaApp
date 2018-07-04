@@ -17,7 +17,13 @@ export default class LoginScreen extends Component {
             thumbnailSize :{
                 width : windowWidth,
                 height :windowWidth * 0.32
-              }
+              },
+              venue: "test",
+              home: "test",
+              away: "test",
+              ref: "test",
+              group: "test",
+              dateTime: "2018-08-24T18:00:00",
         };
 
 
@@ -93,31 +99,34 @@ export default class LoginScreen extends Component {
      
       testPost(){
         
-        fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                
+        
+    let jsonBody = JSON.stringify(    {
+        "venue": this.state.venue,
+        "home": this.state.home,
+        "away": this.state.away,
+        "ref": this.state.ref,
+        "group":this.state.group,
+        "datetime":this.state.dateTime
+    });
 
-            },
-            body:JSON.stringify({
-                "id": "21",
-                "date": "2017-10-06",
-                "team": "U12",
-                "time": "12:00:00",
-                "pitch": "Training Pitch"
-            })  
-        })
-        .then((response) => response.text())
-        .then((json) => {
-            console.log(json)
-            alert(json);
-        })
-        .catch((error)=> {
-            console.log(error)
-        alert(error);
-        });
+    fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': "Basic " + base64.encode("jamie"+ ":" + "123"),
+
+        },
+        body :jsonBody     
+    })
+    .then((response) => response.text())
+    .then((json) => {
+        console.log(json);
+    })
+    .catch((error)=> {
+    alert(error);
+    console.log(error);
+    });
       }  
     
 
@@ -162,7 +171,10 @@ export default class LoginScreen extends Component {
             <Text onPress={Keyboard.dismiss} accessible={false} onPress={() => this.createUser()} style={{color: 'white', textDecorationLine: 'underline'}}>SIGN UP</Text>
             <TouchableOpacity style={styles.iconbutton} onPress={() => this.login()}>
                 <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
-            </TouchableOpacity>       
+            </TouchableOpacity>    
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.testPost()}>
+                <Image style={{width: 80, height: 80,  }} source={require("../images/login.png")}/> 
+            </TouchableOpacity>          
         </View>
         </TouchableWithoutFeedback>
         </View>

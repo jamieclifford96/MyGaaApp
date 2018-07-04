@@ -27,10 +27,11 @@ class FixtureListScreen extends React.Component{
     };
 
     let headers = new Headers();
+    console.log(token);
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    this.componentDidMount = () =>  {
+     this.componentDidMount = () =>  {
     fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/", {
             headers: headers
         })
@@ -43,9 +44,11 @@ class FixtureListScreen extends React.Component{
             }
         })
         .then( (myJson => {
-          let payload = this.groupByDivision(this.filterData(myJson));          
+          let payload = this.groupByDivision(this.filterData(myJson));     
+          console.log(myJson);     
           this.setState({                      
             fixtures : payload,
+            
             dataSource :ds.cloneWithRows(payload),
             isSpinning: false
           });
@@ -114,7 +117,7 @@ class FixtureListScreen extends React.Component{
     }
 
     let grouped = groupBy(data,(el) => el.group);
-
+    
     return Object.keys(grouped).map((key) => {
       return {
         division : key,
@@ -147,6 +150,7 @@ formatDate(date){
   renderRow(row){
       return(
           <View >
+           
           <Text style={AppStyle.fixturesDivisionHeading}>{row.division}</Text>  
           {        
             row.fixtures.map((fixture, index) => {
@@ -195,10 +199,12 @@ formatDate(date){
           
           <ListView
             dataSource={dataSource}
-            enableEmptySections={true}
+            enableEmptySections={true}          
             renderRow={(rowData) => this.renderRow(rowData)}
           /> 
+          
           }
+          
         </BackgroundTheme>
       );    
     }

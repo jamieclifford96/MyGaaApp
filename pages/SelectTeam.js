@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, View, Text, Image, ListView, Dimensions,StyleSheet, TouchableOpacity,Picker, ScrollView, Footer, FooterTab,StatusBar } from 'react-native';
 import AppStyle from '../styles/AppStyle.js';
+import { groupBy } from 'lodash';
 import BackgroundTheme from '../views/BackgroundTheme.js';
 import ConfirmButton from '../components/ConfirmButton.js';
 
@@ -12,7 +13,7 @@ class SelectTeamScreen extends React.Component {
 
         super(props);
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-let data =[];
+let data = this.groupByTime([]);
         this.state ={
             width : windowWidth,
             height : windowHeight,
@@ -24,7 +25,9 @@ let data =[];
             date: props.navigation.state.params.date,
             duration: props.navigation.state.params.duration,
             time: props.navigation.state.params.time,
-            
+            toggle: false,
+            toggle2: false,
+            toggle3: false,
             dataSource : ds.cloneWithRows(data),
             selectedTeam: "",
             //token: props.navigation.state.params.token,
@@ -58,50 +61,44 @@ let data =[];
             alert("Please select a team!")
         }
     }
-    renderRow(row)
+    
+    chooseSelected1()
     {
-        if(row.bookings.time != '09:00:00')
+       this.setState({toggle: !this.state.toggle});
+       this.setState({selectedTeam:"U12"});
+       if(this.state.toggle2 == true)
+       {
+         this.state.toggle2 = false;
+       }
+       if(this.state.toggle3 == true){
+       this.setState({toggle3: false});
+    }}
+    chooseSelected2()
+    {
+        this.setState({toggle2: !this.state.toggle2});
+        this.setState({selectedTeam: "U14"});
+        if(this.state.toggle == true)
         {
-            return(<Text>09:00</Text>);
+          this.state.toggle = false;
         }
-        else if(row.bookings.time != '10:00:00'){
-            return(<Text>10:00</Text>);
-        }
-        else if(row.bookings.time != '11:00:00'){
-            return(<Text>11:00</Text>);
-        }
-        else if(row.bookings.time != '12:00:00'){
-            return(<Text>12:00</Text>);
-        }
-        else if(row.bookings.time != '13:00:00'){
-            return(<Text>13:00</Text>);
-        }
-        else if(row.bookings.time != '14:00:00'){
-            return(<Text>14:00</Text>);
-        }
-        else if(row.bookings.time != '15:00:00'){
-            return(<Text>15:00</Text>);
-        }
-        else if(row.bookings.time != '16:00:00'){
-            return(<Text>16:00</Text>);
-        }
-        else if(row.bookings.time != '17:00:00'){
-            return(<Text>17:00</Text>);
-        }
-        else if(row.bookings.time != '18:00:00'){
-            return(<Text>18:00</Text>);
-        }
-        else if(row.bookings.time != '19:00:00'){
-            return(<Text>19:00</Text>);
-        }
-        else if(row.bookings.time != '20:00:00'){
-            return(<Text>20:00</Text>);
-        }
-        else if(row.bookings.time != '21:00:00'){
-            return(<Text>21:00</Text>);
-        }
-
+        if(this.state.toggle3 == true){
+        this.setState({toggle3: false});
+     }
     }
+    chooseSelected3()
+    {
+        this.setState({toggle3: !this.state.toggle3});
+        this.setState({selectedTeam: "U16"});
+        if(this.state.toggle2 == true)
+        {
+          this.state.toggle2 = false;
+        }
+        if(this.state.toggle == true){
+        this.setState({toggle: false});
+     }
+    }
+    
+   
      render(){
          return(
             <BackgroundTheme>
@@ -120,25 +117,25 @@ let data =[];
                 </View>
                 <View style={{flexDirection: 'row', marginTop: this.state.height * 0.125}}>
                
-                <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U12"})}>
-                    <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}}>
+                <TouchableOpacity onPress ={() => this.chooseSelected1()}>
+                    <View style={[{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',}, this.state.toggle && {borderColor:'#fff'}]}>
                         
-                            <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125} }>U12</Text>
+                            <Text style={[{color:'#a29eaa', marginTop: this.state.height * 0.03125}, this.state.toggle && {color:'#fff'}] }>U12</Text>
                        
                     
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U14"})}>
-                    <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}}>
+                    <TouchableOpacity onPress ={() => this.chooseSelected2()}>
+                    <View style={[{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center', marginLeft: this.state.height * 0.01}, this.state.toggle2 && {borderColor:'#fff'}]}>
                         
-                        <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>U14</Text>
+                        <Text style={[{color:'#a29eaa', marginTop: this.state.height * 0.03125}, this.state.toggle2 && {color:'#fff'}]}>U14</Text>
                         
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress = {(selectedPitch) => this.setState({selectedTeam: "U16"})}>
-                    <View style={{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}}>
+                    <TouchableOpacity onPress ={() => this.chooseSelected3()}>
+                    <View style={[{ borderRadius: 40,width: 120,height: 80,borderWidth: 5,borderColor: '#545359',backgroundColor: 'rgba(0,0,0,0)',alignItems:'center',marginLeft: this.state.height * 0.01}, this.state.toggle3 && {borderColor:'#fff'}]}>
                        
-                        <Text style={{color:'#a29eaa', marginTop: this.state.height * 0.03125}}>U16</Text>
+                        <Text style={[{color:'#a29eaa', marginTop: this.state.height * 0.03125} , this.state.toggle3 && {color:'#fff'}]}>U16</Text>
                         
                     </View>
                     </TouchableOpacity>

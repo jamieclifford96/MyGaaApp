@@ -131,6 +131,7 @@ NextPage()
             date: this.state.date,
             duration: this.state.duration
         }
+    
         if(this.state.date != "")
         {
            // alert(this.state.selectedPitch);
@@ -146,6 +147,7 @@ NextPage()
       console.log(this.props.navigation.state);
       alert(this.state.token);
     }
+   
 
    render(){
         return(

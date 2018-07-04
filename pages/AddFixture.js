@@ -21,56 +21,16 @@ class AddFixtureScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/", {
-            
-            method: 'POST',
-            headers: headers
-        })
-      
     
     }
     static navigationOptions = {
         title: "Add Fixture",
     };
+    
 render(){
     return(
         <BackgroundTheme>
-        <TextInput 
-            placeholder="HOME TEAM NAME" 
-            placeholderTextColor="#fff" 
-            returnKeyType="next"
-            style={styles.input}
-            onSubmitEditing={() => this.passwordInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false} 
-            ref={(input) => this.hometeamInput = input}
-            onChangeText={(text) => this.setState({home_team_name :text})} />
         
-        <TextInput 
-            placeholder="AWAY TEAM NAME" 
-            placeholderTextColor="#fff" 
-            returnKeyType="next"
-            style={styles.input}
-            onSubmitEditing={() => this.passwordInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false} 
-            ref={(input) => this.awayteamnameInput = input}
-            onChangeText={(text) => this.setState({away_team_name :text})} />
-
-          <TextInput 
-            placeholder="VENUE" 
-            placeholderTextColor="#fff" 
-            returnKeyType="next"
-            style={styles.input}
-            onSubmitEditing={() => this.passwordInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false} 
-            ref={(input) => this.venueInput = input}
-            onChangeText={(text) => this.setState({venue :text})} />           
-          
         </BackgroundTheme>
     );
 }
