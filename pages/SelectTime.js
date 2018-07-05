@@ -40,24 +40,31 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
         
         let headers = new Headers();
         headers.append("Authorization", this.state.token );
-       headers.append("Accept", "application/json");
+        headers.append("Accept", "application/json");
         
     }
-   
+
     getBookings(){
         let headers = new Headers();
-    
+        let JsonBody =JSON.stringify({date:this.state.date + " 00:00:00"})
+        
         headers.append("Authorization", "Basic " + base64.encode("jamie:123") );
         headers.append("Accept", "application/json");
         
         fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/date", {
-            method: 'POST',    
-            headers: headers,
-            body: JSON.stringify({date: this.state.date + " 00:00:00"})
+            method: 'POST',
+            headers:{
+        
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': "Basic " + base64.encode("jamie"+ ":" + "123"),
+            },
+            body: JsonBody
         })
         .then((response) => {
             if(response.status != 200){
               ToastAndroid.show("Oops something went wrong", ToastAndroid.LONG);
+              console.log(response.status);
             
             }
             else{
@@ -71,7 +78,7 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
             bookings : payload,
             isSpinning: false
           });
-          console.log(this.state.bookings);
+          //console.log(this.state.bookings);
         }))
        
       .done();
@@ -111,15 +118,14 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
         this.getBookings();
    
         let isTaken = false;
-       
+        let shortdate = data.substring(0,5);
         if(this.state.bookings.length == null)
         {
             isTaken = false;
             return(
                 <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9}}>
                     <Text style={{color: '#a29eaa'}}>{data} : Free</Text>
-                    <Button title="Book" onPress={() => this.setState({test: "test"})}/>
-                       
+                    <Button title="Book" onPress={() => this.setState({test: "test"})}/>               
                </View>);
         }
         else{
@@ -129,18 +135,23 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
                 {
                     isTaken = true;
                     return(
-                    <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9}}>
-                        <Text style={{color: '#a29eaa'}}>{data} : {this.state.bookings[i].team}</Text>
+                    <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9, borderTopWidth: 3, borderLeftWidth: 3, borderRightWidth:3}}>
+                        <Text style={{color: '#a29eaa', fontSize: 15}}>{data} : {this.state.bookings[i].team}</Text>
                     </View>);
                 }
             }
             if(isTaken == false)
             {
                 return(
-                <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9}}>
-                    <Text style={{color: '#a29eaa'}}>{data} : Free</Text>
-                    <Button title="Book" onPress={() => this.setState({test: "test"})}/>
-                        
+                <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9, borderTopWidth: 3, borderLeftWidth: 3, borderRightWidth: 3, borderColor: 'rgb(42,39,45)'}}>
+                    <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, paddingRight: this.state.height * 0.03, borderRightWidth: 3, borderColor: 'rgb(42,39,45)' }}>{shortdate}</Text>
+                    <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, marginRight: this.state.width * 0.35, borderColor: 'rgb(42,39,45)'}}> FREE</Text>
+                    
+                    <TouchableOpacity onPress={() => this.setState({selectedTime: data})}style={{width: this.state.width * 0.15, height:this.state.height * 0.05, borderWidth: 1, borderColor: '#a29eaa',marginTop: this.state.height * 0.023}}>
+                        <View>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.01, marginLeft: this.state.height * 0.015}}>BOOK</Text>
+                        </View>
+                    </TouchableOpacity>    
                 </View>);
             }}
     }
@@ -156,16 +167,15 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
                 <View>
                     <StatusBar backgroundColor='rgb(42,39,45)'/>
                 </View>
-                <View style={{height:this.state.height * 0.125, borderBottomColor: 'white', borderBottomWidth: 3}}>
-
-                </View>
+                
                 <View style={{alignItems: 'center', }}>
                     <Text style={{color: 'white', fontSize: 30, fontFamily: 'Open Sans'}}>Choose A Time</Text>
                 </View>
-                <ListView  enableEmptySections={true}  dataSource={this.state.dataSource} renderRow={(data) => this.renderRow(data)}/>
-
-                 <View style={{flexDirection: 'column'}}></View>   
-                <View style={{ flex: 2,position: 'absolute', left:-this.state.width *0.00, right: 0, bottom: 0, backgroundColor: 'rgb(42,39,45)', width: this.state.width, height: this.state.height * 0.125, flexDirection: 'row'}}>
+                <View style={{height: this.state.height * 0.75, marginBottom: 10}}> 
+                <ListView enableEmptySections={true}  dataSource={this.state.dataSource} renderRow={(data) => this.renderRow(data)}/>
+                </View>
+                 
+                <View style={{ flex: 2, left:-this.state.width *0.00, right: 0, bottom: 0, backgroundColor: 'rgb(42,39,45)', width: this.state.width, height: this.state.height * 0.125, flexDirection: 'row'}}>
                 <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625, marginLeft: this.state.height * 0.03125, marginTop: this.state.height * 0.03125}} source={require("../images/group.png")}/>
                 <View style={{flexDirection: 'column', marginLeft:this.state.height * 0.03125, marginTop: this.state.height * 0.020833333333 }}>
                     <View><Text style={{fontSize: 20, color: '#545359'}}>STEP 4</Text></View>
@@ -176,10 +186,10 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
                         <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625, marginLeft: this.state.height * 0.09, marginTop: this.state.height * 0.03125}} source={require("../images/right-arrow.png")}/>
                     </TouchableOpacity>
                 </View>
+                
                 </View>
                 
-              
-        
+                
             </BackgroundTheme>
          )
      };

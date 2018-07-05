@@ -81,30 +81,9 @@ ViewDetailsOfDay(day)
 {
     this.state.markedDay = {};
     this.state.markedDay ={[day.dateString]:{selected: true,selectedColor: "rgb(72,115,61)"}}
-    date = day.dateString;
-    console.log(date);
-    let month = this.state.month.toString();
-
-    let daywithzero = "";
-    let monthwithzero = this.state.month;
-    monthwithzero++;
-
-    if(day.day < 10)
-    {
-        daywithzero = "0"+day.day;
-    }
-    else
-    {
-        daywithzero=day.day;
-    }
-
-    if(monthwithzero < 10)
-    {
-        monthwithzero ="0"+monthwithzero;
-    }
-    console.log(monthwithzero);
-    let daystring = this.state.year + "-" + monthwithzero + "-" + daywithzero;
-    this.setState({date:date});
+    date1 = day.dateString;
+    console.log(date1);
+    this.setState({date:date1});
     let total = 12;
 
     //alert(this.state.dayState);
@@ -113,12 +92,14 @@ ViewDetailsOfDay(day)
     {
         //alert(this.state.bookings[i].date);
         //alert(daystring)
-        if(this.state.bookings[i].date == daystring && this.state.bookings[i].pitch == this.state.pitch)
+        let fulldate = date1 + " 00:00:00";
+        console.log(fulldate);
+        if(this.state.bookings[i].datetime == fulldate && this.state.bookings[i].pitch == this.state.pitch)
         {
             total--;
         }
     }
-    console.log(daystring);
+    console.log(this.state.bookings);
     this.setState({freeSlots: total});
    
 }
@@ -167,7 +148,7 @@ NextPage()
             </View>
             <View style={{flexDirection: 'row', marginTop: 0}}>
                 <View style={{borderBottomWidth: 1, borderBottomColor:"#545359" }}>
-                    <Calendar markedDates={this.state.markedDay} onMonthChange={(month) => console.log(this.state.pitch)} onDayPress={(day) => {this.ViewDetailsOfDay(day)}} style={{width: this.state.width, backgroundColor:"rgb(31,29,35)", borderTopWidth: 1, borderTopColor: "#545359" }} theme={{calendarBackground: 'rgb(31,29,35)', dayTextColor: 'rgb(225,225,225)', todayTextColor: 'rgb(187,144,63)',arrowColor: '#545359', monthTextColor: 'rgb(154,150,162)',} }></Calendar>
+                    <Calendar markedDates={this.state.markedDay} onDayPress={(day) => {this.ViewDetailsOfDay(day)}} style={{width: this.state.width, backgroundColor:"rgb(31,29,35)", borderTopWidth: 1, borderTopColor: "#545359" }} theme={{calendarBackground: 'rgb(31,29,35)', dayTextColor: 'rgb(225,225,225)', todayTextColor: 'rgb(187,144,63)',arrowColor: '#545359', monthTextColor: 'rgb(154,150,162)',} }></Calendar>
                 </View>
             </View>
             <View style={{ flexDirection: 'row' }}>

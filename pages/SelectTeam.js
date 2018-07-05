@@ -12,8 +12,7 @@ class SelectTeamScreen extends React.Component {
     let windowHeight = Dimensions.get('window').height;
 
         super(props);
-const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-let data = this.groupByTime([]);
+
         this.state ={
             width : windowWidth,
             height : windowHeight,
@@ -28,7 +27,7 @@ let data = this.groupByTime([]);
             toggle: false,
             toggle2: false,
             toggle3: false,
-            dataSource : ds.cloneWithRows(data),
+            
             selectedTeam: "",
             //token: props.navigation.state.params.token,
         }
