@@ -28,7 +28,8 @@ let data =[];
             bookings: props.navigation.state.params.bookings,
             team: props.navigation.state.params.team,
             time: props.navigation.state.params.time,
-            date: props.navigation.state.params.date,
+            token: props.navigation.state.params.token,
+            datetime: props.navigation.state.params.date,
             duration: props.navigation.state.params.duration,
             dataSource : ds.cloneWithRows(data),
             selectedTeam: "",
@@ -59,27 +60,31 @@ let data =[];
     }
     confirmBooking()
     {
-        console.log(this.state.selectedPitch);
+        let datefull = this.state.date + "T00:00:00";
+        console.log(this.state);
         let jsonBody = JSON.stringify(    {
-            "datetime":"2018-05-05",
-            "id": "102",
-            "team": "U12",
-            "pitch": "Training Pitch",
-            "time": "18:00:00"
+            "datetime": this.state.datetime,
+            "id": "2009",
+            "pitch": this.state.pitch,
+            "team": this.state.team,
+            "time": this.state.time
         });
+        console.log(jsonBody);
 
         fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': this.state.token,
-
+                'Authorization': "Basic " + base64.encode("jamie"+ ":" + "123"),
             },
             body :jsonBody     
         })
         .then((response) => response.text())
         .then((json) => {
+            this.props.navigation.navigate('Home', this.state.token);
+            alert("Booking Confirmed!");
+            console.log(json);
             
         })
         .catch((error)=> {
@@ -87,9 +92,6 @@ let data =[];
         console.log(error);
         });
 
-        
-        this.props.navigation.navigate('Home', this.state.token);
-        alert("Booking Confirmed!");
     }
     
     showToken()
@@ -134,7 +136,7 @@ let data =[];
                             <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/calendarGrey.png")}/>
                         </View>
                         <View>
-                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.date}</Text>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.datetime}</Text>
                         </View>
                     </View>
                     <View style={{flexDirection: 'row'}}>
@@ -174,6 +176,7 @@ let data =[];
                     <View><Text style={{fontSize: 25, color: '#a29eaa'}}>Confirm Booking</Text></View>
                 </View>
                 <View>
+                    <Button title="debug" onPress={() => console.log(this.state)}/>
                     <TouchableOpacity onPress ={() => this.confirmBooking()}>
                         <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625, marginLeft: this.state.height * 0.09, marginTop: this.state.height * 0.03125}} source={require("../images/tick.png")}/>
                     </TouchableOpacity>

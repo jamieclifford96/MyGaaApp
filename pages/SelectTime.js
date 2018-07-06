@@ -34,6 +34,7 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
             date: props.navigation.state.params.date,
             dataSource : ds.cloneWithRows(times),
             available: "",
+            button: "BOOK",
             //token: props.navigation.state.params.token,
         }
     
@@ -46,7 +47,7 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
 
     getBookings(){
         let headers = new Headers();
-        let JsonBody =JSON.stringify({date:this.state.date + " 00:00:00"})
+        let JsonBody =JSON.stringify({date:this.state.date + " 00:00:00", pitch: this.state.pitch})
         
         headers.append("Authorization", "Basic " + base64.encode("jamie:123") );
         headers.append("Accept", "application/json");
@@ -85,7 +86,7 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
     }
     NextPage()
     {
-        console.log(this.state.pitch);
+        console.log(this.state.token);
         let data = {
             pitch : this.state.pitch,
             token : this.state.token,
@@ -115,29 +116,23 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
       }
     renderRow(data)
     {
-        this.getBookings();
    
+        this.getBookings();
+        console.log("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOKING");
         let isTaken = false;
         let shortdate = data.substring(0,5);
-        if(this.state.bookings.length == null)
-        {
-            isTaken = false;
-            return(
-                <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9}}>
-                    <Text style={{color: '#a29eaa'}}>{data} : Free</Text>
-                    <Button title="Book" onPress={() => this.setState({test: "test"})}/>               
-               </View>);
-        }
-        else{
-            for(i=0; i <this.state.bookings.length; i++)
+        
+
+        
+            for(i=0; i < this.state.bookings.length; i++)
             {
                 if(data == this.state.bookings[i].time)
                 {
-                    isTaken = true;
                     return(
-                    <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9, borderTopWidth: 3, borderLeftWidth: 3, borderRightWidth:3}}>
-                        <Text style={{color: '#a29eaa', fontSize: 15}}>{data} : {this.state.bookings[i].team}</Text>
-                    </View>);
+                        <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9, borderTopWidth: 3, borderLeftWidth: 3, borderRightWidth: 3, borderColor: 'rgb(42,39,45)'}}>
+                            <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, paddingRight: this.state.height * 0.03, borderRightWidth: 3, borderColor: 'rgb(42,39,45)' }}>{shortdate}</Text>
+                            <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, marginRight: this.state.width * 0.35, borderColor: 'rgb(42,39,45)'}}> {this.state.bookings[i].team}</Text>    
+                        </View>);
                 }
             }
             if(isTaken == false)
@@ -147,13 +142,13 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
                     <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, paddingRight: this.state.height * 0.03, borderRightWidth: 3, borderColor: 'rgb(42,39,45)' }}>{shortdate}</Text>
                     <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, marginRight: this.state.width * 0.35, borderColor: 'rgb(42,39,45)'}}> FREE</Text>
                     
-                    <TouchableOpacity onPress={() => this.setState({selectedTime: data})}style={{width: this.state.width * 0.15, height:this.state.height * 0.05, borderWidth: 1, borderColor: '#a29eaa',marginTop: this.state.height * 0.023}}>
+                    <TouchableOpacity onPress={() => this.setState({selectedTime: data})} style={{width: this.state.width * 0.15, height:this.state.height * 0.05, borderWidth: 1, borderColor: '#a29eaa',marginTop: this.state.height * 0.023}}>
                         <View>
-                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.01, marginLeft: this.state.height * 0.015}}>BOOK</Text>
+                            <Text  style={{color: '#a29eaa',marginTop: this.state.height * 0.01, marginLeft: this.state.height * 0.015}}>{this.state.button}</Text>
                         </View>
                     </TouchableOpacity>    
                 </View>);
-            }}
+            }
     }
     showToken()
     {

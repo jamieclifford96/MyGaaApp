@@ -40,7 +40,7 @@ class SelectTeamScreen extends React.Component {
     }
     NextPage()
     {
-        console.log(this.state.pitch);
+        console.log(this.state.token);
         let data = {
             pitch : this.state.pitch,
             token : this.state.token,

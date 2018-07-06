@@ -101,15 +101,14 @@ export default class LoginScreen extends Component {
         
         
     let jsonBody = JSON.stringify(    {
-        "venue": this.state.venue,
-        "home": this.state.home,
-        "away": this.state.away,
-        "ref": this.state.ref,
-        "group":this.state.group,
-        "datetime":this.state.dateTime
+        "datetime": "2018-05-05",
+        "id": "2006",
+        "pitch": "Training Pitch",
+        "team": "U12",
+        "time": "15:00:00"
     });
 
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/", {
+    fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
