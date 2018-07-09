@@ -7,7 +7,7 @@ import ConfirmButton from '../components/ConfirmButton.js';
 
 const base64 = require('base-64');
 
-class BookingCalendarScreen extends React.Component{
+class BookingCalendarTimetableScreen extends React.Component{
     constructor(props) {
       super(props);
     const pitch = props.navigation.state.params.pitch;   
@@ -80,11 +80,11 @@ changeMonth(month)
 ViewDetailsOfDay(day)
 {
     this.state.markedDay = {};
-    this.state.markedDay ={[day.dateString]:{selected: true,selectedColor: "rgb(72,115,61)"}}
+    this.state.markedDay ={[day.dateString]:{selected: true,selectedColor: "#ba0303"}}
     date1 = day.dateString;
     console.log(date1);
     this.setState({date:date1});
-    let total = 12;
+    let total =0;
 
     //alert(this.state.dayState);
     //alert(day.dateString);
@@ -96,7 +96,7 @@ ViewDetailsOfDay(day)
         console.log(fulldate);
         if(this.state.bookings[i].datetime == fulldate && this.state.bookings[i].pitch == this.state.pitch)
         {
-            total--;
+            total++;
         }
     }
     console.log(this.state.bookings);
@@ -116,7 +116,7 @@ NextPage()
         if(this.state.date != "")
         {
            // alert(this.state.selectedPitch);
-            this.props.navigation.navigate('SelectTime', data);
+            this.props.navigation.navigate('ViewTime', data);
         }
         else
         {
@@ -152,8 +152,8 @@ NextPage()
                 </View>
             </View>
             <View style={{ flexDirection: 'row' }}>
-            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,marginTop: this.state.height * 0.025, marginRight: this.state.height * 0.015}} source={require("../images/running.png")}/>
-            <Text style={{marginTop: this.state.height * 0.0416666666666667,fontSize: 15, color: "rgb(72,115,61)"}}>{this.state.freeSlots} Slots Available</Text>
+            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,marginTop: this.state.height * 0.025, marginRight: this.state.height * 0.015}} source={require("../images/running_red.png")}/>
+            <Text style={{marginTop: this.state.height * 0.0416666666666667,fontSize: 15, color: "#ba0303"}}>{this.state.freeSlots} Slots Taken</Text>
             </View>
             <View style={{flex: 1}}>
                 <View>
@@ -177,4 +177,4 @@ NextPage()
         )
     }
 }
-export default BookingCalendarScreen;
+export default BookingCalendarTimetableScreen;

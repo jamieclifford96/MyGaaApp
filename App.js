@@ -20,7 +20,10 @@ import BookingCalendarScreen from './pages/BookingCalendar.js';
 import BookingDayScreen from './pages/BookingDay.js';
 import SelectPitchScreen from './pages/SelectPitch.js';
 import SelectTimeScreen from './pages/SelectTime.js';
+import ViewTimeScreen from './pages/ViewTime.js';
 import SelectTeamScreen from './pages/SelectTeam.js';
+import BookingCalendarTimetableScreen from './pages/BookingCalendarTimetable.js';
+import SelectPitchTimetableScreen from './pages/SelectPitchTimetable.js';
 import ReviewBookingScreen from './pages/ReviewBooking.js';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
@@ -91,8 +94,26 @@ const RootStack = StackNavigator(
         header: null
       }
     },
+    SelectPitchTimetable: {
+      screen: SelectPitchTimetableScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    BookingCalendarTimetable: {
+      screen: BookingCalendarTimetableScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
     SelectTime: {
       screen: SelectTimeScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    ViewTime: {
+      screen: ViewTimeScreen,
       navigationOptions: {
         header: null
       }

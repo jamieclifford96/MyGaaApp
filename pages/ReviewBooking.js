@@ -16,8 +16,8 @@ class ReviewBookingScreen extends React.Component {
     const token = props.navigation.state.params.token;
 
         super(props);
-const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-let data =[];
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        let data =[];
         this.state ={
             width : windowWidth,
             height : windowHeight,
@@ -61,10 +61,22 @@ let data =[];
     confirmBooking()
     {
         let datefull = this.state.date + "T00:00:00";
-        console.log(this.state);
+        
+        this.state.datetime += " 00:00:00";
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
+        console.log(this.state.datetime);
         let jsonBody = JSON.stringify(    {
             "datetime": this.state.datetime,
-            "id": "2009",
+            "id": "4864",
             "pitch": this.state.pitch,
             "team": this.state.team,
             "time": this.state.time

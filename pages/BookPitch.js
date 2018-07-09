@@ -42,7 +42,7 @@ class BookPitchScreen extends React.Component {
             <View style={{height:this.state.height * 0.125, marginTop: this.state.height * 0.50}}>
                 <Text style={styles.text}>Pitch Booking</Text>
             </View>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('SelectPitch', this.state.token)}/*={() => this.props.navigation.navigate('BookPitch', this.state.token)}*/> 
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('SelectPitchTimetable', this.state.token)}/*={() => this.props.navigation.navigate('BookPitch', this.state.token)}*/> 
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.height/2, width: this.state.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white', marginTop: this.state.height * 0.75}}>
                        
                 <Text style={styles.text}>VIEW TIMETABLES</Text>
