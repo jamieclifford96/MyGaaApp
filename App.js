@@ -25,6 +25,7 @@ import SelectTeamScreen from './pages/SelectTeam.js';
 import BookingCalendarTimetableScreen from './pages/BookingCalendarTimetable.js';
 import SelectPitchTimetableScreen from './pages/SelectPitchTimetable.js';
 import ReviewBookingScreen from './pages/ReviewBooking.js';
+import  SelectTeamHolidaysScreen from './pages/SelectTeamHolidays.js';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
@@ -120,6 +121,12 @@ const RootStack = StackNavigator(
     },
     SelectTeam:{
       screen:SelectTeamScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SelectTeamHolidays:{
+      screen:SelectTeamHolidaysScreen,
       navigationOptions: {
         header: null
       }

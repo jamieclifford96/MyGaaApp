@@ -130,8 +130,8 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
                 {
                     return(
                         <View style={{flexDirection: 'row', height: this.state.height * 0.10, width: this.state.width *0.9, borderTopWidth: 3, borderLeftWidth: 3, borderRightWidth: 3, borderColor: 'rgb(42,39,45)'}}>
-                            <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, paddingRight: this.state.height * 0.03, borderRightWidth: 3, borderColor: 'rgb(42,39,45)' }}>{shortdate}</Text>
-                            <Text style={{color: '#a29eaa', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, marginRight: this.state.width * 0.35, borderColor: 'rgb(42,39,45)'}}> {this.state.bookings[i].team}</Text>    
+                            <Text style={{color: '#fff', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, paddingRight: this.state.height * 0.03, borderRightWidth: 3, borderColor: 'rgb(42,39,45)' }}>{shortdate}</Text>
+                            <Text style={{color: '#fff', fontSize: 15, marginTop: this.state.height * 0.03, marginLeft: this.state.height * 0.03, marginRight: this.state.width * 0.35, borderColor: 'rgb(42,39,45)'}}> {this.state.bookings[i].team}</Text>    
                         </View>);
                 }
             }

@@ -58,6 +58,13 @@ class BookPitchScreen extends React.Component {
               
             </View>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('SelectTeamHolidays', this.state.token)}>  
+            <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.height/2, width: this.state.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
+                      
+                <Text style={styles.text}>BOOK PLAYER HOLIDAYS</Text>
+              
+            </View>
+            </TouchableOpacity>
             </View>
         </BackgroundTheme>
 

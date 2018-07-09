@@ -163,7 +163,7 @@ NextPage()
             <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625, marginLeft: this.state.height * 0.03125, marginTop: this.state.height * 0.03125}} source={require("../images/time.png")}/>
             <View style={{flexDirection: 'column', marginLeft:this.state.height * 0.03125, marginTop: this.state.height * 0.020833333333 }}>
                 <View><Text style={{fontSize: 20, color: '#545359'}}>STEP 3</Text></View>
-                <View><Text style={{fontSize: 25, color: '#a29eaa'}}>Choose A Time</Text></View>
+                <View><Text style={{fontSize: 25, color: '#a29eaa'}}>View Times</Text></View>
             </View>
             <View>
                 <TouchableOpacity  onPress ={() => this.NextPage()}>
