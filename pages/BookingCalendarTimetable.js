@@ -49,7 +49,7 @@ getBookings(){
     headers.append("Authorization", "Basic " + base64.encode("jamie:123") );
     headers.append("Accept", "application/json");
     
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
+    fetch("http://159.107.166.179:8080/gaaservice/webapi/booking/", {
         headers: headers
     })
     .then((response) => {
@@ -79,8 +79,9 @@ changeMonth(month)
 }
 ViewDetailsOfDay(day)
 {
+    
     this.state.markedDay = {};
-    this.state.markedDay ={[day.dateString]:{selected: true,selectedColor: "#ba0303"}}
+    this.state.markedDay ={[day.dateString]:{selected: true,selectedColor: "#e50d0d"}}
     date1 = day.dateString;
     console.log(date1);
     this.setState({date:date1});
@@ -131,8 +132,8 @@ NextPage()
    
 
    render(){
-        return(
-            <BackgroundTheme>
+        return(    
+        <BackgroundTheme>
              
             <View>
                 <StatusBar backgroundColor='rgb(42,39,45)'/>
@@ -152,8 +153,8 @@ NextPage()
                 </View>
             </View>
             <View style={{ flexDirection: 'row' }}>
-            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,marginTop: this.state.height * 0.025, marginRight: this.state.height * 0.015}} source={require("../images/running_red.png")}/>
-            <Text style={{marginTop: this.state.height * 0.0416666666666667,fontSize: 15, color: "#ba0303"}}>{this.state.freeSlots} Slots Taken</Text>
+            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,marginTop: this.state.height * 0.025, marginRight: this.state.height * 0.015}} source={require("../images/runnin.png")}/>
+            <Text style={{marginTop: this.state.height * 0.0416666666666667,fontSize: 15, color: "#e50d0d"}}>{this.state.freeSlots} Slots Taken</Text>
             </View>
             <View style={{flex: 1}}>
                 <View>

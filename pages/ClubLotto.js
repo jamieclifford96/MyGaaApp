@@ -13,13 +13,13 @@ class ClubLottoScreen extends React.Component {
       screenWidth : windowWidth,
       day : "Monday May 8th 2018",
       results: [99,2,33,4],
-      message: ""
+      message: "The winner this week was Joe Bloggs"
     };
     let headers = new Headers();
     headers.append("Authorization", token );
     headers.append("Accept", "application/json" );
-   
-    fetch("http://86.41.137.78:8000/gaaservice/webapi/lotto", {
+   /*
+    fetch("http://159.107.166.179:8000/gaaservice/webapi/lotto", {
             headers: headers
         })
         .then((response) => {
@@ -48,7 +48,7 @@ class ClubLottoScreen extends React.Component {
           });
         }))
       .done();
-
+*/
   
   }
 sortMessage(message)
@@ -168,7 +168,7 @@ getDayOfWeek(date)
         <BackgroundTheme>
         
          < View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white',marginTop:0, marginBottom: 0, width: this.state.screenWidth}}>             
-            <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{this.getDayOfWeek(date)}</Text>
+            <Text style={{fontSize: 35, color : 'white', textAlign: 'center'}}>{this.state.day}</Text>
           </View>
 
           <View style={{backgroundColor: 'rgba(0,0,0,0.0)', borderTopWidth: 0, borderBottomWidth: 0, borderColor: 'white', alignItems: 'center'}}> 
@@ -191,7 +191,7 @@ getDayOfWeek(date)
 
             <Image  style={{width: 150, height: 135 ,marginBottom: 20}} source={require("../images/loto-jar-inverted.png")}/>
           </View>         
-          <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center'}}>
+          <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', alignItems: 'center',width: this.state.screenWidth}}>
           <Text style={{fontSize:18, color : 'white', textAlign: 'center'}}>{this.cycleArray(split)}</Text>
           </View>
 

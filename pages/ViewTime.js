@@ -29,7 +29,8 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
             test: "",
             pitch: props.navigation.state.params.pitch,
             token: props.navigation.state.params.token,
-            bookings: props.navigation.state.params.bookings,
+            username: props.navigation.state.params.username,
+            bookings:[],
             duration: props.navigation.state.params.duration,
             date: props.navigation.state.params.date,
             dataSource : ds.cloneWithRows(times),
@@ -52,7 +53,7 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
         headers.append("Authorization", "Basic " + base64.encode("jamie:123") );
         headers.append("Accept", "application/json");
         
-        fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/date", {
+        fetch("http://159.107.166.179:8080/gaaservice/webapi/booking/date", {
             method: 'POST',
             headers:{
         
@@ -93,6 +94,7 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
             bookings: this.state.bookings,
             date: this.state.date,
             time: this.state.selectedTime,
+            usrname: this.state.username,
             duration: this.state.duration
         }
        
@@ -107,7 +109,7 @@ const times=["09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","
         }
     }
     groupByTime(data){
-        if(data.length == 0){
+        if(data.length == []){
           return [];
         }
     

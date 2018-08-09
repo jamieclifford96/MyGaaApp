@@ -18,7 +18,7 @@ class CreateUserScreen extends React.Component{
         //let authTokenHeader = "Basic " + base64.encode("username:password");
         headers.append("Authorization", authTokenHeader );
         
-        fetch("http://86.41.137.78:8000/gaaservice/webapi/users", {
+        fetch("http://159.107.166.179:8000/gaaservice/webapi/users", {
                 headers: headers
             })
             .then((response) => {

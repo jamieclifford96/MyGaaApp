@@ -11,7 +11,7 @@ class News extends React.Component {
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const token = props.navigation.state.params.token;
-    let data = [];
+    let data = this.getLocalJson();
     let windowWidth = Dimensions.get('window').width;
 
     this.state = {      
@@ -20,7 +20,7 @@ class News extends React.Component {
       dataSource :ds.cloneWithRows(data),
       visable : false,
       thumbnailSize :{
-        width : windowWidth * 1,
+        width : windowWidth * 1, 
         height :windowWidth * 0.5,
         
       }
@@ -29,8 +29,8 @@ class News extends React.Component {
     let headers = new Headers();
     headers.append("Authorization", token );
     headers.append("Accept", "application/json" );
-    
-    fetch("http://86.41.137.78:8000/gaaservice/webapi/news", {
+  /*  
+    fetch("http://159.107.166.179:8000/gaaservice/webapi/news", {
       headers: headers
   })
   .then((response) => {
@@ -51,10 +51,9 @@ class News extends React.Component {
     });
   }))
 .done();
-
+*/
     //this.getMoviesFromApiAsync();
   } 
- 
   static navigationOptions = {
     title : "News"
   };
@@ -81,16 +80,16 @@ class News extends React.Component {
         activeOpacity={0.7}
         onPress={() => this.props.navigation.navigate('NewsDetails', data)}> 
         <ImageBackground  
-        style={{width: this.state.thumbnailSize.width *0.9, borderBottomWidth: 3, borderColor: 'white'}} 
+        style={{width: this.state.thumbnailSize.width, borderBottomWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+data.thumbnailBase64}}> 
         <View style = {{
           //borderBottomWidth: 3,
           backgroundColor: '#A81919',
           //borderTopWidth: 3,
           flex: 2,
-          height: this.state.thumbnailSize.width * .25,
+          height: this.state.thumbnailSize.width * .40,
         }}>
-          <Text style={{color: 'white', marginLeft: 280, marginTop: 15}}>{date.toDateString()}</Text>
+          <Text style={{color: 'white', marginLeft: 280, marginTop: 15}}>{data.datetime}</Text>
           <Text style={{
             fontSize: 25,
             color: 'white',
@@ -107,13 +106,13 @@ class News extends React.Component {
   }
 
   render() {
-
+console.log(this.state.fixtures);
     return (
      <View style={{backgroundColor: '#A81919'}}>
          <StatusBar hidden={false}
     
    />
-      { this.state.isSpinning ? <Loader/> : 
+      {// this.state.isSpinning ? <Loader/> : 
       <ListView
         dataSource={this.state.dataSource}
         enableEmptySections={true}

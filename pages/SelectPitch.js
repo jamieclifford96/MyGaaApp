@@ -18,11 +18,12 @@ class SelectPitchScreen extends React.Component {
             height : windowHeight,
             footerwidth: windowWidth *0.5,
             selectedPitch: "",
-            token:props.navigation.state.params,
+            token:props.navigation.state.params.token,
             duration: 0,
             background: "#545359",
             background2: "#545359",
             background3: "#545359",
+            username: props.navigation.state.params.username,
             toggle: false,
             toggle2: false,
             toggle3: false,
@@ -39,6 +40,7 @@ class SelectPitchScreen extends React.Component {
         let data = {
             pitch : this.state.selectedPitch,
             token : this.state.token,
+            username: this.state.username
         }
         if(this.state.selectedPitch != "")
         {

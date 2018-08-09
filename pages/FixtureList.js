@@ -13,7 +13,7 @@ class FixtureListScreen extends React.Component{
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-    let data = this.groupByDivision([]);
+    let data = this.groupByDivision(this.getLocalJson());
 
     let windowWidth = Dimensions.get('window').width;
     
@@ -31,8 +31,8 @@ class FixtureListScreen extends React.Component{
     headers.append("Authorization", token );
     headers.append("Accept", "application/json");
     
-     this.componentDidMount = () =>  {
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/fixture/", {
+    /* this.componentDidMount = () =>  {
+    fetch("http://159.107.166.179:8080/gaaservice/webapi/fixture/", {
             headers: headers
         })
         .then((response) => {
@@ -60,7 +60,7 @@ class FixtureListScreen extends React.Component{
            });
         }))
       .done();
-      }
+      }*/
   }   
   
   // https://reactnavigation.org/docs/en/header-buttons.html 
@@ -135,7 +135,7 @@ class FixtureListScreen extends React.Component{
     currentTime = twoDaysAgo;
     let placeholder= [];
     data.forEach(element => {
-      if (new Date(element.dateTime).getTime() >= currentTime){
+      if (new Date(element.dateTime).getTime() <= currentTime){
         placeholder.push(element);
         
       }
@@ -148,6 +148,7 @@ formatDate(date){
   return "Test";
 }
   renderRow(row){
+    console.log(row);
       return(
           <View >
            
@@ -189,13 +190,14 @@ formatDate(date){
 
   render(){      
       const division = this.state.division;
+      console.log(this.state.fixtures);
       const dataSource = (division === "All") 
         ? this.state.dataSource.cloneWithRows(this.state.fixtures) 
         : this.state.dataSource.cloneWithRows(this.state.fixtures.filter(el => el.division === division));          
 
       return (
         <BackgroundTheme>  
-          { this.state.isSpinning ?<Loader/>  :  
+          { //this.state.isSpinning ?<Loader/>  :  
           
           <ListView
             dataSource={dataSource}

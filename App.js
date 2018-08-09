@@ -26,7 +26,12 @@ import BookingCalendarTimetableScreen from './pages/BookingCalendarTimetable.js'
 import SelectPitchTimetableScreen from './pages/SelectPitchTimetable.js';
 import ReviewBookingScreen from './pages/ReviewBooking.js';
 import  SelectTeamHolidaysScreen from './pages/SelectTeamHolidays.js';
-
+import BookingCalendarHolidaysScreen from './pages/BookingCalendarHolidays.js';
+import SelectTeamAttendanceScreen from './pages/SelectTeamAttendance.js';
+import BookingCalendarAttendanceScreen from './pages/BookingCalendarAttendance.js';
+import SelectBookingScreen from './pages/SelectBooking.js';
+import MarkAttendanceScreen from './pages/MarkAttendance.js';
+import MyBookingsScreen from './pages/MyBookings.js';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 
@@ -68,6 +73,12 @@ const RootStack = StackNavigator(
     BookingDay: {
       screen: BookingDayScreen,
     },
+    MyBookings: {
+      screen: MyBookingsScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
     BookPitch: {
       screen: BookPitchScreen,
       navigationOptions: {
@@ -93,6 +104,24 @@ const RootStack = StackNavigator(
       screen: SelectPitchScreen,
       navigationOptions: {
         header: null
+      }
+    },
+    MarkAttendance:{
+      screen:MarkAttendanceScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SelectTeamAttendance:{
+        screen: SelectTeamAttendanceScreen,
+        navigationOptions: {
+          header: null
+        }
+    },
+    BookingCalendarHolidays: {
+      screen: BookingCalendarHolidaysScreen,
+      navigationOptions: {
+        header:null
       }
     },
     SelectPitchTimetable: {
@@ -128,6 +157,19 @@ const RootStack = StackNavigator(
     SelectTeamHolidays:{
       screen:SelectTeamHolidaysScreen,
       navigationOptions: {
+        header: null
+      }
+    },
+    
+    BookingCalendarAttendance:{
+      screen: BookingCalendarAttendanceScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SelectBooking: {
+      screen: SelectBookingScreen,
+      navigationOptions:{
         header: null
       }
     },

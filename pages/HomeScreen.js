@@ -20,15 +20,21 @@ class HomeScreen extends React.Component{
             width : windowWidth,
             height :windowWidth * 0.32,
           },
-          token: props.navigation.state.params,
-          test : props.navigation.state
-        
+          token: props.navigation.state.params.token,
+          username:props.navigation.state.params.username,
+          test : props.navigation.state,
+          data: {
+            token : props.navigation.state.params.token,
+            username:props.navigation.state.params.username,
+          }
     }
    };
   
    static navigationOptions = {
     showNavigationBar: false
    };
+
+ 
    render() {
 
         return (
@@ -36,7 +42,7 @@ class HomeScreen extends React.Component{
            <StatusBar hidden ={false}  backgroundColor="#000" barStyle="light-content"/>
           <View style={styles.container}>
             <View>
-              <TouchableOpacity onPress={() => this.showToken()}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('MyBookings', this.state.data)}> 
                 <Image style={{width:40, height:40, marginLeft: 10, marginTop: 10}} source={require("../images/menu.png")}/>
               </TouchableOpacity>
             </View> 
@@ -82,7 +88,7 @@ class HomeScreen extends React.Component{
               </TouchableOpacity>
             </View>
             <View style={{ backgroundColor: 'rgba(0,0,0,0.4)',flexDirection: 'row', height: this.state.thumbnailSize.height/2, width: this.state.thumbnailSize.width, borderTopWidth: 0, borderBottomWidth: 3, borderColor: 'white'}}>
-            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('BookPitch', this.state.token)}>            
+            <TouchableOpacity style={styles.iconbutton} onPress={() => this.props.navigation.navigate('BookPitch', this.state.data)}>            
                 <Text style={styles.text}>PITCH BOOKING</Text>
               </TouchableOpacity>
             </View>

@@ -22,6 +22,7 @@ class SelectTeamScreen extends React.Component {
             token: props.navigation.state.params.token,
             bookings: props.navigation.state.params.bookings,
             date: props.navigation.state.params.date,
+            username: props.navigation.state.params.username,
             duration: props.navigation.state.params.duration,
             time: props.navigation.state.params.time,
             toggle: false,
@@ -48,6 +49,7 @@ class SelectTeamScreen extends React.Component {
             date: this.state.date,
             time: this.state.time,
             team: this.state.selectedTeam,
+            username: this.state.username,
             duration: this.state.duration
         }
         if(this.state.selectedTeam != "")

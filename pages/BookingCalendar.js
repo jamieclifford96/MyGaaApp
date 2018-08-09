@@ -29,6 +29,7 @@ class BookingCalendarScreen extends React.Component{
         pitch: props.navigation.state.params.pitch,
         token: props.navigation.state.params.token,
         duration: props.navigation.state.params.duration,
+        username: props.navigation.state.params.username,
         bookings: data,
         month: new Date().getMonth().toLocaleString(),
         year: new Date().getFullYear(),
@@ -49,7 +50,7 @@ getBookings(){
     headers.append("Authorization", "Basic " + base64.encode("jamie:123") );
     headers.append("Accept", "application/json");
     
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
+    fetch("http://159.107.166.179:8080/gaaservice/webapi/booking/", {
         headers: headers
     })
     .then((response) => {
@@ -110,7 +111,8 @@ NextPage()
             token : this.state.token,
             bookings: this.state.bookings,
             date: this.state.date,
-            duration: this.state.duration
+            duration: this.state.duration,
+            username: this.state.username
         }
     
         if(this.state.date != "")

@@ -11,13 +11,13 @@ class NewsDetails extends React.Component {
     
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         
-       let data = params.navigation.state.params.newsMessage.split("\n").filter(x => x != "\n");
+       let data = params.navigation.state.params.text.split("\n").filter(x => x != "\n");
         let windowWidth = Dimensions.get('window').width;
     
         this.state = {      
           title : params.navigation.state.params.title,
           text : params.navigation.state.params.newsMessage,
-          datetime : params.navigation.state.params.dateTime,
+          datetime : params.navigation.state.params.datetime,
           
           //thumbnailBase64 : params.navigation.state.params.thumbnailBase64,
           dataSource :ds.cloneWithRows(data),
@@ -50,7 +50,7 @@ class NewsDetails extends React.Component {
         <View style={{backgroundColor: '#A81919', borderTopWidth: 3, borderBottomWidth: 3, borderColor: 'white', width: this.state.thumbnailSize.width}}>
           {/*<Image style={{width: this.state.thumbnailSize.width*1.2, height: this.state.thumbnailSize.height*1.1, borderWidth: 3, borderColor: 'white'}} 
         source={{uri: "data:image/jpeg;base64,"+this.state.thumbnailBase64}}/>*/} 
-        <Text style={{marginBottom: 30, marginLeft: 280, color: 'white'}}> {date.toDateString()} </Text>
+        <Text style={{marginBottom: 30, marginLeft: 280, color: 'white'}}> {this.state.datetime} </Text>
         <Text style={{marginBottom: 30, fontSize: 25, color: 'white'}}> {this.state.title} </Text>
         </View>
         <View>

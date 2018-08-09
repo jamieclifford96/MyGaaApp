@@ -30,7 +30,7 @@ class MatchReportScreen extends React.Component{
     
     this.componentDidMount = () =>
     {
-    fetch("http://159.107.219.241:8080/gaaservice/webapi/results/", {
+    fetch("http://159.107.166.179:8080/gaaservice/webapi/results/", {
             headers: headers
         })
         .then((response) => {
@@ -154,7 +154,7 @@ formatDate(date){
 }
   renderRow(row){
       return(
-          <View >
+          <View>
           <Text style={AppStyle.fixturesDivisionHeading}>{row.division}</Text>  
           {        
             row.fixtures.map((fixture, index) => {

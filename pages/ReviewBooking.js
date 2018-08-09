@@ -30,16 +30,16 @@ class ReviewBookingScreen extends React.Component {
             time: props.navigation.state.params.time,
             token: props.navigation.state.params.token,
             datetime: props.navigation.state.params.date,
+            username: props.navigation.state.params.username,
             duration: props.navigation.state.params.duration,
             dataSource : ds.cloneWithRows(data),
             selectedTeam: "",
-            //token: props.navigation.state.params.token,
         }
     
         
         let headers = new Headers();
         headers.append("Authorization", this.state.token );
-       headers.append("Accept", "application/json");
+        headers.append("Accept", "application/json");
   
     }
     NextPage()
@@ -63,27 +63,17 @@ class ReviewBookingScreen extends React.Component {
         let datefull = this.state.date + "T00:00:00";
         
         this.state.datetime += " 00:00:00";
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
-        console.log(this.state.datetime);
         let jsonBody = JSON.stringify(    {
             "datetime": this.state.datetime,
-            "id": (5000 + this.state.bookings.length * 2).toLocaleString(),
+            "id": (5000 + (Math.random()+ Math.random() + Math.random()) * 2).toLocaleString(),
             "pitch": this.state.pitch,
             "team": this.state.team,
-            "time": this.state.time
+            "time": this.state.time,
+            "bookerID": this.state.username,    
         });
         console.log(jsonBody);
 
-        fetch("http://159.107.219.241:8080/gaaservice/webapi/booking/", {
+        fetch("http://159.107.166.179:8080/gaaservice/webapi/booking/", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -95,9 +85,7 @@ class ReviewBookingScreen extends React.Component {
         .then((response) => response.text())
         .then((json) => {
             this.props.navigation.navigate('Home', this.state.token);
-            alert("Booking Confirmed!");
-            console.log(json);
-            
+            alert("Booking Confirmed!");        
         })
         .catch((error)=> {
         alert(error);
@@ -111,16 +99,27 @@ class ReviewBookingScreen extends React.Component {
       console.log(this.props.navigation.state);
       alert(this.state.token);
     }
-    getHourText()
+    formatTime()
     {
-        if(this.state.duration == 1)
-        {
-            return " Hour";
-        }
-        else
-        {
-            return " Hours";
-        }
+        let time = this.state.time;
+
+        let format = time.substr(0,5);
+
+        return format;
+    }
+    FormatDate()
+    {
+        let date = this.state.datetime;
+
+        let parts = date.split("-");
+
+        let day = parts[2];
+        let month = parts[1];
+        let year = parts[0];
+
+        date = day + "/" + month + "/" + year;
+        console.log(day);
+        return date;
     }
      render(){
          return(
@@ -140,7 +139,7 @@ class ReviewBookingScreen extends React.Component {
                             <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0325, marginRight: this.state.height * 0.03125}} source={require("../images/placeholder.png")}/>
                         </View>
                         <View>
-                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0325, fontSize:20 }}> :  {this.state.pitch}</Text>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0325, fontSize:20 }}> : {this.state.pitch}</Text>
                         </View>
                     </View>
                     <View style={{flexDirection: 'row'}}>
@@ -148,7 +147,7 @@ class ReviewBookingScreen extends React.Component {
                             <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/calendarGrey.png")}/>
                         </View>
                         <View>
-                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.datetime}</Text>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> : {this.FormatDate()}</Text>
                         </View>
                     </View>
                     <View style={{flexDirection: 'row'}}>
@@ -156,15 +155,7 @@ class ReviewBookingScreen extends React.Component {
                             <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/time.png")}/>
                         </View>
                         <View>
-                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.time}</Text>
-                        </View>
-                    </View>
-                    <View style={{flexDirection: 'row'}}>
-                        <View>
-                            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/hourglass.png")}/>
-                        </View>
-                        <View>
-                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> :  {this.state.duration} {this.getHourText()}</Text>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725, fontSize:20 }}> : {this.formatTime()}</Text>
                         </View>
                     </View>
                     <View style={{flexDirection: 'row'}}>
@@ -172,7 +163,15 @@ class ReviewBookingScreen extends React.Component {
                             <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/group.png")}/>
                         </View>
                         <View>
-                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725,fontSize:20 }}> :   {this.state.team}</Text>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725,fontSize:20 }}> :  {this.state.team}</Text>
+                        </View>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <View>
+                            <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625,  marginTop: this.state.height * 0.0625, marginRight: this.state.height * 0.03125}} source={require("../images/group.png")}/>
+                        </View>
+                        <View>
+                            <Text style={{color: '#a29eaa',marginTop: this.state.height * 0.0725,fontSize:20 }}> :  {this.state.username}</Text>
                         </View>
                     </View>
                 </View>
@@ -188,7 +187,6 @@ class ReviewBookingScreen extends React.Component {
                     <View><Text style={{fontSize: 25, color: '#a29eaa'}}>Confirm Booking</Text></View>
                 </View>
                 <View>
-                    <Button title="debug" onPress={() => console.log(this.state)}/>
                     <TouchableOpacity onPress ={() => this.confirmBooking()}>
                         <Image style={{width:this.state.height * 0.0625, height:this.state.height * 0.0625, marginLeft: this.state.height * 0.09, marginTop: this.state.height * 0.03125}} source={require("../images/tick.png")}/>
                     </TouchableOpacity>

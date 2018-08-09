@@ -98,7 +98,7 @@ class AddMatchReportScreen extends React.Component{
 
           console.log(jsonBody);
 
-        fetch("http://159.107.219.241:8080/gaaservice/webapi/results/", {
+        fetch("http://159.107.166.179:8080/gaaservice/webapi/results/", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
